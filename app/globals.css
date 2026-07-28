@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-cta: var(--cta);
+  --color-cta-foreground: var(--cta-foreground);
+  --color-whatsapp: var(--whatsapp);
+  --color-surface: var(--surface);
+  --font-sans: var(--font-source-sans), "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-plus-jakarta), "Plus Jakarta Sans", ui-sans-serif, sans-serif;
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* PROMPT PALETTE */
+  --color-primary-brand: #BF7D2C;
+  --color-dark-brand: #6B4515;
+  --color-cta-brand: #F6A01A;
+  --color-neutral-brand: #5D5E60;
+  --color-bg-light: #FAF7F2;
+
+  --background: var(--color-bg-light);
+  --foreground: var(--color-dark-brand);
+  --surface: #FFFFFF;
+
+  --card: #FFFFFF;
+  --card-foreground: var(--color-dark-brand);
+  --popover: #FFFFFF;
+  --popover-foreground: var(--color-dark-brand);
+
+  --primary: var(--color-primary-brand);
+  --primary-foreground: #FFFFFF;
+
+  --secondary: var(--color-neutral-brand);
+  --secondary-foreground: #FFFFFF;
+
+  --muted: #EBE5DB;
+  --muted-foreground: var(--color-neutral-brand);
+  
+  --accent: var(--color-cta-brand);
+  --accent-foreground: #FFFFFF;
+
+  --cta: var(--color-cta-brand);
+  --cta-foreground: #FFFFFF;
+
+  --whatsapp: #25D366; /* Mantendo a cor oficial para o botão flutuante para conversão */
+  
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+
+  --border: #E5DDD0;
+  --input: #E5DDD0;
+  --ring: var(--color-primary-brand);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
+
+@utility bg-hero-dark {
+  background:
+    radial-gradient(1200px 500px at 80% -10%, color-mix(in srgb, var(--color-primary-brand) 35%, transparent), transparent 60%),
+    radial-gradient(900px 400px at 0% 100%, color-mix(in srgb, var(--color-cta-brand) 25%, transparent), transparent 60%),
+    linear-gradient(180deg, #4A2F0E, var(--color-dark-brand));
+}
+
+@utility text-gradient-cyan {
+  background: linear-gradient(90deg, oklch(0.85 0.12 200), oklch(0.72 0.15 195));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility card-elevated {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.1);
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+@utility card-elevated-hover {
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 6px rgba(15, 23, 42, 0.05), 0 20px 40px -16px rgba(15, 23, 42, 0.18);
+    border-color: color-mix(in oklab, var(--color-secondary) 40%, transparent);
+  }
+}
+
+@utility soft-card {
+  background: var(--color-surface);
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 40px -24px rgba(75, 47, 14, 0.28);
+  border: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+}
+
+@utility soft-card-hover {
+  transition: transform 280ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 280ms ease;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 48px -28px rgba(75, 47, 14, 0.35);
+  }
+}
+
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes hero-slide-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+
+@utility hero-float {
+  animation: hero-float 7s ease-in-out infinite;
+}
+
+@utility reveal-up {
+  animation: reveal-up 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@utility reveal-delay-1 {
+  animation-delay: 120ms;
+}
+
+@utility hero-slide-panel {
+  transition: none;
+}
+
+@utility hero-slide-in {
+  animation: hero-slide-in 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@utility hero-slide-out {
+  animation: hero-slide-out 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-float,
+  .reveal-up,
+  .hero-slide-in,
+  .hero-slide-out {
+    animation: none !important;
+  }
+}
