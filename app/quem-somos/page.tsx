@@ -38,7 +38,7 @@ const aboutSchemas = [
 
 const values = [
   { icon: ShieldCheck, title: "Segurança jurídica", text: "Todas as estratégias respaldadas pela legislação vigente." },
-  { icon: Sparkles, title: "Inteligência tributária", text: "Foco em economia real e recorrente para o seu consultório." },
+  { icon: Sparkles, title: "Inteligência tributária", text: "Orientação tributária alinhada ao perfil do seu consultório." },
   { icon: HeartHandshake, title: "Proximidade humana", text: "Atendimento consultivo, sem burocracia e sem robôs." },
   { icon: Award, title: "Autoridade técnica", text: "Mais de uma década de atuação com profissionais da saúde." },
 ];

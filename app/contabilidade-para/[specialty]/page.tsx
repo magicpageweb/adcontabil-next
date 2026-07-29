@@ -112,7 +112,7 @@ export default async function SpecialtyPage({
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild size="lg" className="bg-cta text-cta-foreground hover:opacity-90 h-12 px-6">
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                Solicitar Simulação de Economia
+                Solicitar avaliação fiscal
               </a>
             </Button>
             <Button
@@ -148,7 +148,7 @@ export default async function SpecialtyPage({
       <section className="bg-surface border-y border-border">
         <div className="mx-auto max-w-4xl px-4 md:px-6 py-16 text-center">
           <h2 className="font-display text-3xl md:text-4xl font-semibold text-primary">
-            Quer saber quanto o seu consultório pode economizar?
+            Quer uma análise do enquadramento do seu consultório?
           </h2>
           <p className="mt-4 text-muted-foreground">
             Envie seu faturamento médio pelo WhatsApp e receba um diagnóstico fiscal personalizado, sem compromisso.

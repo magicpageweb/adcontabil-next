@@ -27,7 +27,7 @@ export const SOCIAL = {
 } as const;
 
 export const DEFAULT_DESCRIPTION =
-  "Contabilidade especializada para médicos, dentistas, psicólogos, fisioterapeutas e nutricionistas. Reduza impostos com Fator R e SUP-ISS. Atendimento digital em todo o Brasil e presencial em Santa Cruz do Sul/RS.";
+  "Contabilidade especializada para médicos, dentistas, psicólogos, fisioterapeutas e nutricionistas. Análise de Fator R, SUP-ISS e enquadramento tributário. Atendimento em Santa Cruz do Sul/RS.";
 
 export type SpecialtyIconKey =
   | "stethoscope"
@@ -46,21 +46,21 @@ export const SPECIALTIES = [
     desc: "Abertura de CNPJ, enquadramento no CNAE correto, equiparação hospitalar e planejamento para plantonistas, residentes e clínicas.",
     icon: "stethoscope" as SpecialtyIconKey,
     subtitle:
-      "Do plantão ao consultório próprio: redução de impostos, proteção patrimonial e conformidade fiscal completa para médicos.",
+      "Do plantão ao consultório próprio: análise tributária, proteção patrimonial e conformidade fiscal para médicos.",
     intro:
-      "Atuamos com médicos plantonistas, residentes, pejotizados e proprietários de clínicas — sempre com foco em economia tributária dentro da lei.",
+      "Atuamos com médicos plantonistas, residentes, pejotizados e proprietários de clínicas — com orientação tributária alinhada ao perfil de cada operação.",
     solutions: [
       {
         title: "Médicos plantonistas e pejotizados",
-        desc: "Abertura de PJ médica, escolha do melhor CNAE e emissão ágil de notas fiscais para hospitais.",
+        desc: "Abertura de PJ médica, escolha do CNAE adequado e emissão de notas fiscais para hospitais.",
       },
       {
         title: "Consultórios e clínicas",
-        desc: "Gestão de folha, equiparação hospitalar, adequação à LGPD médica e controle de distribuição de lucros.",
+        desc: "Gestão de folha, análise de equiparação hospitalar, adequação à LGPD médica e controle de distribuição de lucros.",
       },
       {
         title: "Planejamento do Fator R",
-        desc: "Garantia mensal de enquadramento na menor alíquota do Simples Nacional (6%).",
+        desc: "Ajuste do pró-labore para buscar o enquadramento mais vantajoso — alíquotas podem variar entre 6% e 15,5%, dependendo do perfil.",
       },
     ],
   },
@@ -70,20 +70,20 @@ export const SPECIALTIES = [
     title: "Contabilidade para Dentistas",
     h1: "Contabilidade Especializada para Dentistas e Consultórios Odontológicos",
     short: "Dentistas & Consultórios Odontológicos",
-    desc: "Gestão do Livro Caixa x PJ, Fator R para redução de imposto, controle de próteses e regularização junto aos órgãos da saúde.",
+    desc: "Gestão do Livro Caixa x PJ, análise do Fator R, controle de próteses e regularização junto aos órgãos da saúde.",
     icon: "smile" as SpecialtyIconKey,
     subtitle:
-      "Consultórios e clínicas odontológicas com tributação otimizada e gestão financeira sob medida.",
+      "Consultórios e clínicas odontológicas com orientação tributária e gestão financeira sob medida.",
     intro:
-      "Do Livro Caixa à Sociedade Uniprofissional, desenhamos o cenário fiscal mais eficiente para o seu consultório odontológico.",
+      "Do Livro Caixa à Sociedade Uniprofissional, analisamos o cenário fiscal mais adequado ao seu consultório odontológico.",
     solutions: [
       {
         title: "Livro Caixa x PJ",
-        desc: "Comparativo detalhado para escolher o regime mais econômico para o seu faturamento.",
+        desc: "Comparativo detalhado para avaliar o regime mais adequado ao seu faturamento.",
       },
       {
         title: "Fator R para dentistas",
-        desc: "Estratégia de pró-labore para migrar do Anexo V (15,5%) para o Anexo III (6%).",
+        desc: "Ajuste do pró-labore para buscar o enquadramento mais vantajoso — alíquotas podem variar entre 6% e 15,5%, dependendo do perfil.",
       },
       {
         title: "Controle de próteses e insumos",
@@ -97,24 +97,24 @@ export const SPECIALTIES = [
     title: "Contabilidade para Psicólogos",
     h1: "Contabilidade Especializada para Psicólogos e Terapeutas",
     short: "Psicólogos & Terapeutas",
-    desc: "Fim da mordida do Carnê-Leão de até 27,5%. Estruturação de CNPJ com tributação simplificada a partir de 6%.",
+    desc: "Reduza a carga tributária do Carnê-Leão migrando para PJ. Análise de enquadramento e estruturação de CNPJ conforme o perfil profissional.",
     icon: "brain" as SpecialtyIconKey,
     subtitle:
-      "Chega de perder até 27,5% no Carnê-Leão. Estruturamos seu CNPJ com tributação a partir de 6%.",
+      "Reduza a carga tributária do Carnê-Leão migrando para PJ. Avaliamos o enquadramento adequado à sua atuação.",
     intro:
-      "Para psicólogos e terapeutas, a migração para PJ traz economia imediata e organização financeira profissional.",
+      "Para psicólogos e terapeutas, avaliamos a migração para PJ com organização financeira profissional e análise técnica do enquadramento.",
     solutions: [
       {
-        title: "Abertura de CNPJ ágil",
-        desc: "Todo o processo de formalização com CNAE correto e menor tributação possível.",
+        title: "Abertura de CNPJ",
+        desc: "Formalização com CNAE adequado e análise do enquadramento tributário mais coerente com a sua prática.",
       },
       {
         title: "Emissão de notas fiscais",
         desc: "Notas de consulta e atendimento com clareza para o paciente e para o fisco.",
       },
       {
-        title: "Distribuição de lucros isenta",
-        desc: "Retire lucros da sua PJ sem incidência de Imposto de Renda.",
+        title: "Distribuição de lucros",
+        desc: "Orientação sobre a possibilidade de distribuição de lucros isenta, conforme o enquadramento da PJ.",
       },
     ],
   },
@@ -129,19 +129,19 @@ export const SPECIALTIES = [
     subtitle:
       "Planejamento tributário para atendimentos autônomos, estúdios de Pilates e clínicas multidisciplinares.",
     intro:
-      "Fisioterapeutas ganham eficiência e economia com uma contabilidade que entende os fluxos da reabilitação.",
+      "Fisioterapeutas contam com orientação contábil que entende os fluxos da reabilitação e analisa o enquadramento adequado a cada modelo.",
     solutions: [
       {
         title: "Atendimentos autônomos e domiciliares",
-        desc: "Modelo de PJ enxuto, com emissão de nota simples e apuração automatizada.",
+        desc: "Modelo de PJ enxuto, com emissão de nota e apuração alinhadas à rotina do atendimento.",
       },
       {
         title: "Estúdios de Pilates",
-        desc: "Controle de mensalidades, pacotes e folha, com Fator R otimizado.",
+        desc: "Controle de mensalidades, pacotes e folha, com análise contínua do Fator R.",
       },
       {
         title: "Clínicas multidisciplinares",
-        desc: "Estruturação societária e SUP-ISS quando aplicável para reduzir imposto municipal.",
+        desc: "Estruturação societária e análise de SUP-ISS quando aplicável — regra que varia conforme o município.",
       },
     ],
   },
@@ -160,11 +160,11 @@ export const SPECIALTIES = [
     solutions: [
       {
         title: "Abertura e enquadramento",
-        desc: "CNPJ correto para consultas, pacotes e conteúdos digitais.",
+        desc: "CNPJ adequado para consultas, pacotes e conteúdos digitais.",
       },
       {
         title: "Fator R para nutricionistas",
-        desc: "Redução da alíquota de imposto para 6% no Simples Nacional.",
+        desc: "Ajuste do pró-labore para buscar o enquadramento mais vantajoso — alíquotas podem variar entre 6% e 15,5%, dependendo do perfil.",
       },
       {
         title: "Consultoria financeira",
@@ -179,18 +179,18 @@ export type SpecialtySlug = (typeof SPECIALTIES)[number]["slug"];
 export const SOLUTIONS = [
   {
     slug: "fator-r",
-    label: "Fator R e Economia de Impostos",
-    title: "Fator R e Economia de Impostos",
+    label: "Fator R e Planejamento Tributário",
+    title: "Fator R e Planejamento Tributário",
     subtitle:
-      "Reduza a alíquota do Simples Nacional de 15,5% para 6% com um planejamento de pró-labore inteligente.",
+      "Ajuste seu pró-labore para buscar o enquadramento mais vantajoso — alíquotas podem variar entre 6% e 15,5%, dependendo do seu perfil.",
     problem:
-      "Atividades da saúde entram por padrão no Anexo V do Simples Nacional, começando em 15,5% de imposto.",
+      "Atividades da saúde entram por padrão no Anexo V do Simples Nacional, com alíquotas que podem iniciar em 15,5%, conforme o enquadramento.",
     solution:
-      "Estruturamos folha e pró-labore para atingir a proporção de 28%, migrando sua empresa para o Anexo III, que inicia em 6%.",
+      "Analisamos folha e pró-labore para verificar a viabilidade do Fator R e orientar o enquadramento mais adequado ao perfil da operação.",
     bullets: [
       "Cálculo mensal do Fator R e ajustes preventivos",
       "Simulação de cenários antes de contratar colaboradores",
-      "Acompanhamento de faturamento e comparativos de economia",
+      "Acompanhamento de faturamento e comparativos de enquadramento",
     ],
   },
   {
@@ -198,15 +198,15 @@ export const SOLUTIONS = [
     label: "Sociedade Uniprofissional (SUP-ISS)",
     title: "Sociedade Uniprofissional (SUP - ISS)",
     subtitle:
-      "Pague ISS fixo por profissional habilitado ao invés de percentual sobre todo o faturamento.",
+      "Avalie se sua sociedade se enquadra no ISS fixo por profissional — regra que varia conforme o município.",
     problem:
-      "Clínicas pagam ISS percentual sobre 100% do faturamento, o que se torna caro conforme o consultório cresce.",
+      "Em muitos municípios, clínicas pagam ISS percentual sobre o faturamento, o que pode se tornar oneroso conforme o consultório cresce.",
     solution:
-      "Enquadramos sua sociedade no regime especial de ISS fixo por profissional habilitado, com expressiva economia mensal.",
+      "Verificamos a viabilidade do regime especial de ISS fixo por profissional habilitado e orientamos o enquadramento junto à prefeitura, quando aplicável.",
     bullets: [
       "Análise de viabilidade e enquadramento na prefeitura",
       "Documentação e defesa técnica junto ao fisco municipal",
-      "Manutenção anual do regime especial",
+      "Manutenção anual do regime especial, quando cabível",
     ],
   },
   {
@@ -214,15 +214,15 @@ export const SOLUTIONS = [
     label: "Carnê-Leão e Migração PF para PJ",
     title: "Carnê-Leão e Migração PF para PJ",
     subtitle:
-      "Saia da tributação de até 27,5% e comece a pagar a partir de 6% com distribuição de lucros isenta.",
+      "Avalie a migração de PF para PJ: alíquotas podem partir de 6%, dependendo do seu enquadramento, com possibilidade de distribuição de lucros isenta.",
     problem:
-      "Profissionais autônomos pagam até 27,5% de IR no Carnê-Leão + INSS sobre praticamente todo o rendimento.",
+      "Profissionais autônomos podem enfrentar tributação elevada no Carnê-Leão (IR até 27,5%) e INSS sobre grande parte do rendimento.",
     solution:
-      "Abertura ágil de CNPJ, enquadramento no melhor regime e distribuição de lucros sem incidência de Imposto de Renda.",
+      "Realizamos estudo comparativo PF vs PJ, abertura de CNPJ e orientação sobre o enquadramento e a distribuição de lucros conforme a legislação.",
     bullets: [
       "Estudo comparativo PF vs PJ com números reais",
-      "Todo o processo de abertura do CNPJ e alvarás",
-      "Transição sem quebrar o atendimento aos pacientes",
+      "Processo de abertura do CNPJ e alvarás",
+      "Transição organizada, sem interromper o atendimento aos pacientes",
     ],
   },
   {
@@ -230,13 +230,13 @@ export const SOLUTIONS = [
     label: "Abertura de CNPJ Médico/Saúde",
     title: "Abertura de CNPJ Médico/Saúde",
     subtitle:
-      "Do CNAE correto ao alvará sanitário: cuidamos de todo o processo em 7 a 15 dias úteis.",
+      "Do CNAE adequado ao alvará sanitário: cuidamos do processo com análise técnica do enquadramento.",
     problem:
-      "Escolher o CNAE e o regime tributário errado pode custar milhares de reais em impostos por ano.",
+      "Escolher o CNAE e o regime tributário inadequados pode gerar custos desnecessários e risco fiscal ao longo do ano.",
     solution:
-      "Fazemos todo o processo — Junta Comercial, Receita Federal, Inscrição Municipal e alvarás — com o enquadramento ideal para a sua atuação.",
+      "Conduzimos o processo — Junta Comercial, Receita Federal, Inscrição Municipal e alvarás — com orientação para o enquadramento alinhado à sua atuação.",
     bullets: [
-      "Escolha estratégica de CNAE e regime tributário",
+      "Escolha estratégica de CNAE e análise de regime tributário",
       "Registro em Junta Comercial e Receita Federal",
       "Alvará de funcionamento e vigilância sanitária",
     ],
@@ -248,19 +248,19 @@ export type SolutionSlug = (typeof SOLUTIONS)[number]["slug"];
 export const HOME_FAQS = [
   {
     q: "Vale a pena abrir CNPJ sendo médico ou profissional da saúde?",
-    a: "Sim. Na Pessoa Física, seus rendimentos são tributados em até 27,5% no IRPF + INSS. Na Pessoa Jurídica (PJ), a tributação pode iniciar em 6% no Simples Nacional com Fator R, permitindo distribuição de lucros com isenção de imposto.",
+    a: "Depende do perfil. Na Pessoa Física, os rendimentos podem ser tributados em até 27,5% no IRPF, além do INSS. Na Pessoa Jurídica, avaliamos o enquadramento — alíquotas podem partir de 6% no Simples Nacional, dependendo do caso, com possibilidade de distribuição de lucros isenta.",
   },
   {
     q: "O que é e como funciona o Fator R no Simples Nacional?",
-    a: "É a regra que permite reduzir a alíquota de imposto de 15,5% para 6%. Quando os custos com folha de pagamento e pró-labore representam 28% ou mais do faturamento da empresa, o enquadramento muda para o Anexo III.",
+    a: "É a regra que permite buscar um enquadramento mais vantajoso no Simples Nacional. Quando os custos com folha e pró-labore atingem proporção suficiente em relação ao faturamento, a empresa pode migrar para o Anexo III. As alíquotas podem variar entre 6% e 15,5%, dependendo do perfil — por isso a análise mensal é essencial.",
   },
   {
-    q: "Como funciona a contabilidade 100% digital?",
-    a: "Você envia seus documentos e informações fiscais de forma prática pela plataforma online. Nossa equipe cuida de toda a apuração, folha e emissão de guias, oferecendo suporte contínuo via WhatsApp e reuniões por vídeo.",
+    q: "Como funciona a contabilidade digital?",
+    a: "Você envia documentos e informações fiscais de forma prática pela plataforma online. Nossa equipe cuida da apuração, folha e emissão de guias, com suporte contínuo via WhatsApp e reuniões por vídeo.",
   },
   {
     q: "Quanto tempo leva para abrir uma empresa na área da saúde?",
-    a: "O processo dura em média de 7 a 15 dias úteis, incluindo registro na Junta Comercial, CNPJ na Receita Federal, Inscrição Municipal e alvarás de funcionamento.",
+    a: "O processo dura em média de 7 a 15 dias úteis, incluindo registro na Junta Comercial, CNPJ na Receita Federal, Inscrição Municipal e alvarás de funcionamento — prazos que podem variar conforme o município e os órgãos envolvidos.",
   },
 ] as const;
 
@@ -291,14 +291,14 @@ export const PLANS = [
     name: "Plano Prata",
     badge: "Essencial",
     description:
-      "Essencial para começar certo. Ideal para MEIs e pequenos negócios que precisam manter obrigações em dia com suporte confiável.",
+      "Essencial para a rotina contábil e fiscal do profissional da saúde. Ideal para quem precisa manter obrigações em dia com suporte confiável.",
     features: [
-      "Abertura da empresa (se necessário)",
-      "Escrituração contábil e fiscal básica",
-      "Emissão de DAS (Simples Nacional)",
+      "Abertura da empresa (quando necessário)",
+      "Escrituração contábil e fiscal da rotina",
+      "Apuração e emissão de guias do Simples Nacional",
       "Envio de declarações obrigatórias",
       "Suporte via WhatsApp e e-mail",
-      "Relatórios mensais simples",
+      "Relatórios mensais objetivos",
     ],
     includesPrevious: null as string | null,
     featured: false,
@@ -306,15 +306,15 @@ export const PLANS = [
   {
     slug: "ouro",
     name: "Plano Ouro",
-    badge: "Mais escolhido",
+    badge: "Estratégico",
     description:
-      "Equilíbrio entre controle e crescimento. Para empresas do Simples Nacional ou Lucro Presumido que querem contabilidade regular com orientação estratégica.",
+      "Para quem deseja mais acompanhamento e planejamento. Contabilidade regular com orientação tributária alinhada ao consultório ou clínica.",
     features: [
-      "Planejamento tributário básico",
-      "Elaboração de folha de pagamento",
+      "Análise e planejamento tributário básico",
+      "Elaboração de folha de pagamento e pró-labore",
       "Consultas mensais com contador",
       "Relatórios financeiros personalizados",
-      "Regularização e acompanhamento fiscal",
+      "Acompanhamento fiscal e regularização",
       "Atendimento online e presencial",
     ],
     includesPrevious: "Inclui tudo do Plano Prata, mais:",
@@ -323,15 +323,15 @@ export const PLANS = [
   {
     slug: "diamante",
     name: "Plano Diamante",
-    badge: "Completo",
+    badge: "Consultivo",
     description:
-      "Contabilidade estratégica e assessoria completa. Para empresas que precisam de acompanhamento próximo, suporte técnico, participação em licitações e gestão financeira completa.",
+      "Para clínicas e profissionais com maior complexidade. Acompanhamento próximo, revisão tributária avançada e gestão financeira consultiva.",
     features: [
-      "Assessoria completa em licitações públicas",
-      "BPO financeiro (conciliação, contas a pagar/receber)",
       "Planejamento e revisão tributária avançada",
+      "BPO financeiro (conciliação, contas a pagar/receber)",
       "Acompanhamento estratégico com relatórios gerenciais",
-      "Apoio com certidões, balanços e propostas técnicas",
+      "Análise de enquadramentos (Fator R, ISS e regimes)",
+      "Apoio com certidões, balanços e documentação técnica",
       "Atendimento preferencial e consultivo",
     ],
     includesPrevious: "Inclui tudo do Plano Ouro, mais:",

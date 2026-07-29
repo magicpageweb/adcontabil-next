@@ -19,11 +19,11 @@ export function SolutionsPreview() {
             Soluções técnicas
           </p>
           <h2 className="mt-3 font-display text-3xl md:text-4xl font-semibold text-foreground">
-            Estratégias que reduzem impostos, dentro da lei
+            Estratégias tributárias com análise técnica
           </h2>
           <p className="mt-3 text-muted-foreground">
-            Fator R, Sociedade Uniprofissional e migração PF → PJ — com clareza para o
-            consultório e segurança jurídica.
+            Fator R, Sociedade Uniprofissional e migração PF → PJ — avaliamos viabilidade e
+            enquadramento com clareza e segurança jurídica.
           </p>
         </div>
 

@@ -11,11 +11,11 @@ export function PlansPreview() {
             Planos
           </p>
           <h2 className="mt-3 font-display text-3xl md:text-4xl font-semibold text-foreground">
-            Encontre o plano ideal para sua empresa
+            Planos para o seu consultório ou clínica
           </h2>
           <p className="mt-3 text-muted-foreground text-pretty">
-            Do básico ao completo, cuidamos da sua contabilidade com atenção, estratégia e
-            clareza.
+            Do essencial ao consultivo — valores e enquadramentos dependem da operação de cada
+            profissional da saúde.
           </p>
         </div>
 
@@ -88,8 +88,8 @@ export function PlansPreview() {
             Não sabe qual plano escolher?
           </h3>
           <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-            Fale conosco e receba uma orientação personalizada. Transforme sua contabilidade
-            em uma aliada do seu crescimento.
+            Fale conosco e receba uma orientação personalizada. Analisamos o perfil do seu
+            consultório para indicar o acompanhamento mais adequado.
           </p>
           <Button asChild size="lg" className="mt-6 bg-whatsapp text-white hover:opacity-90 h-12 px-7">
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
