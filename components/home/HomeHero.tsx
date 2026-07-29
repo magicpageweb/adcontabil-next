@@ -18,7 +18,7 @@ export function HomeHero() {
       <div className="mx-auto max-w-7xl px-4 md:px-6 pt-10 pb-12 md:pt-14 md:pb-16 grid gap-10 lg:grid-cols-[1.15fr_0.85fr] items-center">
         <div className="reveal-up">
           <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">
-            Contabilidade para profissionais da saúde
+            Santa Cruz do Sul/RS · Contabilidade consultiva
           </p>
 
           <h1 className="mt-4 font-display text-4xl md:text-5xl lg:text-[3.35rem] font-semibold leading-[1.08] text-foreground text-balance">
@@ -29,8 +29,7 @@ export function HomeHero() {
 
           <p className="mt-5 text-lg text-muted-foreground max-w-xl text-pretty">
             Estratégia tributária, clareza financeira e proximidade humana para médicos,
-            dentistas, psicólogos, fisioterapeutas e nutricionistas — com atendimento digital
-            em todo o Brasil.
+            dentistas, psicólogos, fisioterapeutas e nutricionistas.
           </p>
 
           <div className="mt-8">
@@ -42,8 +41,7 @@ export function HomeHero() {
           </div>
 
           <p className="mt-6 text-sm text-muted-foreground">
-            +10 anos de experiência · Atendimento 100% digital · Contabilidade para
-            profissionais da saúde
+            Atendimento em Santa Cruz do Sul/RS · CRC/RS ativo · Foco no setor da saúde
           </p>
         </div>
 

@@ -266,8 +266,8 @@ export const HOME_FAQS = [
 
 export const HERO_SLIDES = [
   {
-    title: "Contabilidade para profissionais da saúde",
-    subtitle: "Estratégia tributária para crescer com segurança.",
+    title: "Estratégia tributária para crescer com segurança",
+    subtitle: "Planejamento claro para consultórios e clínicas.",
   },
   {
     title: "Fator R, ISS e CNAE com clareza",
