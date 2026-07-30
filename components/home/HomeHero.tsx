@@ -29,7 +29,7 @@ export function HomeHero() {
 
           <p className="mt-5 text-lg text-muted-foreground max-w-xl text-pretty">
             Estratégia tributária, clareza financeira e proximidade humana para médicos,
-            dentistas, psicólogos, fisioterapeutas e nutricionistas.
+            dentistas, psicólogos, fisioterapeutas, fonoaudiólogos e nutricionistas.
           </p>
 
           <div className="mt-8">

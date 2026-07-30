@@ -3,7 +3,7 @@ import { CRC, RESPONSIBLE } from "@/lib/site";
 const items = [
   { k: "+10 anos", v: "de experiência contábil e gestão estratégica" },
   { k: "CRC/RS ativo", v: `${RESPONSIBLE} · ${CRC.replace("CRC/RS ", "")}` },
-  { k: "Foco na saúde", v: "médicos, dentistas, clínicas e consultórios" },
+  { k: "Foco na saúde", v: "médicos, dentistas, fonoaudiólogos e clínicas" },
   { k: "Brasil todo", v: "atendimento digital ágil e humano" },
 ];
 

@@ -27,16 +27,41 @@ export const SOCIAL = {
 } as const;
 
 export const DEFAULT_DESCRIPTION =
-  "Contabilidade especializada para médicos, dentistas, psicólogos, fisioterapeutas e nutricionistas. Análise de Fator R, SUP-ISS e enquadramento tributário. Atendimento em Santa Cruz do Sul/RS.";
+  "Contabilidade especializada para médicos, dentistas, psicólogos, fisioterapeutas, fonoaudiólogos e nutricionistas. Análise de Fator R, SUP-ISS e enquadramento tributário. Atendimento em Santa Cruz do Sul/RS.";
 
 export type SpecialtyIconKey =
   | "stethoscope"
   | "smile"
   | "brain"
   | "activity"
+  | "ear"
   | "apple";
 
-export const SPECIALTIES = [
+export type Specialty = {
+  slug: string;
+  label: string;
+  title: string;
+  h1: string;
+  short: string;
+  desc: string;
+  icon: SpecialtyIconKey;
+  subtitle: string;
+  intro: string;
+  introSecondary?: string;
+  solutions: readonly { title: string; desc: string }[];
+  audience?: readonly string[];
+  analysis?: readonly string[];
+  differentials?: string;
+  process?: readonly string[];
+  faqs?: readonly { q: string; a: string }[];
+  ctaBadge?: string;
+  ctaTitle?: string;
+  ctaText?: string;
+  primaryCta?: string;
+  secondaryCta?: string;
+};
+
+export const SPECIALTIES: readonly Specialty[] = [
   {
     slug: "medicos",
     label: "Médicos",
@@ -44,7 +69,7 @@ export const SPECIALTIES = [
     h1: "Contabilidade Especializada para Médicos e Clínicas Médicas",
     short: "Médicos & Clínicas Médicas",
     desc: "Abertura de CNPJ, enquadramento no CNAE correto, equiparação hospitalar e planejamento para plantonistas, residentes e clínicas.",
-    icon: "stethoscope" as SpecialtyIconKey,
+    icon: "stethoscope",
     subtitle:
       "Do plantão ao consultório próprio: análise tributária, proteção patrimonial e conformidade fiscal para médicos.",
     intro:
@@ -71,7 +96,7 @@ export const SPECIALTIES = [
     h1: "Contabilidade Especializada para Dentistas e Consultórios Odontológicos",
     short: "Dentistas & Consultórios Odontológicos",
     desc: "Gestão do Livro Caixa x PJ, análise do Fator R, controle de próteses e regularização junto aos órgãos da saúde.",
-    icon: "smile" as SpecialtyIconKey,
+    icon: "smile",
     subtitle:
       "Consultórios e clínicas odontológicas com orientação tributária e gestão financeira sob medida.",
     intro:
@@ -98,7 +123,7 @@ export const SPECIALTIES = [
     h1: "Contabilidade Especializada para Psicólogos e Terapeutas",
     short: "Psicólogos & Terapeutas",
     desc: "Reduza a carga tributária do Carnê-Leão migrando para PJ. Análise de enquadramento e estruturação de CNPJ conforme o perfil profissional.",
-    icon: "brain" as SpecialtyIconKey,
+    icon: "brain",
     subtitle:
       "Reduza a carga tributária do Carnê-Leão migrando para PJ. Avaliamos o enquadramento adequado à sua atuação.",
     intro:
@@ -125,7 +150,7 @@ export const SPECIALTIES = [
     h1: "Contabilidade Especializada para Fisioterapeutas e Clínicas",
     short: "Fisioterapeutas & Clínicas",
     desc: "Planejamento tributário para atendimentos autônomos, estúdios de Pilates e clínicas multidisciplinares.",
-    icon: "activity" as SpecialtyIconKey,
+    icon: "activity",
     subtitle:
       "Planejamento tributário para atendimentos autônomos, estúdios de Pilates e clínicas multidisciplinares.",
     intro:
@@ -152,7 +177,7 @@ export const SPECIALTIES = [
     h1: "Contabilidade Especializada para Nutricionistas",
     short: "Nutricionistas & Clínicas",
     desc: "Formalização ágil, emissão correta de notas fiscais de consultas e gestão financeira descomplicada.",
-    icon: "apple" as SpecialtyIconKey,
+    icon: "apple",
     subtitle:
       "Formalização ágil, emissão correta de notas fiscais de consultas e gestão financeira descomplicada.",
     intro:
@@ -172,9 +197,98 @@ export const SPECIALTIES = [
       },
     ],
   },
-] as const;
+  {
+    slug: "fonoaudiologos",
+    label: "Fonoaudiólogos",
+    title: "Contabilidade para Fonoaudiólogos",
+    h1: "Contabilidade Especializada para Fonoaudiólogos",
+    short: "Fonoaudiólogos & Clínicas",
+    desc: "Estratégia tributária, enquadramento correto e apoio contábil para fonoaudiólogos, consultórios e clínicas.",
+    icon: "ear",
+    subtitle:
+      "Estratégia tributária, enquadramento correto e apoio contábil para fonoaudiólogos, consultórios e clínicas que querem atuar com mais segurança e organização.",
+    intro:
+      "A fonoaudiologia tem particularidades contábeis que exigem atenção na escolha do CNAE, do regime tributário e da estrutura de atuação. A AD Contábil ajuda fonoaudiólogos a avaliar o melhor caminho com base no faturamento, no tipo de atendimento e no modelo do consultório ou clínica.",
+    introSecondary:
+      "Nosso trabalho é orientar sua operação com clareza, reduzir riscos e estruturar a contabilidade de forma compatível com a realidade da fonoaudiologia. Isso inclui análise de abertura de CNPJ, enquadramento tributário e acompanhamento da rotina fiscal.",
+    solutions: [
+      {
+        title: "Abertura de CNPJ",
+        desc: "Orientação para estruturar sua empresa com o CNAE adequado e o enquadramento compatível com a atividade. Avaliamos se o melhor caminho é atuar como PF ou formalizar como PJ.",
+      },
+      {
+        title: "Fator R e Simples Nacional",
+        desc: "Acompanhamos folha, pró-labore e faturamento para avaliar o enquadramento tributário mais vantajoso dentro das regras do Simples Nacional.",
+      },
+      {
+        title: "Carnê-Leão e migração PF → PJ",
+        desc: "Para autônomos, analisamos a carga tributária da pessoa física e comparamos com cenários de PJ, de forma técnica e individualizada.",
+      },
+      {
+        title: "ISS e operação municipal",
+        desc: "Revisamos a incidência de ISS conforme as regras do município, considerando consultório, clínica e estrutura de atendimento.",
+      },
+      {
+        title: "Rotina contábil completa",
+        desc: "Emissão de guias, acompanhamento mensal, suporte nas obrigações fiscais e organização da documentação com previsibilidade.",
+      },
+    ],
+    audience: [
+      "Fonoaudiólogos autônomos que atendem em consultório ou domicílio.",
+      "Fonoaudiólogos que desejam migrar de PF para PJ.",
+      "Clínicas e consultórios de fonoaudiologia.",
+      "Profissionais que precisam organizar emissão de notas, impostos e obrigações mensais.",
+      "Estruturas que buscam avaliar o melhor enquadramento tributário para a atividade.",
+    ],
+    analysis: [
+      "CNAE e natureza jurídica adequados para a atividade.",
+      "Regime tributário mais compatível com o faturamento.",
+      "Possibilidade de enquadramento no Simples Nacional.",
+      "Impacto do Fator R no imposto mensal.",
+      "Regras de ISS conforme município.",
+      "Organização fiscal para migração de pessoa física para pessoa jurídica.",
+    ],
+    differentials:
+      "A fonoaudiologia pode exigir atenção redobrada em temas como enquadramento tributário, organização da folha e definição do regime ideal. Em muitos casos, a decisão entre atuar como PF ou PJ depende do volume de faturamento, da estrutura de custos e da estratégia da operação. Por isso, nossa atuação é sempre consultiva: analisamos o cenário, explicamos as opções e indicamos o caminho mais coerente com a realidade do cliente.",
+    process: [
+      "Entendemos seu modelo atual de atuação.",
+      "Avaliamos CNAE, regime e estrutura.",
+      "Simulamos os cenários tributários aplicáveis.",
+      "Estruturamos a operação contábil.",
+      "Mantemos o acompanhamento mensal com suporte técnico.",
+    ],
+    faqs: [
+      {
+        q: "Vale a pena abrir CNPJ sendo fonoaudiólogo?",
+        a: "Depende do seu faturamento, da sua rotina de atendimento e da estrutura que você deseja manter. Em muitos casos, a pessoa jurídica pode trazer mais organização e melhores condições de enquadramento, mas isso precisa ser analisado caso a caso.",
+      },
+      {
+        q: "Qual é o CNAE de fonoaudiologia?",
+        a: "O CNAE frequentemente associado à atividade é o 8650-0/06, referente às atividades de fonoaudiologia. A definição correta deve sempre ser validada no contexto da operação e do município.",
+      },
+      {
+        q: "Fonoaudiólogo pode entrar no Simples Nacional?",
+        a: "Sim, a atividade de fonoaudiologia é tratada dentro do Simples Nacional, mas o enquadramento e a faixa aplicável dependem do caso concreto, da estrutura da empresa e da análise tributária mensal.",
+      },
+      {
+        q: "O Fator R pode ajudar a reduzir o imposto?",
+        a: "Ele pode influenciar o enquadramento tributário e, por consequência, o valor do imposto, mas isso deve ser calculado com base na folha, no pró-labore e no faturamento da empresa.",
+      },
+      {
+        q: "Posso continuar como autônomo?",
+        a: "Sim. A permanência como pessoa física pode fazer sentido em alguns cenários, mas é importante comparar os regimes antes de decidir.",
+      },
+    ],
+    ctaBadge: "Diagnóstico tributário para fonoaudiólogos",
+    ctaTitle: "Quer avaliar o melhor caminho para sua atuação?",
+    ctaText:
+      "Fale com a AD Contábil e receba uma análise personalizada para sua rotina, seu faturamento e sua forma de atendimento. Vamos ajudar você a estruturar a contabilidade com mais clareza e segurança.",
+    primaryCta: "Fale com a AD Contábil",
+    secondaryCta: "Solicitar diagnóstico",
+  },
+];
 
-export type SpecialtySlug = (typeof SPECIALTIES)[number]["slug"];
+export type SpecialtySlug = Specialty["slug"];
 
 export const SOLUTIONS = [
   {

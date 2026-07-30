@@ -4,6 +4,7 @@ import {
   Apple,
   ArrowRight,
   Brain,
+  Ear,
   Smile,
   Stethoscope,
   type LucideIcon,
@@ -15,12 +16,13 @@ const specialtyIcons: Record<SpecialtyIconKey, LucideIcon> = {
   smile: Smile,
   brain: Brain,
   activity: Activity,
+  ear: Ear,
   apple: Apple,
 };
 
 export function ServiceCards() {
   return (
-    <section className="mx-auto max-w-7xl px-4 md:px-6 py-20 md:py-24">
+    <section id="especialidades" className="mx-auto max-w-7xl px-4 md:px-6 py-20 md:py-24">
       <div className="max-w-2xl reveal-up">
         <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">
           Para quem atendemos
@@ -29,8 +31,8 @@ export function ServiceCards() {
           Contabilidade sob medida para a sua especialidade
         </h2>
         <p className="mt-3 text-muted-foreground text-pretty">
-          Médicos, dentistas, psicólogos, fisioterapeutas e nutricionistas — cada área com
-          particularidades fiscais que exigem orientação clara.
+          Médicos, dentistas, psicólogos, fisioterapeutas, fonoaudiólogos e nutricionistas —
+          cada área com particularidades fiscais que exigem orientação clara.
         </p>
       </div>
 

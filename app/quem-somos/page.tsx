@@ -57,7 +57,7 @@ export default function AboutPage() {
             Contabilidade consultiva para profissionais da saúde
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-white/80">
-            A {BRAND} nasceu para atender médicos, dentistas, psicólogos, fisioterapeutas e nutricionistas com estratégia tributária real e atendimento próximo.
+            A {BRAND} nasceu para atender médicos, dentistas, psicólogos, fisioterapeutas, fonoaudiólogos e nutricionistas com estratégia tributária real e atendimento próximo.
           </p>
         </div>
       </section>

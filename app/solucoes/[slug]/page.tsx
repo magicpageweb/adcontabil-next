@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { CheckCircle2, MessageCircle } from "lucide-react";
+import { ArrowRight, CheckCircle2, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { WHATSAPP_URL, BRAND, SOLUTIONS, getSolution } from "@/lib/site";
+import { WHATSAPP_URL, BRAND, SOLUTIONS, SPECIALTIES, getSolution } from "@/lib/site";
 import { breadcrumbSchema, buildPageMetadata, serviceSchema } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -104,7 +104,7 @@ export default async function SolutionPage({
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-4 md:px-6 pb-20">
+      <section className="mx-auto max-w-5xl px-4 md:px-6 pb-10">
         <h2 className="font-display text-2xl font-semibold text-primary">O que está incluso</h2>
         <ul className="mt-6 space-y-3">
           {d.bullets.map((b) => (
@@ -114,6 +114,27 @@ export default async function SolutionPage({
             </li>
           ))}
         </ul>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-4 md:px-6 pb-20">
+        <h2 className="font-display text-2xl font-semibold text-primary">
+          Especialidades que se beneficiam desta solução
+        </h2>
+        <p className="mt-3 text-sm text-muted-foreground max-w-2xl">
+          Aplicamos esta análise técnica a profissionais da saúde — incluindo fonoaudiólogos,
+          médicos, dentistas e demais especialidades atendidas pela {BRAND}.
+        </p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          {SPECIALTIES.map((s) => (
+            <Link
+              key={s.slug}
+              href={`/contabilidade-para/${s.slug}`}
+              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-primary hover:border-secondary hover:text-secondary transition"
+            >
+              {s.label} <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          ))}
+        </div>
       </section>
     </SiteLayout>
   );

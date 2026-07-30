@@ -39,6 +39,7 @@ export const metadata: Metadata = {
     "carnê-leão para pj",
     "contabilidade para fisioterapeutas",
     "contabilidade para nutricionistas",
+    "contabilidade para fonoaudiólogos",
   ],
   authors: [{ name: BRAND, url: SITE_URL }],
   creator: BRAND,
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
     siteName: BRAND,
     title: `${BRAND} — Contabilidade para Profissionais da Saúde`,
     description:
-      "Estratégia tributária, clareza financeira e segurança jurídica para médicos, dentistas, psicólogos, fisioterapeutas e nutricionistas.",
+      "Estratégia tributária, clareza financeira e segurança jurídica para médicos, dentistas, psicólogos, fisioterapeutas, fonoaudiólogos e nutricionistas.",
   },
   twitter: {
     card: "summary_large_image",
