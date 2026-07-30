@@ -1,20 +1,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Mail, MessageCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { ProfessionalCredentials } from "@/components/site/ProfessionalCredentials";
+import { LocationMap } from "@/components/site/LocationMap";
 import {
   WHATSAPP_URL,
   BRAND,
   PHONE_DISPLAY,
   PHONE_HREF,
   EMAIL,
-  ADDRESS,
   CITY,
-  CITY_LOCALITY,
-  CITY_REGION,
   SITE_URL,
   PHOTOS,
   RESPONSIBLE,
@@ -100,7 +97,7 @@ export default function ContactPage() {
             href={c.href}
             target={c.cta ? "_blank" : undefined}
             rel={c.cta ? "noopener noreferrer" : undefined}
-            className="soft-card soft-card-hover p-6 block"
+            className="soft-card soft-card-hover p-6 block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
             <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <c.Icon className="h-5 w-5" />
@@ -113,25 +110,17 @@ export default function ContactPage() {
         ))}
       </section>
 
-      <section className="mx-auto max-w-5xl px-4 md:px-6 pb-12">
-        <ProfessionalCredentials heading="Credibilidade e registro" />
-      </section>
+      <LocationMap className="pb-16 pt-4" />
 
       <section className="mx-auto max-w-5xl px-4 md:px-6 pb-20">
         <div className="soft-card p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div>
-            <div className="flex items-center gap-2 text-secondary font-semibold text-sm">
-              <MapPin className="h-4 w-4" /> Onde estamos
-            </div>
-            <address className="mt-2 text-foreground/85 not-italic">
-              <strong>{CITY}</strong>
-              <br />
-              {ADDRESS}
-              <br />
-              <span className="text-sm text-muted-foreground">
-                {CITY_LOCALITY}/{CITY_REGION}
-              </span>
-            </address>
+            <h2 className="font-display text-2xl font-semibold text-foreground">
+              Prefere falar agora?
+            </h2>
+            <p className="mt-2 text-muted-foreground">
+              Solicite um diagnóstico fiscal personalizado pelo WhatsApp.
+            </p>
           </div>
           <Button asChild size="lg" className="bg-whatsapp text-white hover:opacity-90 h-12 px-6">
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">

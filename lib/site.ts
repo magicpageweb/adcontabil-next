@@ -10,10 +10,17 @@ export const PHONE_DISPLAY = "(51) 99764.3864";
 export const PHONE_HREF = `tel:${PHONE_E164}`;
 export const EMAIL = "contato@adcontabil.net.br";
 export const ADDRESS = "Rua Fernando Abott, 895 sala 107 — Centro";
+export const ADDRESS_LINE = "Rua Fernando Abott, 895 sala 107, Centro";
 export const CITY = "Santa Cruz do Sul – RS";
 export const CITY_LOCALITY = "Santa Cruz do Sul";
 export const CITY_REGION = "RS";
 export const SITE_URL = "https://contabilidade.adcontabil.net.br";
+
+const MAPS_QUERY =
+  "Rua Fernando Abott, 895 sala 107, Centro Santa Cruz do Sul, RS, Brasil";
+
+export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAPS_QUERY)}`;
+export const MAPS_EMBED_URL = `https://maps.google.com/maps?q=${encodeURIComponent(MAPS_QUERY)}&t=m&z=18&output=embed&iwloc=near`;
 
 export const CRC = "CRC/RS RS094939/O-4";
 export const RESPONSIBLE = "Lidiane Assis Duarte";
