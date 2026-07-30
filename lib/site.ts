@@ -232,6 +232,10 @@ export const SPECIALTIES: readonly Specialty[] = [
         title: "Rotina contábil completa",
         desc: "Emissão de guias, acompanhamento mensal, suporte nas obrigações fiscais e organização da documentação com previsibilidade.",
       },
+      {
+        title: "Organização financeira do consultório",
+        desc: "Apoio na organização do fluxo de caixa, precificação de sessões e pacotes e controle de receitas, para alinhar a gestão financeira ao ritmo da fonoaudiologia.",
+      },
     ],
     audience: [
       "Fonoaudiólogos autônomos que atendem em consultório ou domicílio.",
