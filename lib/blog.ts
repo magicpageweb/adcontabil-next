@@ -470,6 +470,8 @@ export function getBlogPost(slug: string) {
   return BLOG_POSTS.find((p) => p.slug === slug);
 }
 
+export const BLOG_PAGE_SIZE = 6;
+
 export function getFeaturedPosts(limit = 3) {
   return BLOG_POSTS.filter((p) => p.featured).slice(0, limit);
 }
@@ -483,6 +485,109 @@ export function getRecentPosts(limit?: number) {
 
 export function getPostsByCategory(category: BlogCategorySlug) {
   return BLOG_POSTS.filter((p) => p.category === category);
+}
+
+export function searchBlogPosts(
+  query: string,
+  posts: BlogPost[] = getRecentPosts(),
+): BlogPost[] {
+  const normalized = query.trim().toLowerCase();
+  if (!normalized) return posts;
+
+  const terms = normalized.split(/\s+/).filter(Boolean);
+
+  return posts.filter((post) => {
+    const category = getBlogCategory(post.category)?.label ?? "";
+    const haystack = [
+      post.title,
+      post.excerpt,
+      post.seoTitle,
+      post.seoDescription,
+      category,
+      ...(post.keywords ?? []),
+    ]
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase();
+
+    return terms.every((term) => haystack.includes(term));
+  });
+}
+
+export function getBlogTotalPages(totalItems: number, pageSize = BLOG_PAGE_SIZE) {
+  return Math.max(1, Math.ceil(totalItems / pageSize));
+}
+
+export function buildBlogListPath({
+  page = 1,
+  categoria,
+  q,
+}: {
+  page?: number;
+  categoria?: string | null;
+  q?: string | null;
+} = {}) {
+  const base = page > 1 ? `/blog/page/${page}` : "/blog";
+  const params = new URLSearchParams();
+  if (categoria) params.set("categoria", categoria);
+  if (q?.trim()) params.set("q", q.trim());
+  const query = params.toString();
+  return query ? `${base}?${query}` : base;
+}
+
+export type BlogListingResult = {
+  posts: BlogPost[];
+  filtered: BlogPost[];
+  page: number;
+  totalPages: number;
+  totalItems: number;
+  pageSize: number;
+  category: BlogCategorySlug | null;
+  query: string;
+  hasFilter: boolean;
+};
+
+export function getBlogListing({
+  page = 1,
+  categoria,
+  q,
+  pageSize = BLOG_PAGE_SIZE,
+}: {
+  page?: number;
+  categoria?: string | null;
+  q?: string | null;
+  pageSize?: number;
+}): BlogListingResult {
+  const category =
+    BLOG_CATEGORIES.find((c) => c.slug === categoria)?.slug ?? null;
+  const query = q?.trim() ?? "";
+
+  let filtered = category
+    ? getPostsByCategory(category).sort(
+        (a, b) => +new Date(b.publishedAt) - +new Date(a.publishedAt),
+      )
+    : getRecentPosts();
+
+  if (query) {
+    filtered = searchBlogPosts(query, filtered);
+  }
+
+  const totalItems = filtered.length;
+  const totalPages = getBlogTotalPages(totalItems, pageSize);
+  const safePage = Math.min(Math.max(1, page), totalPages);
+  const start = (safePage - 1) * pageSize;
+
+  return {
+    posts: filtered.slice(start, start + pageSize),
+    filtered,
+    page: safePage,
+    totalPages,
+    totalItems,
+    pageSize,
+    category,
+    query,
+    hasFilter: Boolean(category || query),
+  };
 }
 
 export function getRelatedPosts(post: BlogPost, limit = 3) {

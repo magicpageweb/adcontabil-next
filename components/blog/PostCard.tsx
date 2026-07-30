@@ -10,11 +10,54 @@ import {
 export function PostCard({
   post,
   featured = false,
+  compact = false,
 }: {
   post: BlogPost;
   featured?: boolean;
+  compact?: boolean;
 }) {
   const category = getBlogCategory(post.category);
+
+  if (compact) {
+    return (
+      <article className="group soft-card soft-card-hover overflow-hidden flex flex-col h-full">
+        <Link
+          href={`/blog/${post.slug}`}
+          className="relative block aspect-[16/10] overflow-hidden bg-surface"
+        >
+          <Image
+            src={post.coverImage}
+            alt={post.coverAlt}
+            width={800}
+            height={500}
+            className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+            sizes="(max-width: 768px) 100vw, 280px"
+          />
+        </Link>
+        <div className="flex flex-1 flex-col p-4">
+          {category && (
+            <Link
+              href={`/blog?categoria=${category.slug}`}
+              className="text-[11px] font-semibold uppercase tracking-wider text-primary hover:text-cta transition"
+            >
+              {category.label}
+            </Link>
+          )}
+          <h3 className="mt-2 font-display text-base font-semibold text-foreground text-balance line-clamp-2">
+            <Link href={`/blog/${post.slug}`} className="hover:text-primary transition">
+              {post.title}
+            </Link>
+          </h3>
+          <Link
+            href={`/blog/${post.slug}`}
+            className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary group-hover:gap-1.5 transition-all"
+          >
+            Ler artigo <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
+      </article>
+    );
+  }
 
   return (
     <article

@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import { SITE_URL, SPECIALTIES, SOLUTIONS } from "@/lib/site";
-import { BLOG_POSTS } from "@/lib/blog";
+import { BLOG_PAGE_SIZE, BLOG_POSTS, getBlogTotalPages } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
@@ -53,5 +53,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  return [...routes, ...specialtyRoutes, ...solutionRoutes, ...blogRoutes];
+  const blogTotalPages = getBlogTotalPages(BLOG_POSTS.length, BLOG_PAGE_SIZE);
+  const blogPaginationRoutes: MetadataRoute.Sitemap =
+    blogTotalPages > 1
+      ? Array.from({ length: blogTotalPages - 1 }, (_, i) => ({
+          url: `${SITE_URL}/blog/page/${i + 2}`,
+          lastModified,
+          changeFrequency: "weekly" as const,
+          priority: 0.65,
+        }))
+      : [];
+
+  return [
+    ...routes,
+    ...specialtyRoutes,
+    ...solutionRoutes,
+    ...blogRoutes,
+    ...blogPaginationRoutes,
+  ];
 }
