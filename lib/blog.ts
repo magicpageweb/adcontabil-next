@@ -1,4 +1,5 @@
 import { CRC, RESPONSIBLE } from "@/lib/site";
+import { PLANEJAMENTO_TRIBUTARIO_POST } from "@/lib/blog/posts/planejamento-tributario";
 
 export type BlogCategorySlug =
   | "profissionais-da-saude"
@@ -21,12 +22,16 @@ export type BlogRichPart =
 export type BlogBlock =
   | { type: "p"; parts: BlogRichPart[] }
   | { type: "h2"; text: string }
+  | { type: "h3"; text: string }
   | { type: "ul"; items: string[] };
 
 export type BlogPost = {
   slug: string;
   title: string;
   excerpt: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  keywords?: string[];
   category: BlogCategorySlug;
   publishedAt: string;
   readingMinutes: number;
@@ -70,6 +75,10 @@ function h2(text: string): BlogBlock {
   return { type: "h2", text };
 }
 
+function h3(text: string): BlogBlock {
+  return { type: "h3", text };
+}
+
 function ul(...items: string[]): BlogBlock {
   return { type: "ul", items };
 }
@@ -79,6 +88,7 @@ function link(href: string, label: string): BlogRichPart {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  PLANEJAMENTO_TRIBUTARIO_POST,
   {
     slug: "contabilidade-para-profissionais-da-saude-guia-completo",
     title: "Contabilidade para profissionais da saúde: guia completo para começar certo",
@@ -92,6 +102,7 @@ export const BLOG_POSTS: BlogPost[] = [
     coverAlt:
       "Consultório moderno com documentos e elementos de saúde em composição editorial",
     relatedSlugs: [
+      "planejamento-tributario-para-profissionais-da-saude",
       "como-funciona-o-fator-r-para-profissionais-da-saude",
       "pf-ou-pj-qual-compensa-mais-na-area-da-saude",
       "como-escolher-o-cnae-certo-para-sua-especialidade-na-saude",
@@ -165,9 +176,9 @@ export const BLOG_POSTS: BlogPost[] = [
     coverImage: "/blog/como-funciona-o-fator-r-para-profissionais-da-saude.webp",
     coverAlt: "Mesa de análise tributária com calculadora e documentos em ambiente consultivo",
     relatedSlugs: [
+      "planejamento-tributario-para-profissionais-da-saude",
       "pf-ou-pj-qual-compensa-mais-na-area-da-saude",
       "contabilidade-para-profissionais-da-saude-guia-completo",
-      "como-escolher-o-cnae-certo-para-sua-especialidade-na-saude",
     ],
     content: [
       p(
@@ -489,39 +500,46 @@ export function formatBlogDate(iso: string) {
 
 const SPECIALTY_POSTS: Record<string, string[]> = {
   medicos: [
+    "planejamento-tributario-para-profissionais-da-saude",
     "contabilidade-para-profissionais-da-saude-guia-completo",
-    "como-funciona-o-fator-r-para-profissionais-da-saude",
   ],
   dentistas: [
+    "planejamento-tributario-para-profissionais-da-saude",
     "contabilidade-para-dentistas-como-organizar-sua-rotina-fiscal-e-crescer-com-seguranca",
-    "como-escolher-o-cnae-certo-para-sua-especialidade-na-saude",
   ],
   psicologos: [
+    "planejamento-tributario-para-profissionais-da-saude",
     "pf-ou-pj-qual-compensa-mais-na-area-da-saude",
-    "contabilidade-para-profissionais-da-saude-guia-completo",
   ],
   fisioterapeutas: [
-    "contabilidade-para-profissionais-da-saude-guia-completo",
+    "planejamento-tributario-para-profissionais-da-saude",
     "como-funciona-o-fator-r-para-profissionais-da-saude",
   ],
   nutricionistas: [
+    "planejamento-tributario-para-profissionais-da-saude",
     "contabilidade-para-profissionais-da-saude-guia-completo",
-    "pf-ou-pj-qual-compensa-mais-na-area-da-saude",
   ],
   fonoaudiologos: [
+    "planejamento-tributario-para-profissionais-da-saude",
     "contabilidade-para-fonoaudiologos-o-que-avaliar-antes-de-abrir-empresa",
-    "como-escolher-o-cnae-certo-para-sua-especialidade-na-saude",
   ],
 };
 
 const SOLUTION_POSTS: Record<string, string[]> = {
-  "fator-r": ["como-funciona-o-fator-r-para-profissionais-da-saude"],
-  "carne-leao-pj": ["pf-ou-pj-qual-compensa-mais-na-area-da-saude"],
+  "fator-r": [
+    "planejamento-tributario-para-profissionais-da-saude",
+    "como-funciona-o-fator-r-para-profissionais-da-saude",
+  ],
+  "carne-leao-pj": [
+    "planejamento-tributario-para-profissionais-da-saude",
+    "pf-ou-pj-qual-compensa-mais-na-area-da-saude",
+  ],
   "abertura-cnpj": [
+    "planejamento-tributario-para-profissionais-da-saude",
     "como-escolher-o-cnae-certo-para-sua-especialidade-na-saude",
-    "contabilidade-para-profissionais-da-saude-guia-completo",
   ],
   "sociedade-uniprofissional": [
+    "planejamento-tributario-para-profissionais-da-saude",
     "contabilidade-para-dentistas-como-organizar-sua-rotina-fiscal-e-crescer-com-seguranca",
   ],
 };

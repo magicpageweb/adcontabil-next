@@ -35,6 +35,16 @@ export function PostContent({ blocks }: { blocks: BlogBlock[] }) {
             </h2>
           );
         }
+        if (block.type === "h3") {
+          return (
+            <h3
+              key={i}
+              className="font-display text-xl md:text-[1.25rem] font-semibold text-foreground pt-2"
+            >
+              {block.text}
+            </h3>
+          );
+        }
         if (block.type === "ul") {
           return (
             <ul key={i} className="space-y-2.5 pl-1">

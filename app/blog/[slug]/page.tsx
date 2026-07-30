@@ -31,10 +31,10 @@ export async function generateMetadata({
   if (!post) return {};
 
   return buildPageMetadata({
-    title: post.title,
-    description: post.excerpt,
+    title: post.seoTitle ?? post.title,
+    description: post.seoDescription ?? post.excerpt,
     path: `/blog/${post.slug}`,
-    keywords: [
+    keywords: post.keywords ?? [
       post.title.toLowerCase(),
       getBlogCategory(post.category)?.label.toLowerCase() ?? "blog",
       "contabilidade saúde",
