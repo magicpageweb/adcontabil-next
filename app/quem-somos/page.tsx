@@ -3,7 +3,8 @@ import Image from "next/image";
 import { Award, HeartHandshake, ShieldCheck, Sparkles, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { CRC, RESPONSIBLE, WHATSAPP_URL, BRAND, CITY, PHOTOS } from "@/lib/site";
+import { ProfessionalCredentials } from "@/components/site/ProfessionalCredentials";
+import { CRC, OFFICE_CRC, RESPONSIBLE, WHATSAPP_URL, BRAND, CITY, PHOTOS } from "@/lib/site";
 import { breadcrumbSchema, buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -22,6 +23,7 @@ const aboutSchemas = [
     mainEntity: {
       "@type": "AccountingService",
       name: BRAND,
+      identifier: OFFICE_CRC,
       employee: {
         "@type": "Person",
         name: RESPONSIBLE,
@@ -81,7 +83,6 @@ export default function AboutPage() {
           <h2 className="font-display text-3xl font-semibold text-primary">Nossa responsável técnica</h2>
           <p className="mt-4 text-muted-foreground">
             <strong className="text-foreground">{RESPONSIBLE}</strong> lidera a {BRAND} com mais de 10 anos de experiência em contabilidade estratégica e gestão financeira.
-            Registro profissional ativo: <strong className="text-foreground">{CRC}</strong>.
           </p>
           <p className="mt-4 text-muted-foreground">
             Nosso escritório é sediado em {CITY} e atende clientes em todo o Brasil por meio de uma plataforma digital completa, com suporte via WhatsApp e reuniões por vídeo.
@@ -92,6 +93,10 @@ export default function AboutPage() {
             </a>
           </Button>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-4 md:px-6 pb-16">
+        <ProfessionalCredentials heading="Identificação institucional" />
       </section>
 
       <section className="mx-auto max-w-5xl px-4 md:px-6 pb-20">

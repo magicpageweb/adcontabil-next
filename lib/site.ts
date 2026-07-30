@@ -18,6 +18,7 @@ export const SITE_URL = "https://contabilidade.adcontabil.net.br";
 export const CRC = "CRC/RS RS094939/O-4";
 export const RESPONSIBLE = "Lidiane Assis Duarte";
 export const BRAND = "AD Contábil";
+export const OFFICE_CRC = "RS-011030/O-4";
 export const TAGLINE = "Inteligência Contábil";
 export const LOGO_PATH = "/logo-ad-contabil.png";
 

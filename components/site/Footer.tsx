@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { BRAND, CRC, RESPONSIBLE, SPECIALTIES, SOLUTIONS, ADDRESS, CITY, EMAIL, PHONE_DISPLAY, PHONE_HREF, LOGO_PATH, SOCIAL, WHATSAPP_URL } from "@/lib/site";
+import { ProfessionalCredentials } from "@/components/site/ProfessionalCredentials";
+import { BRAND, SPECIALTIES, SOLUTIONS, ADDRESS, CITY, EMAIL, PHONE_DISPLAY, PHONE_HREF, LOGO_PATH, SOCIAL, WHATSAPP_URL } from "@/lib/site";
 
 function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -49,13 +50,6 @@ export function Footer() {
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white hover:bg-accent transition-colors" aria-label="WhatsApp">
               <Phone className="h-5 w-5" />
             </a>
-          </div>
-          <div className="mt-5 text-xs text-white/60 space-y-1">
-            <div>
-              Responsável Técnica:{" "}
-              <span className="text-white/90">{RESPONSIBLE}</span>
-            </div>
-            <div>{CRC}</div>
           </div>
         </div>
 
@@ -127,6 +121,14 @@ export function Footer() {
         </div>
       </div>
 
+      <div className="mx-auto max-w-7xl px-4 md:px-6 pb-4">
+        <ProfessionalCredentials
+          variant="dark"
+          heading="Registros profissionais"
+          className="max-w-3xl"
+        />
+      </div>
+
       {/* Bottom bar */}
       <div className="border-t border-white/10 mt-10">
         <div className="mx-auto max-w-7xl px-4 md:px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/50">
@@ -134,7 +136,7 @@ export function Footer() {
             <p>© {new Date().getFullYear()} {BRAND}. Todos os direitos reservados.</p>
           </div>
           <div className="md:w-1/3 text-center text-white/70">
-            <span>{RESPONSIBLE} — {CRC}</span>
+            <span>Contabilidade consultiva para profissionais da saúde</span>
           </div>
           <div className="md:w-1/3 text-center md:text-right">
             <a href="https://www.magicpage.com.br" target="_blank" rel="noopener noreferrer" className="text-[9px] uppercase tracking-wider opacity-60 hover:opacity-100 hover:text-accent transition-all">

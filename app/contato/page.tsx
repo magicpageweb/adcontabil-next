@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import { ProfessionalCredentials } from "@/components/site/ProfessionalCredentials";
 import {
   WHATSAPP_URL,
   BRAND,
@@ -110,6 +111,10 @@ export default function ContactPage() {
             <div className="mt-1 font-display font-semibold text-primary">{c.value}</div>
           </a>
         ))}
+      </section>
+
+      <section className="mx-auto max-w-5xl px-4 md:px-6 pb-12">
+        <ProfessionalCredentials heading="Credibilidade e registro" />
       </section>
 
       <section className="mx-auto max-w-5xl px-4 md:px-6 pb-20">
