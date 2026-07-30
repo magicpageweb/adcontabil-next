@@ -5,6 +5,7 @@ import { ArrowRight, CheckCircle2, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { WHATSAPP_URL, BRAND, SOLUTIONS, SPECIALTIES, getSolution } from "@/lib/site";
+import { getPostsForSolution } from "@/lib/blog";
 import { breadcrumbSchema, buildPageMetadata, serviceSchema } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -42,6 +43,7 @@ export default async function SolutionPage({
   const d = getSolution(slug);
   if (!d) notFound();
 
+  const relatedPosts = getPostsForSolution(d.slug, 2);
   const path = `/solucoes/${slug}`;
   const schemas = [
     serviceSchema({
@@ -135,6 +137,30 @@ export default async function SolutionPage({
             </Link>
           ))}
         </div>
+
+        {relatedPosts.length > 0 && (
+          <div className="mt-10 rounded-2xl border border-border bg-card p-6">
+            <h3 className="font-display text-lg font-semibold text-primary">Leitura relacionada</h3>
+            <ul className="mt-4 space-y-3">
+              {relatedPosts.map((post) => (
+                <li key={post.slug}>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-primary transition"
+                  >
+                    {post.title} <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/blog"
+              className="mt-4 inline-flex text-sm font-semibold text-primary hover:underline"
+            >
+              Ir para o blog
+            </Link>
+          </div>
+        )}
       </section>
     </SiteLayout>
   );

@@ -82,6 +82,9 @@ export function Header() {
             )}
           </div>
 
+          <Link href="/blog" className="px-3 py-2 text-foreground/80 hover:text-primary transition">
+            Blog
+          </Link>
           <Link href="/quem-somos" className="px-3 py-2 text-foreground/80 hover:text-primary transition">
             Sobre Nós
           </Link>
@@ -144,6 +147,13 @@ export function Header() {
                 {s.label}
               </Link>
             ))}
+            <Link
+              href="/blog"
+              onClick={() => setOpen(false)}
+              className="block py-2 text-sm font-medium"
+            >
+              Blog
+            </Link>
             <Link
               href="/quem-somos"
               onClick={() => setOpen(false)}

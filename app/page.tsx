@@ -7,6 +7,7 @@ import { SolutionsPreview } from "@/components/home/SolutionsPreview";
 import { AboutPreview } from "@/components/home/AboutPreview";
 import { PlansPreview } from "@/components/home/PlansPreview";
 import { FAQPreview } from "@/components/home/FAQPreview";
+import { BlogPreview } from "@/components/home/BlogPreview";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { BRAND, DEFAULT_DESCRIPTION, HOME_FAQS } from "@/lib/site";
 import { buildPageMetadata, faqSchema } from "@/lib/seo";
@@ -35,6 +36,7 @@ export default function HomePage() {
       <SolutionsPreview />
       <AboutPreview />
       <PlansPreview />
+      <BlogPreview />
       <FAQPreview />
       <FinalCTA />
     </SiteLayout>

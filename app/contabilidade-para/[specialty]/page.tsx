@@ -28,6 +28,7 @@ import {
   getSpecialty,
   type SpecialtyIconKey,
 } from "@/lib/site";
+import { getPostsForSpecialty } from "@/lib/blog";
 import { breadcrumbSchema, buildPageMetadata, serviceSchema } from "@/lib/seo";
 
 const specialtyIcons: Record<SpecialtyIconKey, LucideIcon> = {
@@ -77,6 +78,7 @@ export default async function SpecialtyPage({
 
   const Icon = specialtyIcons[spec.icon];
   const path = `/contabilidade-para/${spec.slug}`;
+  const relatedPosts = getPostsForSpecialty(spec.slug, 2);
   const primaryCta = spec.primaryCta ?? "Fale com a AD Contábil";
   const secondaryCta = spec.secondaryCta ?? "Solicitar diagnóstico";
   const ctaTitle =
@@ -303,6 +305,30 @@ export default async function SpecialtyPage({
           </Link>
           — com a orientação consultiva da {BRAND}.
         </p>
+
+        {relatedPosts.length > 0 && (
+          <div className="mt-10 rounded-2xl border border-border bg-card p-6">
+            <h3 className="font-display text-lg font-semibold text-primary">Do blog</h3>
+            <ul className="mt-4 space-y-3">
+              {relatedPosts.map((post) => (
+                <li key={post.slug}>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-primary transition"
+                  >
+                    {post.title} <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/blog"
+              className="mt-4 inline-flex text-sm font-semibold text-primary hover:underline"
+            >
+              Ver todos os artigos
+            </Link>
+          </div>
+        )}
       </section>
     </SiteLayout>
   );

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SiteLayout } from "@/components/site/SiteLayout";
@@ -133,6 +134,13 @@ export default function ContactPage() {
             </a>
           </Button>
         </div>
+        <p className="mt-8 text-center text-sm text-muted-foreground">
+          Enquanto isso, explore o{" "}
+          <Link href="/blog" className="font-semibold text-primary hover:underline">
+            blog da AD Contábil
+          </Link>{" "}
+          com guias sobre Fator R, PF x PJ e especialidades da saúde.
+        </p>
       </section>
     </SiteLayout>
   );

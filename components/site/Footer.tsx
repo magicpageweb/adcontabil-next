@@ -88,6 +88,11 @@ export function Footer() {
               </li>
             ))}
             <li>
+              <Link href="/blog" className="hover:text-secondary transition-colors">
+                Blog
+              </Link>
+            </li>
+            <li>
               <Link href="/#planos" className="hover:text-secondary transition-colors">
                 Planos
               </Link>
