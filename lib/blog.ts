@@ -1,5 +1,6 @@
 import { CRC, RESPONSIBLE } from "@/lib/site";
 import { PLANEJAMENTO_TRIBUTARIO_POST } from "@/lib/blog/posts/planejamento-tributario";
+import { SIMPLES_NACIONAL_POST } from "@/lib/blog/posts/simples-nacional";
 
 export type BlogCategorySlug =
   | "profissionais-da-saude"
@@ -88,6 +89,7 @@ function link(href: string, label: string): BlogRichPart {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  SIMPLES_NACIONAL_POST,
   PLANEJAMENTO_TRIBUTARIO_POST,
   {
     slug: "contabilidade-para-profissionais-da-saude-guia-completo",
@@ -176,9 +178,9 @@ export const BLOG_POSTS: BlogPost[] = [
     coverImage: "/blog/como-funciona-o-fator-r-para-profissionais-da-saude.webp",
     coverAlt: "Mesa de análise tributária com calculadora e documentos em ambiente consultivo",
     relatedSlugs: [
+      "simples-nacional-para-profissionais-da-saude",
       "planejamento-tributario-para-profissionais-da-saude",
       "pf-ou-pj-qual-compensa-mais-na-area-da-saude",
-      "contabilidade-para-profissionais-da-saude-guia-completo",
     ],
     content: [
       p(
@@ -500,42 +502,42 @@ export function formatBlogDate(iso: string) {
 
 const SPECIALTY_POSTS: Record<string, string[]> = {
   medicos: [
+    "simples-nacional-para-profissionais-da-saude",
     "planejamento-tributario-para-profissionais-da-saude",
-    "contabilidade-para-profissionais-da-saude-guia-completo",
   ],
   dentistas: [
-    "planejamento-tributario-para-profissionais-da-saude",
+    "simples-nacional-para-profissionais-da-saude",
     "contabilidade-para-dentistas-como-organizar-sua-rotina-fiscal-e-crescer-com-seguranca",
   ],
   psicologos: [
+    "simples-nacional-para-profissionais-da-saude",
     "planejamento-tributario-para-profissionais-da-saude",
-    "pf-ou-pj-qual-compensa-mais-na-area-da-saude",
   ],
   fisioterapeutas: [
-    "planejamento-tributario-para-profissionais-da-saude",
+    "simples-nacional-para-profissionais-da-saude",
     "como-funciona-o-fator-r-para-profissionais-da-saude",
   ],
   nutricionistas: [
+    "simples-nacional-para-profissionais-da-saude",
     "planejamento-tributario-para-profissionais-da-saude",
-    "contabilidade-para-profissionais-da-saude-guia-completo",
   ],
   fonoaudiologos: [
-    "planejamento-tributario-para-profissionais-da-saude",
+    "simples-nacional-para-profissionais-da-saude",
     "contabilidade-para-fonoaudiologos-o-que-avaliar-antes-de-abrir-empresa",
   ],
 };
 
 const SOLUTION_POSTS: Record<string, string[]> = {
   "fator-r": [
-    "planejamento-tributario-para-profissionais-da-saude",
+    "simples-nacional-para-profissionais-da-saude",
     "como-funciona-o-fator-r-para-profissionais-da-saude",
   ],
   "carne-leao-pj": [
-    "planejamento-tributario-para-profissionais-da-saude",
+    "simples-nacional-para-profissionais-da-saude",
     "pf-ou-pj-qual-compensa-mais-na-area-da-saude",
   ],
   "abertura-cnpj": [
-    "planejamento-tributario-para-profissionais-da-saude",
+    "simples-nacional-para-profissionais-da-saude",
     "como-escolher-o-cnae-certo-para-sua-especialidade-na-saude",
   ],
   "sociedade-uniprofissional": [
