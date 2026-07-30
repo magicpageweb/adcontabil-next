@@ -48,9 +48,9 @@ export const SIMPLES_NACIONAL_POST: BlogPost = {
     "Simples Nacional para profissionais da saúde em ambiente contábil consultivo",
   relatedSlugs: [
     "planejamento-tributario-para-profissionais-da-saude",
+    "escritorio-de-contabilidade-gestao-estrategica",
     "como-funciona-o-fator-r-para-profissionais-da-saude",
-    "pf-ou-pj-qual-compensa-mais-na-area-da-saude",
-    "como-escolher-o-cnae-certo-para-sua-especialidade-na-saude",
+    "contabilidade-especializada-para-dentistas",
   ],
   content: [
     p(

@@ -49,9 +49,9 @@ export const PLANEJAMENTO_TRIBUTARIO_POST: BlogPost = {
     "Planejamento tributário para profissionais da saúde em ambiente contábil consultivo",
   relatedSlugs: [
     "simples-nacional-para-profissionais-da-saude",
+    "escritorio-de-contabilidade-gestao-estrategica",
     "como-funciona-o-fator-r-para-profissionais-da-saude",
-    "pf-ou-pj-qual-compensa-mais-na-area-da-saude",
-    "como-escolher-o-cnae-certo-para-sua-especialidade-na-saude",
+    "contabilidade-especializada-para-dentistas",
   ],
   content: [
     p(

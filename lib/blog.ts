@@ -1,4 +1,6 @@
 import { CRC, RESPONSIBLE } from "@/lib/site";
+import { CONTABILIDADE_DENTISTAS_ESPECIALIZADA_POST } from "@/lib/blog/posts/contabilidade-dentistas";
+import { ESCRITORIO_CONTABILIDADE_POST } from "@/lib/blog/posts/escritorio-contabilidade";
 import { PLANEJAMENTO_TRIBUTARIO_POST } from "@/lib/blog/posts/planejamento-tributario";
 import { SIMPLES_NACIONAL_POST } from "@/lib/blog/posts/simples-nacional";
 
@@ -89,6 +91,8 @@ function link(href: string, label: string): BlogRichPart {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  CONTABILIDADE_DENTISTAS_ESPECIALIZADA_POST,
+  ESCRITORIO_CONTABILIDADE_POST,
   SIMPLES_NACIONAL_POST,
   PLANEJAMENTO_TRIBUTARIO_POST,
   {
@@ -411,9 +415,9 @@ export const BLOG_POSTS: BlogPost[] = [
       "/blog/contabilidade-para-dentistas-como-organizar-sua-rotina-fiscal-e-crescer-com-seguranca.webp",
     coverAlt: "Consultório odontológico moderno com composição visual sofisticada",
     relatedSlugs: [
-      "como-funciona-o-fator-r-para-profissionais-da-saude",
-      "como-escolher-o-cnae-certo-para-sua-especialidade-na-saude",
-      "pf-ou-pj-qual-compensa-mais-na-area-da-saude",
+      "contabilidade-especializada-para-dentistas",
+      "planejamento-tributario-para-profissionais-da-saude",
+      "simples-nacional-para-profissionais-da-saude",
     ],
     content: [
       p(
@@ -506,7 +510,7 @@ const SPECIALTY_POSTS: Record<string, string[]> = {
     "planejamento-tributario-para-profissionais-da-saude",
   ],
   dentistas: [
-    "simples-nacional-para-profissionais-da-saude",
+    "contabilidade-especializada-para-dentistas",
     "contabilidade-para-dentistas-como-organizar-sua-rotina-fiscal-e-crescer-com-seguranca",
   ],
   psicologos: [
