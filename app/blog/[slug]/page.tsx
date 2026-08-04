@@ -3,19 +3,32 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import { ArticleActions } from "@/components/blog/ArticleActions";
+import { ArticleMeta } from "@/components/blog/ArticleMeta";
+import { ArticleSummary } from "@/components/blog/ArticleSummary";
+import { ArticleToc } from "@/components/blog/ArticleToc";
 import { AuthorBio } from "@/components/blog/AuthorBio";
 import { BlogCTA } from "@/components/blog/BlogCTA";
-import { PostCard } from "@/components/blog/PostCard";
+import { BrandBio } from "@/components/blog/BrandBio";
 import { PostContent } from "@/components/blog/PostContent";
+import { BlogCarousel } from "@/components/home/BlogCarousel";
 import {
-  BLOG_AUTHOR,
   BLOG_POSTS,
-  formatBlogDate,
-  getBlogCategory,
   getBlogPost,
+  getRecentPosts,
   getRelatedPosts,
 } from "@/lib/blog";
-import { breadcrumbSchema, buildPageMetadata } from "@/lib/seo";
+import {
+  countPostWords,
+  extractHeadings,
+  getTocMode,
+  summaryItemsFromPost,
+} from "@/lib/blog-content";
+import {
+  buildArticleMetadata,
+  buildBlogPostSchemas,
+} from "@/lib/blog-seo";
+import { absoluteUrl } from "@/lib/seo";
 
 export function generateStaticParams() {
   return BLOG_POSTS.map((p) => ({ slug: p.slug }));
@@ -29,17 +42,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) return {};
-
-  return buildPageMetadata({
-    title: post.seoTitle ?? post.title,
-    description: post.seoDescription ?? post.excerpt,
-    path: `/blog/${post.slug}`,
-    keywords: post.keywords ?? [
-      post.title.toLowerCase(),
-      getBlogCategory(post.category)?.label.toLowerCase() ?? "blog",
-      "contabilidade saúde",
-    ],
-  });
+  return buildArticleMetadata(post);
 }
 
 export default async function BlogPostPage({
@@ -51,31 +54,17 @@ export default async function BlogPostPage({
   const post = getBlogPost(slug);
   if (!post) notFound();
 
-  const category = getBlogCategory(post.category);
   const related = getRelatedPosts(post, 3);
+  const latestPosts = getRecentPosts(8).filter((p) => p.slug !== post.slug);
   const path = `/blog/${post.slug}`;
-
-  const schemas = [
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      headline: post.title,
-      description: post.excerpt,
-      image: post.coverImage,
-      datePublished: post.publishedAt,
-      author: {
-        "@type": "Person",
-        name: BLOG_AUTHOR.name,
-        description: BLOG_AUTHOR.crc,
-      },
-      mainEntityOfPage: path,
-    },
-    breadcrumbSchema([
-      { name: "Início", path: "/" },
-      { name: "Blog", path: "/blog" },
-      { name: post.title, path },
-    ]),
-  ];
+  const url = absoluteUrl(path);
+  const wordCount = countPostWords(post);
+  const headings = extractHeadings(post.content, { includeH3: true });
+  const h2Count = headings.filter((h) => h.level === 2).length;
+  const tocMode = getTocMode(wordCount, h2Count);
+  const summaryItems = summaryItemsFromPost(post, headings);
+  const schemas = buildBlogPostSchemas(post, related);
+  const stickyToc = tocMode === "auto";
 
   return (
     <SiteLayout>
@@ -101,85 +90,108 @@ export default async function BlogPostPage({
                   </Link>
                 </li>
                 <li aria-hidden>/</li>
-                <li className="text-white/90 line-clamp-1 max-w-[16rem] md:max-w-md">
+                <li className="text-white/90 line-clamp-1 max-w-[12rem] sm:max-w-[16rem] md:max-w-md">
                   {post.title}
                 </li>
               </ol>
             </nav>
 
-            {category && (
-              <Link
-                href={`/blog?categoria=${category.slug}`}
-                className="inline-flex rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold text-accent hover:bg-white/10 transition"
-              >
-                {category.label}
-              </Link>
-            )}
-
-            <h1 className="mt-4 font-display text-3xl md:text-5xl font-semibold text-balance leading-[1.12]">
+            <h1 className="font-display text-3xl md:text-5xl font-semibold text-balance leading-[1.12]">
               {post.title}
             </h1>
 
-            <div className="mt-5 flex flex-wrap gap-x-4 gap-y-1 text-sm text-white/70">
-              <time dateTime={post.publishedAt}>{formatBlogDate(post.publishedAt)}</time>
-              <span>{post.readingMinutes} min de leitura</span>
-              <span>
-                {BLOG_AUTHOR.name} · {BLOG_AUTHOR.crc}
-              </span>
-            </div>
+            <ArticleMeta post={post} />
           </div>
 
           <div className="mx-auto max-w-5xl px-4 md:px-6 pb-12 md:pb-16">
-            <div className="relative overflow-hidden rounded-2xl soft-card aspect-[16/9]">
+            <figure className="relative overflow-hidden rounded-2xl soft-card aspect-[16/9]">
               <Image
                 src={post.coverImage}
                 alt={post.coverAlt}
+                title={post.coverAlt}
                 width={1600}
                 height={900}
                 className="h-full w-full object-cover"
                 priority
                 sizes="(max-width: 1024px) 100vw, 1024px"
               />
-            </div>
+              <figcaption className="sr-only">{post.coverAlt}</figcaption>
+            </figure>
           </div>
         </header>
 
-        <div className="mx-auto max-w-3xl px-4 md:px-6 py-12 md:py-16">
-          <PostContent blocks={post.content} />
+        <div className="mx-auto max-w-6xl px-4 md:px-6 py-12 md:py-16">
+          <div
+            className={
+              stickyToc
+                ? "lg:grid lg:grid-cols-[minmax(0,240px)_minmax(0,48rem)] lg:gap-10 lg:justify-center"
+                : "mx-auto max-w-3xl"
+            }
+          >
+            {stickyToc && (
+              <div className="min-w-0">
+                <ArticleToc headings={headings} mode={tocMode} />
+              </div>
+            )}
+
+            <div className="min-w-0">
+              {!stickyToc && <ArticleToc headings={headings} mode={tocMode} />}
+              <ArticleSummary items={summaryItems} />
+              <PostContent blocks={post.content} />
+            </div>
+          </div>
         </div>
 
-        <div className="mx-auto max-w-3xl px-4 md:px-6 pb-10">
-          <BlogCTA
-            badge="Próximo passo"
-            title="Quer aplicar esse conteúdo à sua operação?"
-            text="Fale com a AD Contábil e receba uma análise personalizada — com foco em enquadramento, viabilidade e organização da rotina fiscal."
+        <footer className="mx-auto max-w-3xl px-4 md:px-6 pb-10">
+          <ArticleActions
+            title={post.title}
+            url={url}
+            description={post.seoDescription ?? post.excerpt}
           />
-        </div>
-
-        <div className="mx-auto max-w-3xl px-4 md:px-6 pb-14">
-          <AuthorBio />
-        </div>
+        </footer>
       </article>
 
-      <section className="bg-surface border-y border-border/70">
+      <aside
+        aria-labelledby="latest-posts-title"
+        className="bg-surface border-y border-border/70"
+      >
         <div className="mx-auto max-w-7xl px-4 md:px-6 py-16">
-          <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground">
-            Artigos relacionados
-          </h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {related.map((p) => (
-              <PostCard key={p.slug} post={p} />
-            ))}
-          </div>
-          <p className="mt-8 text-sm text-muted-foreground">
-            Voltar para o{" "}
-            <Link href="/blog" className="font-semibold text-primary hover:underline">
-              hub do blog
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h2
+                id="latest-posts-title"
+                className="font-display text-2xl md:text-3xl font-semibold text-foreground"
+              >
+                Últimos do blog
+              </h2>
+              <p className="mt-2 text-sm text-muted-foreground text-pretty">
+                Continue lendo conteúdos da AD Contábil sobre contabilidade para
+                profissionais da saúde.
+              </p>
+            </div>
+            <Link
+              href="/blog"
+              className="text-sm font-semibold text-primary hover:underline"
+            >
+              Ver todos os artigos
             </Link>
-            .
-          </p>
+          </div>
+          <BlogCarousel
+            posts={latestPosts}
+            label="Últimos artigos do blog"
+          />
         </div>
-      </section>
+      </aside>
+
+      <div className="mx-auto max-w-3xl px-4 md:px-6 py-12 space-y-8">
+        <AuthorBio />
+        <BrandBio />
+        <BlogCTA
+          badge="Próximo passo"
+          title="Sua contabilidade está preparada para orientar o consultório?"
+          text="Receba uma análise técnica da AD Contábil sobre enquadramento, Fator R, rotina fiscal e organização financeira — com atendimento consultivo em Santa Cruz do Sul/RS."
+        />
+      </div>
     </SiteLayout>
   );
 }

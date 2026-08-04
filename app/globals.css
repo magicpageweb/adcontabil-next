@@ -91,6 +91,45 @@
   h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* Blog GEO callouts */
+.mp-callout {
+  margin: 1.5rem 0;
+  padding: 1.15rem 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
+  background: #FFFCF8;
+}
+.mp-callout__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-dark-brand);
+}
+.mp-callout__body {
+  margin: 0.45rem 0 0;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--color-dark-brand) 88%, transparent);
+}
+.mp-callout--resumo {
+  border-left: 4px solid var(--color-primary-brand);
+  background: color-mix(in srgb, var(--color-primary-brand) 8%, #FFFCF8);
+}
+.mp-callout--importante {
+  border-left: 4px solid #B45309;
+  background: color-mix(in srgb, #B45309 9%, #FFFCF8);
+}
+.mp-callout--dica {
+  border-left: 4px solid var(--color-cta-brand);
+  background: color-mix(in srgb, var(--color-cta-brand) 12%, #FFFCF8);
+}
+
 @utility bg-hero-dark {
   background:
     radial-gradient(1200px 500px at 80% -10%, color-mix(in srgb, var(--color-primary-brand) 35%, transparent), transparent 60%),

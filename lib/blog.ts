@@ -1,5 +1,10 @@
 import { CRC, RESPONSIBLE } from "@/lib/site";
+import {
+  buildPostSearchBlob,
+  keywordOverlapScore,
+} from "@/lib/blog-content";
 import { CONTABILIDADE_DENTISTAS_ESPECIALIZADA_POST } from "@/lib/blog/posts/contabilidade-dentistas";
+import { CONTABILIDADE_SANTA_CRUZ_POST } from "@/lib/blog/posts/contabilidade-santa-cruz";
 import { ESCRITORIO_CONTABILIDADE_POST } from "@/lib/blog/posts/escritorio-contabilidade";
 import { PLANEJAMENTO_TRIBUTARIO_POST } from "@/lib/blog/posts/planejamento-tributario";
 import { SIMPLES_NACIONAL_POST } from "@/lib/blog/posts/simples-nacional";
@@ -22,11 +27,24 @@ export type BlogRichPart =
   | string
   | { type: "link"; href: string; label: string };
 
+export type BlogCalloutVariant = "resumo" | "importante" | "dica";
+
 export type BlogBlock =
   | { type: "p"; parts: BlogRichPart[] }
   | { type: "h2"; text: string }
   | { type: "h3"; text: string }
-  | { type: "ul"; items: string[] };
+  | { type: "ul"; items: string[] }
+  | {
+      type: "callout";
+      variant: BlogCalloutVariant;
+      title?: string;
+      parts: BlogRichPart[];
+    };
+
+export type BlogFaqItem = {
+  q: string;
+  a: string;
+};
 
 export type BlogPost = {
   slug: string;
@@ -35,13 +53,18 @@ export type BlogPost = {
   seoTitle?: string;
   seoDescription?: string;
   keywords?: string[];
+  tags?: string[];
+  summaryBullets?: string[];
   category: BlogCategorySlug;
   publishedAt: string;
+  updatedAt?: string;
+  /** Manual estimate kept for listings; article pages recalculate at 220 wpm. */
   readingMinutes: number;
   featured: boolean;
   coverImage: string;
   coverAlt: string;
   relatedSlugs: string[];
+  faq?: BlogFaqItem[];
   content: BlogBlock[];
 };
 
@@ -91,6 +114,7 @@ function link(href: string, label: string): BlogRichPart {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  CONTABILIDADE_SANTA_CRUZ_POST,
   CONTABILIDADE_DENTISTAS_ESPECIALIZADA_POST,
   ESCRITORIO_CONTABILIDADE_POST,
   SIMPLES_NACIONAL_POST,
@@ -590,15 +614,40 @@ export function getBlogListing({
   };
 }
 
+function tagOverlapCount(a: BlogPost, b: BlogPost): number {
+  const tagsA = new Set((a.tags ?? []).map((t) => t.toLowerCase()));
+  const tagsB = (b.tags ?? []).map((t) => t.toLowerCase());
+  if (!tagsA.size || !tagsB.length) return 0;
+  return tagsB.filter((t) => tagsA.has(t)).length;
+}
+
 export function getRelatedPosts(post: BlogPost, limit = 3) {
-  const related = post.relatedSlugs
-    .map((slug) => getBlogPost(slug))
-    .filter((p): p is BlogPost => Boolean(p));
-  if (related.length >= limit) return related.slice(0, limit);
-  const extras = getRecentPosts().filter(
-    (p) => p.slug !== post.slug && !related.some((r) => r.slug === p.slug),
-  );
-  return [...related, ...extras].slice(0, limit);
+  const sourceBlob = buildPostSearchBlob(post);
+  const curated = new Set(post.relatedSlugs);
+
+  const scored = getRecentPosts()
+    .filter((candidate) => candidate.slug !== post.slug)
+    .map((candidate) => {
+      let score = 0;
+
+      if (candidate.category === post.category) score += 100;
+      score += tagOverlapCount(post, candidate) * 18;
+      score += keywordOverlapScore(sourceBlob, buildPostSearchBlob(candidate)) * 40;
+
+      if (curated.has(candidate.slug)) score += 25;
+
+      const ageDays =
+        (Date.now() - +new Date(candidate.publishedAt)) / (1000 * 60 * 60 * 24);
+      score += Math.max(0, 12 - ageDays / 30);
+
+      return { candidate, score };
+    })
+    .sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      return +new Date(b.candidate.publishedAt) - +new Date(a.candidate.publishedAt);
+    });
+
+  return scored.slice(0, limit).map((item) => item.candidate);
 }
 
 export function formatBlogDate(iso: string) {

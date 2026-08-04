@@ -1,20 +1,10 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { PostCard } from "@/components/blog/PostCard";
-import { getFeaturedPosts, getRecentPosts } from "@/lib/blog";
+import { BlogCarousel } from "@/components/home/BlogCarousel";
+import { getRecentPosts } from "@/lib/blog";
 
 export function BlogPreview() {
-  const featured = getFeaturedPosts(3);
-  const posts =
-    featured.length >= 3
-      ? featured.slice(0, 3)
-      : [
-          ...featured,
-          ...getRecentPosts(3).filter(
-            (p) => !featured.some((f) => f.slug === p.slug),
-          ),
-        ].slice(0, 3);
-
+  const posts = getRecentPosts(8);
   if (posts.length === 0) return null;
 
   return (
@@ -26,10 +16,11 @@ export function BlogPreview() {
               Blog
             </p>
             <h2 className="mt-2 font-display text-2xl md:text-3xl font-semibold text-foreground">
-              Leituras em destaque
+              Últimos do blog
             </h2>
             <p className="mt-2 text-sm text-muted-foreground text-pretty">
-              Artigos selecionados para reforçar clareza tributária e gestão na saúde.
+              Conteúdo recente da AD Contábil sobre enquadramento, Fator R e
+              gestão contábil para profissionais da saúde.
             </p>
           </div>
           <Link
@@ -40,11 +31,7 @@ export function BlogPreview() {
           </Link>
         </div>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post) => (
-            <PostCard key={post.slug} post={post} compact />
-          ))}
-        </div>
+        <BlogCarousel posts={posts} />
       </div>
     </section>
   );

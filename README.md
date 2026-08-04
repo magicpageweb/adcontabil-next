@@ -23,4 +23,4 @@ npm run build
 npm start
 ```
 
-Deploy: Vercel · domínio `contabilidade.adcontabil.net.br`
+Deploy: Vercel · domínio `adcontabil.net.br`

@@ -20,6 +20,13 @@ function link(href: string, label: string): BlogRichPart {
   return { type: "link", href, label };
 }
 
+function callout(
+  variant: "resumo" | "importante" | "dica",
+  ...parts: BlogRichPart[]
+): BlogBlock {
+  return { type: "callout", variant, parts };
+}
+
 export const PLANEJAMENTO_TRIBUTARIO_POST: BlogPost = {
   slug: "planejamento-tributario-para-profissionais-da-saude",
   title:
@@ -40,8 +47,23 @@ export const PLANEJAMENTO_TRIBUTARIO_POST: BlogPost = {
     "fator r",
     "gestão tributária",
   ],
+  tags: [
+    "planejamento tributário",
+    "fator r",
+    "simples nacional",
+    "contabilidade consultiva",
+    "saúde",
+  ],
+  summaryBullets: [
+    "O que é planejamento tributário e como ele se aplica à saúde",
+    "Quando vale revisar enquadramento, regime e estrutura da PJ",
+    "Como o Fator R entra na análise do Simples Nacional",
+    "Erros comuns que comprometem a gestão fiscal do consultório",
+    "Como a contabilidade consultiva da AD Contábil conduz o processo",
+  ],
   category: "tributacao",
   publishedAt: "2026-07-30",
+  updatedAt: "2026-08-04",
   readingMinutes: 12,
   featured: true,
   coverImage: "/blog/planejamento-tributario-para-profissionais-da-saude.webp",
@@ -52,6 +74,32 @@ export const PLANEJAMENTO_TRIBUTARIO_POST: BlogPost = {
     "escritorio-de-contabilidade-gestao-estrategica",
     "como-funciona-o-fator-r-para-profissionais-da-saude",
     "contabilidade-especializada-para-dentistas",
+  ],
+  faq: [
+    {
+      q: "O que é planejamento tributário para profissionais da saúde?",
+      a: "É uma análise técnica da estrutura fiscal e tributária da atividade, considerando regime, faturamento, despesas, folha e particularidades do consultório ou clínica — sempre alinhada à legislação vigente.",
+    },
+    {
+      q: "Planejamento tributário significa pagar menos impostos?",
+      a: "Não necessariamente. Consiste em avaliar alternativas previstas na legislação e verificar o que se aplica ao seu caso, de forma individualizada e com orientação de profissional habilitado.",
+    },
+    {
+      q: "Quem deve fazer planejamento tributário?",
+      a: "Profissionais da saúde com empresa aberta ou que estão avaliando formalizar a atividade — especialmente em momentos de abertura de CNPJ, crescimento de faturamento, contratação ou mudança de modelo de atendimento.",
+    },
+    {
+      q: "Com que frequência devo revisar minha estrutura tributária?",
+      a: "Não há frequência única. A revisão faz sentido quando há mudanças relevantes na atividade, na equipe, no faturamento ou na legislação tributária.",
+    },
+    {
+      q: "O planejamento tributário serve apenas para empresas grandes?",
+      a: "Não. Profissionais autônomos e pequenas estruturas também se beneficiam de uma leitura organizada do enquadramento e das obrigações fiscais.",
+    },
+    {
+      q: "Qual a diferença entre planejamento tributário e contabilidade tradicional?",
+      a: "A contabilidade tradicional registra operações e cumpre obrigações. A contabilidade consultiva usa esses dados para orientar decisões de enquadramento, estrutura e gestão do consultório.",
+    },
   ],
   content: [
     p(
@@ -73,6 +121,10 @@ export const PLANEJAMENTO_TRIBUTARIO_POST: BlogPost = {
     h2("O que é planejamento tributário?"),
     p(
       "O planejamento tributário é um conjunto de análises realizadas para verificar se a estrutura fiscal e tributária de uma empresa permanece adequada às suas atividades, sempre observando a legislação aplicável.",
+    ),
+    callout(
+      "resumo",
+      "Em termos práticos, o planejamento tributário organiza a leitura do regime, da estrutura e das obrigações — para que médicos, dentistas e demais profissionais da saúde decidam com base no próprio cenário, não em atalhos genéricos.",
     ),
     p("Na prática, ele envolve a avaliação de diversos fatores, como:"),
     ul(
@@ -205,6 +257,11 @@ export const PLANEJAMENTO_TRIBUTARIO_POST: BlogPost = {
       "O equilíbrio entre pró-labore e distribuição de lucros depende de diversos fatores legais, contábeis e tributários, sendo recomendável que essa definição ocorra com base em análise técnica e observando a legislação vigente.",
     ),
 
+    callout(
+      "importante",
+      "Nenhuma estratégia tributária substitui a análise individual. Alíquotas, anexos e regimes variam conforme faturamento, folha, CNAE e regras municipais — inclusive em Santa Cruz do Sul/RS.",
+    ),
+
     h2("O papel do Fator R no planejamento tributário"),
     p(
       "Entre os temas mais pesquisados por profissionais da saúde está o Fator R, especialmente por empresas optantes pelo Simples Nacional.",
@@ -324,6 +381,11 @@ export const PLANEJAMENTO_TRIBUTARIO_POST: BlogPost = {
     ),
     p(
       "Antes da abertura da empresa ou da alteração das atividades, é recomendável realizar uma análise técnica.",
+    ),
+
+    callout(
+      "dica",
+      "Antes de mudar pró-labore, contratar ou alterar o regime, alinhe a decisão com a contabilidade. A AD Contábil avalia Fator R, ISS e enquadramento com foco na operação real do consultório.",
     ),
 
     h2("Como a contabilidade consultiva contribui para o planejamento tributário"),

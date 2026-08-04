@@ -102,7 +102,11 @@ export function BlogListingView({
       </section>
 
       <section className="mx-auto max-w-7xl px-4 md:px-6 pb-16">
-        <BlogCTA />
+        <BlogCTA
+          secondaryLabel="Ir para contato"
+          secondaryHref="/contato"
+          secondaryIsInternal
+        />
       </section>
 
       <section className="bg-surface border-y border-border/70">

@@ -6,6 +6,7 @@ import {
   getBlogCategory,
   type BlogPost,
 } from "@/lib/blog";
+import { getPostReadingMinutes } from "@/lib/blog-content";
 
 export function PostCard({
   post,
@@ -17,6 +18,7 @@ export function PostCard({
   compact?: boolean;
 }) {
   const category = getBlogCategory(post.category);
+  const readingMinutes = getPostReadingMinutes(post);
 
   if (compact) {
     return (
@@ -94,7 +96,7 @@ export function PostCard({
           <span aria-hidden>·</span>
           <time dateTime={post.publishedAt}>{formatBlogDate(post.publishedAt)}</time>
           <span aria-hidden>·</span>
-          <span>{post.readingMinutes} min de leitura</span>
+          <span>{readingMinutes} min de leitura</span>
         </div>
 
         <h3

@@ -14,7 +14,7 @@ export const ADDRESS_LINE = "Rua Fernando Abott, 895 sala 107, Centro";
 export const CITY = "Santa Cruz do Sul – RS";
 export const CITY_LOCALITY = "Santa Cruz do Sul";
 export const CITY_REGION = "RS";
-export const SITE_URL = "https://contabilidade.adcontabil.net.br";
+export const SITE_URL = "https://adcontabil.net.br";
 
 const MAPS_QUERY =
   "Rua Fernando Abott, 895 sala 107, Centro Santa Cruz do Sul, RS, Brasil";
