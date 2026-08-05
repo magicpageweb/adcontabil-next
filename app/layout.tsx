@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Plus_Jakarta_Sans, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
+import { GA_MEASUREMENT_ID, isGaEnabled } from "@/lib/analytics";
 import {
   BRAND,
   DEFAULT_DESCRIPTION,
@@ -98,6 +100,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased font-sans">{children}</body>
+      {isGaEnabled() ? <GoogleAnalytics gaId={GA_MEASUREMENT_ID} /> : null}
     </html>
   );
 }

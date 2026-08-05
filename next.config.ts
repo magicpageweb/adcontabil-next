@@ -1,5 +1,16 @@
 import type { NextConfig } from "next";
 
+/** Yoast / WP legacy sitemaps → único sitemap do Next.js */
+const legacyWordpressSitemaps = [
+  "/post_tag-sitemap.xml",
+  "/page-sitemap.xml",
+  "/post-sitemap.xml",
+  "/category-sitemap.xml",
+  "/sitemap_index.xml",
+  "/wp-sitemap.xml",
+  "/wp-sitemap-index.xml",
+] as const;
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
@@ -12,6 +23,11 @@ const nextConfig: NextConfig = {
         destination: "/blog/page/:page",
         permanent: true,
       },
+      ...legacyWordpressSitemaps.map((source) => ({
+        source,
+        destination: "/sitemap.xml",
+        permanent: true,
+      })),
     ];
   },
   async rewrites() {
