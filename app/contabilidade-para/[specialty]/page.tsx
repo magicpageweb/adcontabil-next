@@ -275,6 +275,29 @@ export default async function SpecialtyPage({
       </section>
 
       <section className="mx-auto max-w-5xl px-4 md:px-6 py-16">
+        {spec.slug === "medicos" && (
+          <div className="mb-12 rounded-2xl border border-primary/20 bg-primary/5 p-6 md:p-7">
+            <p className="text-xs uppercase tracking-[0.14em] text-primary font-semibold">
+              Atendimento local
+            </p>
+            <h2 className="mt-2 font-display text-xl md:text-2xl font-semibold text-foreground">
+              Médicos em Santa Cruz do Sul
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground text-pretty max-w-2xl">
+              Se o seu consultório ou clínica fica em Santa Cruz do Sul/RS, veja a
+              landing local com foco em abertura de CNPJ, Fator R e rotina fiscal
+              para a medicina na cidade.
+            </p>
+            <Link
+              href="/contabilidade-para-medicos-em-santa-cruz-do-sul"
+              className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all"
+            >
+              Contabilidade para médicos em Santa Cruz do Sul{" "}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        )}
+
         <h2 className="font-display text-2xl font-semibold text-primary">Outras especialidades atendidas</h2>
         <div className="mt-6 flex flex-wrap gap-3">
           {SPECIALTIES.filter((s) => s.slug !== spec.slug).map((s) => (

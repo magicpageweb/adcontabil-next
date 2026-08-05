@@ -13,6 +13,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: `${SITE_URL}/contabilidade-para-medicos-em-santa-cruz-do-sul`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.95,
+    },
+    {
       url: `${SITE_URL}/quem-somos`,
       lastModified,
       changeFrequency: "monthly",

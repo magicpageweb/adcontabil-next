@@ -67,6 +67,14 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link
+                href="/contabilidade-para-medicos-em-santa-cruz-do-sul"
+                className="hover:text-secondary transition-colors"
+              >
+                Médicos em Santa Cruz do Sul
+              </Link>
+            </li>
           </ul>
         </div>
 
