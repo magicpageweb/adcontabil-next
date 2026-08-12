@@ -1,8 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { ProfessionalCredentials } from "@/components/site/ProfessionalCredentials";
-import { BRAND, SPECIALTIES, SOLUTIONS, ADDRESS, CITY, EMAIL, PHONE_DISPLAY, PHONE_HREF, LOGO_PATH, SOCIAL, WHATSAPP_URL } from "@/lib/site";
+import { SiteLogo } from "@/components/site/SiteLogo";
+import { BRAND, SPECIALTIES, SOLUTIONS, ADDRESS, CITY, EMAIL, PHONE_DISPLAY, PHONE_HREF, SOCIAL, WHATSAPP_URL } from "@/lib/site";
 
 function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -29,13 +29,7 @@ export function Footer() {
         {/* Brand */}
         <div className="md:col-span-1 flex flex-col items-center md:items-start">
           <div className="flex items-center justify-center md:justify-start">
-            <Image
-              src={LOGO_PATH}
-              alt="AD Contábil — Contabilidade para profissionais da saúde"
-              width={160}
-              height={48}
-              className="h-10 w-auto brightness-0 invert opacity-90"
-            />
+            <SiteLogo imageClassName="brightness-0 invert opacity-90" />
           </div>
           <p className="mt-4 text-sm text-white/70 max-w-xs md:max-w-none">
             Contabilidade consultiva especializada no setor da saúde. Atendimento digital para todo o Brasil.

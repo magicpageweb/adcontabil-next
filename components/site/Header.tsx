@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu, X, MessageCircle, ChevronDown, Stethoscope, Calculator } from "lucide-react";
-import { WHATSAPP_URL, SPECIALTIES, SOLUTIONS, LOGO_PATH } from "@/lib/site";
+import { WHATSAPP_URL, SPECIALTIES, SOLUTIONS } from "@/lib/site";
 import { Button } from "@/components/ui/button";
+import { SiteLogo } from "@/components/site/SiteLogo";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -14,16 +14,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/85 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center">
-          <Image
-            src={LOGO_PATH}
-            alt="AD Contábil — Contabilidade para profissionais da saúde"
-            width={160}
-            height={48}
-            className="h-10 w-auto"
-            priority
-          />
-        </Link>
+        <SiteLogo priority />
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-1 text-sm font-medium">

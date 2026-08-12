@@ -93,7 +93,7 @@ export const SPECIALTIES: readonly Specialty[] = [
       },
       {
         title: "Planejamento do Fator R",
-        desc: "Ajuste do pró-labore para buscar o enquadramento mais vantajoso — alíquotas podem variar entre 6% e 15,5%, dependendo do perfil.",
+        desc: "Acompanhamos o Fator R e o enquadramento dentro das faixas legais (que podem variar entre 6% e 15,5%), buscando a estrutura mais adequada ao perfil e às regras vigentes — sem garantir alíquota específica ou economia automática.",
       },
     ],
   },
@@ -116,7 +116,7 @@ export const SPECIALTIES: readonly Specialty[] = [
       },
       {
         title: "Fator R para dentistas",
-        desc: "Ajuste do pró-labore para buscar o enquadramento mais vantajoso — alíquotas podem variar entre 6% e 15,5%, dependendo do perfil.",
+        desc: "Acompanhamos o Fator R e o enquadramento dentro das faixas legais (que podem variar entre 6% e 15,5%), buscando a estrutura mais adequada ao perfil e às regras vigentes — sem garantir alíquota específica ou economia automática.",
       },
       {
         title: "Controle de próteses e insumos",
@@ -130,12 +130,12 @@ export const SPECIALTIES: readonly Specialty[] = [
     title: "Contabilidade para Psicólogos",
     h1: "Contabilidade Especializada para Psicólogos e Terapeutas",
     short: "Psicólogos & Terapeutas",
-    desc: "Reduza a carga tributária do Carnê-Leão migrando para PJ. Análise de enquadramento e estruturação de CNPJ conforme o perfil profissional.",
+    desc: "Avalie, com orientação contábil, se migrar do Carnê-Leão para PJ faz sentido para o seu perfil — a carga tributária varia conforme faturamento e enquadramento.",
     icon: "brain",
     subtitle:
-      "Reduza a carga tributária do Carnê-Leão migrando para PJ. Avaliamos o enquadramento adequado à sua atuação.",
+      "Avalie, com orientação contábil, se migrar do Carnê-Leão para PJ faz sentido para o seu perfil — a carga tributária varia conforme faturamento e enquadramento.",
     intro:
-      "Para psicólogos e terapeutas, avaliamos a migração para PJ com organização financeira profissional e análise técnica do enquadramento.",
+      "Para psicólogos e terapeutas, analisamos a migração para PJ com organização financeira profissional e orientação técnica do enquadramento — sempre caso a caso.",
     solutions: [
       {
         title: "Abertura de CNPJ",
@@ -147,7 +147,7 @@ export const SPECIALTIES: readonly Specialty[] = [
       },
       {
         title: "Distribuição de lucros",
-        desc: "Orientação sobre a possibilidade de distribuição de lucros isenta, conforme o enquadramento da PJ.",
+        desc: "Orientação sobre a possibilidade de distribuição de lucros isenta de imposto de renda na pessoa física, quando apurada de acordo com a legislação e com base em resultados efetivos — não é automática nem garantida.",
       },
     ],
   },
@@ -197,7 +197,7 @@ export const SPECIALTIES: readonly Specialty[] = [
       },
       {
         title: "Fator R para nutricionistas",
-        desc: "Ajuste do pró-labore para buscar o enquadramento mais vantajoso — alíquotas podem variar entre 6% e 15,5%, dependendo do perfil.",
+        desc: "Acompanhamos o Fator R e o enquadramento dentro das faixas legais (que podem variar entre 6% e 15,5%), buscando a estrutura mais adequada ao perfil e às regras vigentes — sem garantir alíquota específica ou economia automática.",
       },
       {
         title: "Consultoria financeira",
@@ -226,7 +226,7 @@ export const SPECIALTIES: readonly Specialty[] = [
       },
       {
         title: "Fator R e Simples Nacional",
-        desc: "Acompanhamos folha, pró-labore e faturamento para avaliar o enquadramento tributário mais vantajoso dentro das regras do Simples Nacional.",
+        desc: "Acompanhamos folha, pró-labore e faturamento para avaliar o enquadramento nas faixas legais do Simples Nacional (que podem variar entre 6% e 15,5%), buscando a estrutura mais adequada ao perfil — sem garantir alíquota específica ou economia automática.",
       },
       {
         title: "Carnê-Leão e migração PF → PJ",
@@ -256,7 +256,7 @@ export const SPECIALTIES: readonly Specialty[] = [
       "CNAE e natureza jurídica adequados para a atividade.",
       "Regime tributário mais compatível com o faturamento.",
       "Possibilidade de enquadramento no Simples Nacional.",
-      "Impacto do Fator R no imposto mensal.",
+      "Influência do Fator R no enquadramento mensal.",
       "Regras de ISS conforme município.",
       "Organização fiscal para migração de pessoa física para pessoa jurídica.",
     ],
@@ -283,8 +283,8 @@ export const SPECIALTIES: readonly Specialty[] = [
         a: "Sim, a atividade de fonoaudiologia é tratada dentro do Simples Nacional, mas o enquadramento e a faixa aplicável dependem do caso concreto, da estrutura da empresa e da análise tributária mensal.",
       },
       {
-        q: "O Fator R pode ajudar a reduzir o imposto?",
-        a: "Ele pode influenciar o enquadramento tributário e, por consequência, o valor do imposto, mas isso deve ser calculado com base na folha, no pró-labore e no faturamento da empresa.",
+        q: "O Fator R influencia o enquadramento tributário?",
+        a: "Ele é um cálculo que pode alterar em qual faixa de tributação sua empresa se encaixa dentro do Simples Nacional. Isso pode levar a cenários diferentes de carga tributária, mas a análise sempre depende da sua folha de pagamento e do seu faturamento — não há redução automática garantida.",
       },
       {
         q: "Posso continuar como autônomo?",
@@ -308,13 +308,13 @@ export const SOLUTIONS = [
     label: "Fator R e Planejamento Tributário",
     title: "Fator R e Planejamento Tributário",
     subtitle:
-      "Ajuste seu pró-labore para buscar o enquadramento mais vantajoso — alíquotas podem variar entre 6% e 15,5%, dependendo do seu perfil.",
+      "Acompanhamos seu Fator R e o enquadramento dentro das faixas legais (que podem variar entre 6% e 15,5%), buscando a estrutura mais adequada ao seu perfil e às regras vigentes — sem garantir alíquota específica ou economia automática.",
     problem:
-      "Atividades da saúde entram por padrão no Anexo V do Simples Nacional, com alíquotas que podem iniciar em 15,5%, conforme o enquadramento.",
+      "Atividades da saúde entram por padrão no Anexo V do Simples Nacional, com alíquotas que podem iniciar em 15,5%, conforme o enquadramento — o cenário concreto depende do perfil da operação.",
     solution:
-      "Analisamos folha e pró-labore para verificar a viabilidade do Fator R e orientar o enquadramento mais adequado ao perfil da operação.",
+      "Analisamos folha e pró-labore para verificar a viabilidade do Fator R e orientar o enquadramento mais adequado ao perfil da operação, sem prometer alíquota ou economia.",
     bullets: [
-      "Cálculo mensal do Fator R e ajustes preventivos",
+      "Cálculo mensal do Fator R e acompanhamento preventivo",
       "Simulação de cenários antes de contratar colaboradores",
       "Acompanhamento de faturamento e comparativos de enquadramento",
     ],
@@ -340,13 +340,13 @@ export const SOLUTIONS = [
     label: "Carnê-Leão e Migração PF para PJ",
     title: "Carnê-Leão e Migração PF para PJ",
     subtitle:
-      "Avalie a migração de PF para PJ: alíquotas podem partir de 6%, dependendo do seu enquadramento, com possibilidade de distribuição de lucros isenta.",
+      "Avalie a migração de PF para PJ com orientação técnica. Na pessoa jurídica, o Simples Nacional segue faixas próprias de alíquotas e pode permitir a distribuição de lucros isenta de imposto de renda na pessoa física, quando apurada de acordo com a legislação e com base em resultados efetivos — a viabilidade é sempre analisada caso a caso.",
     problem:
-      "Profissionais autônomos podem enfrentar tributação elevada no Carnê-Leão (IR até 27,5%) e INSS sobre grande parte do rendimento.",
+      "Profissionais autônomos podem estar sujeitos à tabela progressiva do IRPF (Carnê-Leão) e à contribuição previdenciária sobre parte relevante do rendimento. O impacto depende do volume de receitas e da estrutura de cada caso.",
     solution:
-      "Realizamos estudo comparativo PF vs PJ, abertura de CNPJ e orientação sobre o enquadramento e a distribuição de lucros conforme a legislação.",
+      "Realizamos estudo comparativo PF vs PJ, abertura de CNPJ e orientação sobre enquadramento e distribuição de lucros conforme a legislação — sem garantir alíquota, isenção automática ou economia.",
     bullets: [
-      "Estudo comparativo PF vs PJ com números reais",
+      "Estudo comparativo PF vs PJ com números reais do perfil",
       "Processo de abertura do CNPJ e alvarás",
       "Transição organizada, sem interromper o atendimento aos pacientes",
     ],
@@ -374,11 +374,11 @@ export type SolutionSlug = (typeof SOLUTIONS)[number]["slug"];
 export const HOME_FAQS = [
   {
     q: "Vale a pena abrir CNPJ sendo médico ou profissional da saúde?",
-    a: "Depende do perfil. Na Pessoa Física, os rendimentos podem ser tributados em até 27,5% no IRPF, além do INSS. Na Pessoa Jurídica, avaliamos o enquadramento — alíquotas podem partir de 6% no Simples Nacional, dependendo do caso, com possibilidade de distribuição de lucros isenta.",
+    a: "Depende do perfil. Na pessoa física, muitos profissionais da saúde são tributados pela tabela progressiva do IRPF, que pode chegar a faixas mais altas conforme o rendimento, além da contribuição previdenciária. Na pessoa jurídica, o enquadramento no Simples Nacional segue faixas próprias de alíquotas e pode permitir a distribuição de lucros isenta de imposto de renda na pessoa física, quando apurada de acordo com a legislação e com base em resultados efetivos da empresa. Isso não é automático nem garantido; a viabilidade é sempre analisada caso a caso.",
   },
   {
     q: "O que é e como funciona o Fator R no Simples Nacional?",
-    a: "É a regra que permite buscar um enquadramento mais vantajoso no Simples Nacional. Quando os custos com folha e pró-labore atingem proporção suficiente em relação ao faturamento, a empresa pode migrar para o Anexo III. As alíquotas podem variar entre 6% e 15,5%, dependendo do perfil — por isso a análise mensal é essencial.",
+    a: "É uma regra do Simples Nacional que pode influenciar o enquadramento da empresa. Quando os custos com folha e pró-labore atingem proporção suficiente em relação ao faturamento, a operação pode migrar de anexo, conforme a legislação. As faixas legais de alíquotas podem variar entre 6% e 15,5%, dependendo do perfil — acompanhamos o cálculo para orientar a estrutura mais adequada, sem garantir alíquota específica ou economia automática. Por isso a análise mensal é essencial.",
   },
   {
     q: "Como funciona a contabilidade digital?",

@@ -12,7 +12,7 @@ const featured = ["fator-r", "sociedade-uniprofissional", "carne-leao-pj"] as co
 
 export function SolutionsPreview() {
   return (
-    <section id="economia" className="bg-surface border-y border-border/70">
+    <section id="solucoes" className="bg-surface border-y border-border/70">
       <div className="mx-auto max-w-7xl px-4 md:px-6 py-20 md:py-24">
         <div className="max-w-2xl reveal-up">
           <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">
