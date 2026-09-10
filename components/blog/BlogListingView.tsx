@@ -106,6 +106,7 @@ export function BlogListingView({
           secondaryLabel="Ir para contato"
           secondaryHref="/contato"
           secondaryIsInternal
+          location="blog_listing"
         />
       </section>
 

@@ -190,6 +190,7 @@ export default async function BlogPostPage({
           badge="Próximo passo"
           title="Sua contabilidade está preparada para orientar o consultório?"
           text="Receba uma análise técnica da AD Contábil sobre enquadramento, Fator R, rotina fiscal e organização financeira — com atendimento consultivo em Santa Cruz do Sul/RS."
+          location="blog_post"
         />
       </div>
     </SiteLayout>
