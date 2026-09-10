@@ -188,8 +188,9 @@ export default async function BlogPostPage({
         <BrandBio />
         <BlogCTA
           badge="Próximo passo"
-          title="Sua contabilidade está preparada para orientar o consultório?"
-          text="Receba uma análise técnica da AD Contábil sobre enquadramento, Fator R, rotina fiscal e organização financeira — com atendimento consultivo em Santa Cruz do Sul/RS."
+          title="Quer organizar a contabilidade da sua empresa ou consultório?"
+          text="Em poucos passos você fala com a nossa equipe."
+          primaryLabel="Solicitar análise contábil"
           location="blog_post"
         />
       </div>

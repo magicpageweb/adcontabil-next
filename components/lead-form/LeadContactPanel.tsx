@@ -26,7 +26,8 @@ export function LeadContactPanel({
           Como podemos ajudar?
         </h2>
         <p className="mt-2 text-sm text-muted-foreground leading-relaxed text-pretty">
-          Preencha um formulário rápido para que possamos entender melhor sua necessidade.
+          Conte-nos brevemente o seu momento para direcionarmos o seu atendimento ao especialista
+          certo.
         </p>
       </div>
 
@@ -38,7 +39,7 @@ export function LeadContactPanel({
           onClick={onFillForm}
           className="h-11 w-full min-h-11 bg-cta text-cta-foreground hover:opacity-90"
         >
-          Preencher formulário
+          Iniciar atendimento rápido
         </Button>
 
         <p className="text-sm text-muted-foreground leading-relaxed text-pretty">

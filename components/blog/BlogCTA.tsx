@@ -8,9 +8,9 @@ import { WHATSAPP_URL } from "@/lib/site";
 
 export function BlogCTA({
   badge = "Diagnóstico contábil",
-  title = "Sua contabilidade está preparada para orientar o consultório?",
-  text = "Solicite uma análise técnica da AD Contábil: enquadramento, Fator R, rotina fiscal e organização financeira alinhados à sua especialidade em Santa Cruz do Sul/RS.",
-  primaryLabel = "Solicitar Diagnóstico",
+  title = "Quer organizar a contabilidade da sua empresa ou consultório?",
+  text = "Em poucos passos você fala com a nossa equipe.",
+  primaryLabel = "Solicitar análise contábil",
   secondaryLabel = "Falar com um Especialista",
   secondaryHref = WHATSAPP_URL,
   secondaryIsInternal = false,
