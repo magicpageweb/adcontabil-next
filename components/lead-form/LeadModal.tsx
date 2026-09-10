@@ -19,7 +19,12 @@ export function LeadModal({ open, onClose, analyticsLocation }: LeadModalProps) 
     if (!open) return;
 
     const previous = document.activeElement as HTMLElement | null;
-    closeRef.current?.focus();
+    const focusTimer = window.requestAnimationFrame(() => {
+      const nameInput = panelRef.current?.querySelector<HTMLElement>(
+        'input[name="name"], input[type="text"]:not([tabindex="-1"])',
+      );
+      (nameInput ?? closeRef.current)?.focus();
+    });
 
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") {
@@ -49,6 +54,7 @@ export function LeadModal({ open, onClose, analyticsLocation }: LeadModalProps) 
     document.addEventListener("keydown", onKeyDown);
 
     return () => {
+      window.cancelAnimationFrame(focusTimer);
       document.body.style.overflow = prevOverflow;
       document.removeEventListener("keydown", onKeyDown);
       previous?.focus?.();

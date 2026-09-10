@@ -15,6 +15,8 @@
  * | lead_form_open         | Abertura do formulário de lead | Não (funil)                   |
  * | lead_form_submit       | Envio do formulário de lead    | Sim (recomendado)             |
  * | lead_whatsapp_click    | Abertura do WhatsApp pós-form  | Sim (recomendado)             |
+ * | atendimento_float_open | Painel do botão flutuante      | Não (funil)                   |
+ * | whatsapp_direct_click  | WhatsApp direto (painel float) | Sim (recomendado)             |
  *
  * Conversões NÃO são marcadas no código — configure em GA4:
  * Admin → Eventos → Marcar como evento principal.
@@ -33,6 +35,8 @@ export const GA_EVENTS = {
   leadFormOpen: "lead_form_open",
   leadFormSubmit: "lead_form_submit",
   leadWhatsappClick: "lead_whatsapp_click",
+  atendimentoFloatOpen: "atendimento_float_open",
+  whatsappDirectClick: "whatsapp_direct_click",
 } as const;
 
 export type GaEventName = (typeof GA_EVENTS)[keyof typeof GA_EVENTS];
