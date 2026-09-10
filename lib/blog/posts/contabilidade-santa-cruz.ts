@@ -68,6 +68,7 @@ export const CONTABILIDADE_SANTA_CRUZ_POST: BlogPost = {
   coverAlt:
     "Contabilidade em Santa Cruz do Sul — assessoria consultiva da AD Contábil para empresas e profissionais",
   relatedSlugs: [
+    "escritorio-de-contabilidade-em-santa-cruz-do-sul-guia",
     "escritorio-de-contabilidade-gestao-estrategica",
     "planejamento-tributario-para-profissionais-da-saude",
     "simples-nacional-para-profissionais-da-saude",

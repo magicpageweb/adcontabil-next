@@ -6,6 +6,7 @@ import {
 import { CONTABILIDADE_DENTISTAS_ESPECIALIZADA_POST } from "@/lib/blog/posts/contabilidade-dentistas";
 import { CONTABILIDADE_SANTA_CRUZ_POST } from "@/lib/blog/posts/contabilidade-santa-cruz";
 import { ESCRITORIO_CONTABILIDADE_POST } from "@/lib/blog/posts/escritorio-contabilidade";
+import { ESCRITORIO_SANTA_CRUZ_GUIA_POST } from "@/lib/blog/posts/escritorio-santa-cruz-guia";
 import { PLANEJAMENTO_TRIBUTARIO_POST } from "@/lib/blog/posts/planejamento-tributario";
 import { SIMPLES_NACIONAL_POST } from "@/lib/blog/posts/simples-nacional";
 
@@ -114,6 +115,7 @@ function link(href: string, label: string): BlogRichPart {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  ESCRITORIO_SANTA_CRUZ_GUIA_POST,
   CONTABILIDADE_SANTA_CRUZ_POST,
   CONTABILIDADE_DENTISTAS_ESPECIALIZADA_POST,
   ESCRITORIO_CONTABILIDADE_POST,
