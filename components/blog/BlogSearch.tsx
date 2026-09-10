@@ -1,4 +1,9 @@
+"use client";
+
+import { FormEvent } from "react";
 import { Search } from "lucide-react";
+import { sendGAEvent } from "@next/third-parties/google";
+import { GA_EVENTS, isGaEnabled } from "@/lib/analytics";
 
 export function BlogSearch({
   defaultQuery = "",
@@ -7,11 +12,27 @@ export function BlogSearch({
   defaultQuery?: string;
   categoria?: string | null;
 }) {
+  function onSubmit(event: FormEvent<HTMLFormElement>) {
+    if (!isGaEnabled()) return;
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const q = String(data.get("q") ?? "").trim();
+    try {
+      sendGAEvent("event", GA_EVENTS.blogSearch, {
+        search_term: q.slice(0, 100),
+        has_category: Boolean(categoria),
+      });
+    } catch {
+      /* no-op */
+    }
+  }
+
   return (
     <form
       action="/blog"
       method="get"
       role="search"
+      onSubmit={onSubmit}
       className="relative w-full max-w-xl"
     >
       {categoria ? <input type="hidden" name="categoria" value={categoria} /> : null}

@@ -29,7 +29,14 @@ import {
   type SpecialtyIconKey,
 } from "@/lib/site";
 import { getPostsForSpecialty } from "@/lib/blog";
-import { breadcrumbSchema, buildPageMetadata, serviceSchema } from "@/lib/seo";
+import { GaClick } from "@/components/analytics/GaClick";
+import { GA_EVENTS } from "@/lib/analytics";
+import {
+  breadcrumbSchema,
+  buildPageMetadata,
+  faqSchema,
+  serviceSchema,
+} from "@/lib/seo";
 
 const specialtyIcons: Record<SpecialtyIconKey, LucideIcon> = {
   stethoscope: Stethoscope,
@@ -99,6 +106,7 @@ export default async function SpecialtyPage({
       { name: "Especialidades", path: "/#especialidades" },
       { name: spec.title, path },
     ]),
+    ...(spec.faqs && spec.faqs.length > 0 ? [faqSchema(spec.faqs)] : []),
   ];
 
   return (
@@ -266,11 +274,37 @@ export default async function SpecialtyPage({
             {ctaTitle}
           </h2>
           <p className="mt-4 text-muted-foreground">{ctaText}</p>
-          <Button asChild size="lg" className="mt-8 bg-whatsapp text-white hover:opacity-90 h-12 px-8">
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="mr-2 h-5 w-5" /> {primaryCta}
-            </a>
-          </Button>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <Button asChild size="lg" className="bg-whatsapp text-white hover:opacity-90 h-12 px-8">
+              <GaClick
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                event={GA_EVENTS.ctaFaleAdContabil}
+                params={{ page: path, label: primaryCta }}
+              >
+                <MessageCircle className="mr-2 h-5 w-5" /> {primaryCta}
+              </GaClick>
+            </Button>
+            {secondaryCta !== primaryCta && (
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="h-12 px-8 border-primary/30"
+              >
+                <GaClick
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  event={GA_EVENTS.ctaSolicitarDiagnostico}
+                  params={{ page: path, label: secondaryCta }}
+                >
+                  {secondaryCta}
+                </GaClick>
+              </Button>
+            )}
+          </div>
         </div>
       </section>
 

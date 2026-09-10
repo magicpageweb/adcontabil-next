@@ -4,6 +4,8 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import { GaClick } from "@/components/analytics/GaClick";
+import { GA_EVENTS } from "@/lib/analytics";
 import { WHATSAPP_URL, BRAND, SOLUTIONS, SPECIALTIES, getSolution } from "@/lib/site";
 import { getPostsForSolution } from "@/lib/blog";
 import { breadcrumbSchema, buildPageMetadata, serviceSchema } from "@/lib/seo";
@@ -54,7 +56,7 @@ export default async function SolutionPage({
     }),
     breadcrumbSchema([
       { name: "Início", path: "/" },
-      { name: "Soluções", path: "/" },
+      { name: "Soluções", path: "/#solucoes" },
       { name: d.title, path },
     ]),
   ];
@@ -75,6 +77,12 @@ export default async function SolutionPage({
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
+              <li>
+                <Link href="/#solucoes" className="hover:text-white transition">
+                  Soluções
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
               <li className="text-white/90">{d.title}</li>
             </ol>
           </nav>
@@ -84,9 +92,15 @@ export default async function SolutionPage({
           <h1 className="mt-3 font-display text-4xl md:text-5xl font-semibold">{d.title}</h1>
           <p className="mt-5 max-w-2xl text-lg text-white/80">{d.subtitle}</p>
           <Button asChild size="lg" className="mt-8 bg-cta text-cta-foreground hover:opacity-90 h-12 px-6">
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+            <GaClick
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              event={GA_EVENTS.ctaFaleAdContabil}
+              params={{ page: path, label: "Falar com Especialista" }}
+            >
               <MessageCircle className="mr-2 h-5 w-5" /> Falar com Especialista
-            </a>
+            </GaClick>
           </Button>
         </div>
       </section>

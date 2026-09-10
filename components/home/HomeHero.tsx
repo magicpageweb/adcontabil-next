@@ -2,6 +2,8 @@ import Image from "next/image";
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HeroSlider } from "@/components/home/HeroSlider";
+import { GaClick } from "@/components/analytics/GaClick";
+import { GA_EVENTS } from "@/lib/analytics";
 import { PHOTOS, RESPONSIBLE, WHATSAPP_URL } from "@/lib/site";
 
 export function HomeHero() {
@@ -34,9 +36,15 @@ export function HomeHero() {
 
           <div className="mt-8">
             <Button asChild size="lg" className="bg-cta text-cta-foreground hover:opacity-90 h-12 px-7">
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+              <GaClick
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                event={GA_EVENTS.clickWhatsapp}
+                params={{ location: "home_hero" }}
+              >
                 <MessageCircle className="mr-2 h-5 w-5" /> Fale conosco
-              </a>
+              </GaClick>
             </Button>
           </div>
 
@@ -45,7 +53,7 @@ export function HomeHero() {
           </p>
         </div>
 
-        <div className="relative mx-auto flex flex-col items-center reveal-up reveal-delay-1">
+          <div className="relative mx-auto flex flex-col items-center reveal-up reveal-delay-1">
           <div className="absolute -inset-4 rounded-[2rem] bg-primary/10 blur-2xl -z-10" />
           <div className="hero-float">
             <Image
@@ -54,10 +62,8 @@ export function HomeHero() {
               width={337}
               height={500}
               priority
-              unoptimized
-              sizes="337px"
-              className="block h-[min(500px,70vw)] w-auto max-w-none"
-              style={{ height: "min(500px, 70vw)", width: "auto" }}
+              sizes="(max-width: 768px) 70vw, 337px"
+              className="block h-auto w-[min(337px,70vw)] max-w-full"
             />
           </div>
           <div className="mt-3 text-center">

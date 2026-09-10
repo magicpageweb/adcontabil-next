@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { ProfessionalCredentials } from "@/components/site/ProfessionalCredentials";
 import { SiteLogo } from "@/components/site/SiteLogo";
+import { GaClick } from "@/components/analytics/GaClick";
+import { GA_EVENTS } from "@/lib/analytics";
 import { BRAND, SPECIALTIES, SOLUTIONS, ADDRESS, CITY, EMAIL, PHONE_DISPLAY, PHONE_HREF, SOCIAL, WHATSAPP_URL } from "@/lib/site";
 
 function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -41,9 +43,17 @@ export function Footer() {
             <a href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white hover:bg-accent transition-colors" aria-label="Facebook">
               <FacebookIcon className="h-5 w-5" />
             </a>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white hover:bg-accent transition-colors" aria-label="WhatsApp">
+            <GaClick
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              event={GA_EVENTS.clickWhatsapp}
+              params={{ location: "footer_social" }}
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white hover:bg-accent transition-colors"
+              aria-label="WhatsApp"
+            >
               <Phone className="h-5 w-5" />
-            </a>
+            </GaClick>
           </div>
         </div>
 
@@ -89,6 +99,16 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/quem-somos" className="hover:text-secondary transition-colors">
+                Quem somos
+              </Link>
+            </li>
+            <li>
+              <Link href="/contato" className="hover:text-secondary transition-colors">
+                Contato
+              </Link>
+            </li>
+            <li>
               <Link href="/#planos" className="hover:text-secondary transition-colors">
                 Planos
               </Link>
@@ -109,15 +129,25 @@ export function Footer() {
             </li>
             <li className="flex items-center gap-3 justify-center md:justify-start">
               <Phone className="h-5 w-5 text-accent shrink-0" />
-              <a href={PHONE_HREF} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              <GaClick
+                href={PHONE_HREF}
+                event={GA_EVENTS.clickPhone}
+                params={{ location: "footer" }}
+                className="hover:text-white transition-colors"
+              >
                 {PHONE_DISPLAY}
-              </a>
+              </GaClick>
             </li>
             <li className="flex items-center gap-3 justify-center md:justify-start">
               <Mail className="h-5 w-5 text-accent shrink-0" />
-              <a href={`mailto:${EMAIL}`} className="hover:text-white transition-colors">
+              <GaClick
+                href={`mailto:${EMAIL}`}
+                event={GA_EVENTS.clickEmail}
+                params={{ location: "footer" }}
+                className="hover:text-white transition-colors"
+              >
                 {EMAIL}
-              </a>
+              </GaClick>
             </li>
           </ul>
         </div>

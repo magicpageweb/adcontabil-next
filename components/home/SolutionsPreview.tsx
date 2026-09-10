@@ -1,14 +1,20 @@
 import Link from "next/link";
-import { ArrowRight, Landmark, Sparkles, TrendingDown } from "lucide-react";
+import { ArrowRight, Landmark, Sparkles, TrendingDown, FileBadge } from "lucide-react";
 import { SOLUTIONS } from "@/lib/site";
 
 const icons = {
   "fator-r": TrendingDown,
   "sociedade-uniprofissional": Landmark,
   "carne-leao-pj": Sparkles,
+  "abertura-cnpj": FileBadge,
 } as const;
 
-const featured = ["fator-r", "sociedade-uniprofissional", "carne-leao-pj"] as const;
+const featured = [
+  "fator-r",
+  "sociedade-uniprofissional",
+  "carne-leao-pj",
+  "abertura-cnpj",
+] as const;
 
 export function SolutionsPreview() {
   return (
@@ -22,8 +28,8 @@ export function SolutionsPreview() {
             Estratégias tributárias com análise técnica
           </h2>
           <p className="mt-3 text-muted-foreground">
-            Fator R, Sociedade Uniprofissional e migração PF → PJ — avaliamos viabilidade e
-            enquadramento com clareza e segurança jurídica.
+            Fator R, Sociedade Uniprofissional, migração PF → PJ e abertura de CNPJ —
+            avaliamos viabilidade e enquadramento com clareza técnica.
           </p>
         </div>
 
@@ -45,7 +51,9 @@ export function SolutionsPreview() {
                   <h3 className="font-display text-xl font-semibold text-foreground">
                     {sol.title}
                   </h3>
-                  <p className="mt-2 text-sm text-muted-foreground max-w-2xl">{sol.subtitle}</p>
+                  <p className="mt-2 text-sm text-muted-foreground max-w-2xl line-clamp-3">
+                    {sol.subtitle}
+                  </p>
                 </div>
                 <Link
                   href={`/solucoes/${sol.slug}`}

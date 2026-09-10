@@ -13,11 +13,25 @@ const legacyWordpressSitemaps = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  trailingSlash: false,
   images: {
     formats: ["image/avif", "image/webp"],
   },
   async redirects() {
     return [
+      {
+        // Apex canônico — não altera DNS; só responde no host www se apontar para o app.
+        source: "/:path*",
+        has: [{ type: "host", value: "www.adcontabil.net.br" }],
+        destination: "https://adcontabil.net.br/:path*",
+        permanent: true,
+      },
+      {
+        // Remove trailing slash (exceto raiz) sem loop.
+        source: "/:path+/",
+        destination: "/:path+",
+        permanent: true,
+      },
       {
         source: "/blog/paginas/:page",
         destination: "/blog/page/:page",

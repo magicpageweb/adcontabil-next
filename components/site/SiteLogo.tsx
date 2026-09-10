@@ -53,6 +53,7 @@ export function SiteLogo({
         width={160}
         height={48}
         className={cn("h-10 w-auto", imageClassName)}
+        sizes="160px"
         priority={priority}
       />
     </Link>

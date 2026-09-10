@@ -2,9 +2,20 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { MessageCircle, X } from "lucide-react";
+import { sendGAEvent } from "@next/third-parties/google";
+import { GA_EVENTS, isGaEnabled } from "@/lib/analytics";
 import { BRAND, WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from "@/lib/site";
 
 const WHATSAPP_CTA_URL = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
+function trackWhatsappFloat() {
+  if (!isGaEnabled()) return;
+  try {
+    sendGAEvent("event", GA_EVENTS.clickWhatsapp, { location: "float" });
+  } catch {
+    /* no-op */
+  }
+}
 
 export function WhatsAppFloat() {
   const [open, setOpen] = useState(false);
@@ -75,6 +86,7 @@ export function WhatsAppFloat() {
               href={WHATSAPP_CTA_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={trackWhatsappFloat}
               className="mt-4 flex h-11 w-full items-center justify-center gap-2 rounded-full bg-whatsapp text-sm font-semibold text-white shadow-md shadow-black/10 transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp focus-visible:ring-offset-2"
             >
               <MessageCircle className="h-4 w-4 fill-white" aria-hidden />

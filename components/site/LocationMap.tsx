@@ -1,6 +1,8 @@
 import { ExternalLink, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProfessionalCredentials } from "@/components/site/ProfessionalCredentials";
+import { GaClick } from "@/components/analytics/GaClick";
+import { GA_EVENTS } from "@/lib/analytics";
 import {
   ADDRESS_LINE,
   BRAND,
@@ -70,15 +72,17 @@ export function LocationMap({
               size="lg"
               className="mt-6 h-11 bg-primary text-primary-foreground hover:bg-primary/90"
             >
-              <a
+              <GaClick
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                event={GA_EVENTS.clickMaps}
+                params={{ location: "contato_card" }}
                 className="inline-flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               >
                 Ver no Google Maps
                 <ExternalLink className="h-4 w-4" aria-hidden />
-              </a>
+              </GaClick>
             </Button>
           </div>
 
@@ -92,14 +96,16 @@ export function LocationMap({
             <p className="text-sm font-semibold text-foreground">Mapa do escritório</p>
             <p className="mt-0.5 text-xs text-muted-foreground">
               Alternativa acessível:{" "}
-              <a
+              <GaClick
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                event={GA_EVENTS.clickMaps}
+                params={{ location: "contato_map_caption" }}
                 className="font-medium text-primary underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
               >
                 abrir no Google Maps
-              </a>
+              </GaClick>
               .
             </p>
           </div>
