@@ -5,6 +5,7 @@ import {
 } from "@/lib/blog-content";
 import { CONTABILIDADE_DENTISTAS_ESPECIALIZADA_POST } from "@/lib/blog/posts/contabilidade-dentistas";
 import { CONTABILIDADE_SANTA_CRUZ_POST } from "@/lib/blog/posts/contabilidade-santa-cruz";
+import { DOCUMENTOS_CONTABILIDADE_CHECKLIST_POST } from "@/lib/blog/posts/documentos-contabilidade-checklist";
 import { ESCRITORIO_CONTABILIDADE_POST } from "@/lib/blog/posts/escritorio-contabilidade";
 import { ESCRITORIO_SANTA_CRUZ_GUIA_POST } from "@/lib/blog/posts/escritorio-santa-cruz-guia";
 import { PLANEJAMENTO_TRIBUTARIO_POST } from "@/lib/blog/posts/planejamento-tributario";
@@ -115,6 +116,7 @@ function link(href: string, label: string): BlogRichPart {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  DOCUMENTOS_CONTABILIDADE_CHECKLIST_POST,
   ESCRITORIO_SANTA_CRUZ_GUIA_POST,
   CONTABILIDADE_SANTA_CRUZ_POST,
   CONTABILIDADE_DENTISTAS_ESPECIALIZADA_POST,
@@ -441,6 +443,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "/blog/contabilidade-para-dentistas-como-organizar-sua-rotina-fiscal-e-crescer-com-seguranca.webp",
     coverAlt: "Consultório odontológico moderno com composição visual sofisticada",
     relatedSlugs: [
+      "documentos-contabilidade-consultorio-checklist",
       "contabilidade-especializada-para-dentistas",
       "planejamento-tributario-para-profissionais-da-saude",
       "simples-nacional-para-profissionais-da-saude",
