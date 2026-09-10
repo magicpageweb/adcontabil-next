@@ -2,40 +2,46 @@
 
 ## Variáveis na Vercel
 
-Configure em **Settings → Environment Variables** para Development, Preview e Production:
+| Variável | Value |
+|----------|--------|
+| `GOOGLE_SHEETS_WEBHOOK_URL` | URL do Web App que termina em `/exec` |
+| `GOOGLE_SHEETS_WEBHOOK_SECRET` | Mesmo valor de `WEBHOOK_SECRET` no Apps Script |
 
-| Variável | Escopo | Descrição |
-|----------|--------|-----------|
-| `GOOGLE_SHEETS_WEBHOOK_URL` | Server only | URL da implantação do Apps Script (Web App) |
-| `GOOGLE_SHEETS_WEBHOOK_SECRET` | Server only | Mesmo valor de `WEBHOOK_SECRET` nas Script properties |
-| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Public | Já existente (GA4) |
-
-**Não** use prefixo `NEXT_PUBLIC_` nos segredos do Sheets.
-
-Após alterar variáveis, faça um novo deploy.
+Ambiente: Production. Depois de salvar → Redeploy.
 
 ## Planilha
 
-1. Aba: `Leads`
-2. Cabeçalho (linha 1), nesta ordem:
+1. Aba com nome exato: `Leads`
+2. Linha 1 (cabeçalhos):  
    `Data/Hora | Nome | WhatsApp | Perfil | Interesse | Momento | Score | Classificação | Página de origem | UTM Source | UTM Medium | UTM Campaign | Referrer | Status`
-3. Status inicial gravado pelo sistema: `Novo`
-4. Status manuais sugeridos (editados pela equipe): Novo, Em contato, Em negociação, Cliente, Sem interesse
 
-## Apps Script
+## Apps Script — propriedades (obrigatórias)
 
-Use o arquivo [`google-apps-script-leads.js`](./google-apps-script-leads.js).
+Na engrenagem → **Propriedades do script**, cadastre **duas**:
 
-Passos resumidos:
+| Propriedade | Valor |
+|-------------|--------|
+| `WEBHOOK_SECRET` | igual ao da Vercel |
+| `SPREADSHEET_ID` | o ID da URL da planilha |
 
-1. Extensões → Apps Script na planilha
-2. Colar o script
-3. Propriedades do script: `WEBHOOK_SECRET`
-4. Implantar como App da Web (executar como você; acesso: qualquer pessoa)
-5. Copiar URL → `GOOGLE_SHEETS_WEBHOOK_URL`
+Exemplo de URL da planilha:
 
-O navegador **nunca** chama o Apps Script. Apenas `POST /api/leads` no Next.js.
+`https://docs.google.com/spreadsheets/d/1AbC...xyz/edit`
 
-## Antes de produção
+O `SPREADSHEET_ID` é só a parte `1AbC...xyz` (entre `/d/` e `/edit`).
 
-Alinhar com a proprietária o texto da Política de Privacidade e o uso do Google Sheets como armazenamento; preferível revisão jurídica.
+Sem o `SPREADSHEET_ID`, o Web App costuma falhar com “não foi possível registrar”.
+
+## Atualizar o script (se já implantou)
+
+1. Abra o projeto no Apps Script
+2. Substitua o código por [`google-apps-script-leads.js`](./google-apps-script-leads.js)
+3. Salve
+4. **Implantar → Gerenciar implantações → lápis (editar) → Versão: Nova versão → Implantar**
+5. A URL `/exec` em geral **não muda** — não precisa alterar a Vercel
+
+## Teste
+
+1. Site → `/contato` → enviar formulário
+2. Sucesso = abre WhatsApp **e** nova linha na aba Leads
+3. Se falhar de novo: Apps Script → **Execuções** (ícone de lista) e veja o erro

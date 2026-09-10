@@ -1,28 +1,19 @@
 /**
  * AD Contábil — Web App para registrar leads no Google Sheets
  *
- * COMO CONFIGURAR
- * 1. Crie uma planilha Google Sheets.
- * 2. Renomeie a primeira aba para: Leads
- * 3. Na linha 1, coloque exatamente estes cabeçalhos (nessa ordem):
- *    Data/Hora | Nome | WhatsApp | Perfil | Interesse | Momento | Score |
- *    Classificação | Página de origem | UTM Source | UTM Medium | UTM Campaign |
- *    Referrer | Status
- * 4. Extensões → Apps Script. Cole este arquivo inteiro.
- * 5. Em Script properties (Configurações do projeto → Propriedades do script),
- *    adicione: WEBHOOK_SECRET = (mesmo valor de GOOGLE_SHEETS_WEBHOOK_SECRET na Vercel)
- * 6. Implantar → Nova implantação → Tipo: App da Web
- *    - Executar como: Eu
- *    - Quem tem acesso: Qualquer pessoa
- * 7. Copie a URL da implantação para GOOGLE_SHEETS_WEBHOOK_URL na Vercel
- *    (Development, Preview e Production).
+ * PROPRIEDADES DO SCRIPT (engrenagem → Propriedades do script):
+ *   WEBHOOK_SECRET  = mesmo valor de GOOGLE_SHEETS_WEBHOOK_SECRET na Vercel
+ *   SPREADSHEET_ID  = ID da planilha (na URL: docs.google.com/spreadsheets/d/ESTE_ID/edit)
  *
- * O Next.js (/api/leads) é quem chama este endpoint. O navegador NÃO chama o Apps Script.
+ * Aba obrigatória: Leads
+ *
+ * Após colar/alterar o código: Implantar → Gerenciar implantações → lápis → Nova versão → Implantar
  */
 
 function doPost(e) {
   try {
-    var expected = PropertiesService.getScriptProperties().getProperty("WEBHOOK_SECRET");
+    var props = PropertiesService.getScriptProperties();
+    var expected = props.getProperty("WEBHOOK_SECRET");
     if (!expected) {
       return json_({ ok: false, error: "secret_not_configured" });
     }
@@ -47,7 +38,11 @@ function doPost(e) {
       return json_({ ok: false, error: "missing_fields" });
     }
 
-    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var ss = openSpreadsheet_(props);
+    if (!ss) {
+      return json_({ ok: false, error: "spreadsheet_not_found" });
+    }
+
     var sheet = ss.getSheetByName("Leads");
     if (!sheet) {
       return json_({ ok: false, error: "sheet_not_found" });
@@ -74,12 +69,25 @@ function doPost(e) {
 
     return json_({ ok: true });
   } catch (err) {
-    return json_({ ok: false, error: "exception" });
+    return json_({
+      ok: false,
+      error: "exception",
+      message: String(err && err.message ? err.message : err),
+    });
   }
 }
 
 function doGet() {
   return json_({ ok: true, service: "ad-contabil-leads" });
+}
+
+/** Abre a planilha pelo ID (obrigatório em Web App). Fallback: planilha vinculada. */
+function openSpreadsheet_(props) {
+  var id = props.getProperty("SPREADSHEET_ID");
+  if (id) {
+    return SpreadsheetApp.openById(String(id).trim());
+  }
+  return SpreadsheetApp.getActiveSpreadsheet();
 }
 
 function sanitize_(value) {

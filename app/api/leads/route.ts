@@ -74,11 +74,16 @@ async function forwardToSheets(record: LeadRecord, secret: string, url: string) 
 
     const text = await res.text();
     try {
-      const json = JSON.parse(text) as { ok?: boolean };
-      return json.ok === true;
+      const json = JSON.parse(text) as { ok?: boolean; error?: string };
+      if (json.ok === true) return true;
+      console.error("[leads] Sheets webhook rejected:", json.error || "ok_false");
+      return false;
     } catch {
-      // Apps Script às vezes retorna texto; se HTTP 200, aceitar com cautela
-      console.error("[leads] Sheets webhook invalid JSON");
+      console.error(
+        "[leads] Sheets webhook invalid JSON",
+        res.status,
+        text.slice(0, 180),
+      );
       return false;
     }
   } catch {
