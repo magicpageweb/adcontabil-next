@@ -12,6 +12,9 @@
  * | cta_fale_ad_contabil   | CTA “Fale com a AD Contábil”   | Sim (recomendado)             |
  * | cta_solicitar_diagnostico | CTA “Solicitar diagnóstico” | Sim (recomendado)             |
  * | blog_search            | Busca interna do blog          | Não (engajamento)             |
+ * | lead_form_open         | Abertura do formulário de lead | Não (funil)                   |
+ * | lead_form_submit       | Envio do formulário de lead    | Sim (recomendado)             |
+ * | lead_whatsapp_click    | Abertura do WhatsApp pós-form  | Sim (recomendado)             |
  *
  * Conversões NÃO são marcadas no código — configure em GA4:
  * Admin → Eventos → Marcar como evento principal.
@@ -27,6 +30,9 @@ export const GA_EVENTS = {
   ctaFaleAdContabil: "cta_fale_ad_contabil",
   ctaSolicitarDiagnostico: "cta_solicitar_diagnostico",
   blogSearch: "blog_search",
+  leadFormOpen: "lead_form_open",
+  leadFormSubmit: "lead_form_submit",
+  leadWhatsappClick: "lead_whatsapp_click",
 } as const;
 
 export type GaEventName = (typeof GA_EVENTS)[keyof typeof GA_EVENTS];

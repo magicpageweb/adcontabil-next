@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { BRAND, CRC, PHOTOS, RESPONSIBLE, WHATSAPP_URL } from "@/lib/site";
+import { LeadCtaButton } from "@/components/lead-form/LeadCtaButton";
+import { BRAND, CRC, PHOTOS, RESPONSIBLE } from "@/lib/site";
 
 export function AboutPreview() {
   return (
@@ -36,11 +37,12 @@ export function AboutPreview() {
             consultório.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild size="lg" className="bg-whatsapp text-white hover:opacity-90 h-12 px-6">
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="mr-2 h-5 w-5" /> Fale conosco
-              </a>
-            </Button>
+            <LeadCtaButton
+              location="home_about"
+              className="bg-whatsapp text-white hover:opacity-90 h-12 px-6"
+            >
+              Fale conosco
+            </LeadCtaButton>
             <Button asChild size="lg" variant="outline" className="h-12 px-6 border-border">
               <Link href="/quem-somos">
                 Conhecer a AD Contábil <ArrowRight className="ml-2 h-4 w-4" />

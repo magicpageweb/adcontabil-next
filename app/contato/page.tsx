@@ -5,6 +5,8 @@ import { Mail, MessageCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { LocationMap } from "@/components/site/LocationMap";
+import { LeadForm } from "@/components/lead-form/LeadForm";
+import { LeadCtaButton } from "@/components/lead-form/LeadCtaButton";
 import {
   WHATSAPP_URL,
   BRAND,
@@ -62,13 +64,15 @@ export default function ContactPage() {
               Vamos conversar sobre o seu consultório
             </h1>
             <p className="mt-5 max-w-xl text-lg text-muted-foreground text-pretty">
-              Solicite um diagnóstico fiscal personalizado. Respondemos em minutos pelo WhatsApp.
+              Preencha o formulário abaixo ou fale direto pelos canais. Respondemos pelo WhatsApp
+              com atendimento humano.
             </p>
-            <Button asChild size="lg" className="mt-8 bg-whatsapp text-white hover:opacity-90 h-12 px-6">
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="mr-2 h-5 w-5" /> Fale conosco
-              </a>
-            </Button>
+            <LeadCtaButton
+              location="contato_hero"
+              className="mt-8 bg-cta text-cta-foreground hover:opacity-90 h-12 px-6"
+            >
+              Quero falar com a AD
+            </LeadCtaButton>
           </div>
           <div className="relative mx-auto w-full max-w-xs">
             <div className="absolute -inset-3 rounded-[1.5rem] bg-primary/10 blur-xl" />
@@ -83,6 +87,12 @@ export default function ContactPage() {
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-4 md:px-6 pb-12">
+        <div className="soft-card p-6 md:p-8">
+          <LeadForm variant="page" analyticsLocation="contato_page" />
         </div>
       </section>
 
@@ -119,12 +129,12 @@ export default function ContactPage() {
               Prefere falar agora?
             </h2>
             <p className="mt-2 text-muted-foreground">
-              Solicite um diagnóstico fiscal personalizado pelo WhatsApp.
+              Acesso direto ao WhatsApp da AD Contábil, sem formulário.
             </p>
           </div>
           <Button asChild size="lg" className="bg-whatsapp text-white hover:opacity-90 h-12 px-6">
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="mr-2 h-5 w-5" /> Solicitar diagnóstico
+              <MessageCircle className="mr-2 h-5 w-5" /> WhatsApp direto
             </a>
           </Button>
         </div>

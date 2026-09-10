@@ -1,10 +1,7 @@
 import Image from "next/image";
-import { MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { HeroSlider } from "@/components/home/HeroSlider";
-import { GaClick } from "@/components/analytics/GaClick";
-import { GA_EVENTS } from "@/lib/analytics";
-import { PHOTOS, RESPONSIBLE, WHATSAPP_URL } from "@/lib/site";
+import { LeadCtaButton } from "@/components/lead-form/LeadCtaButton";
+import { PHOTOS, RESPONSIBLE } from "@/lib/site";
 
 export function HomeHero() {
   return (
@@ -35,17 +32,12 @@ export function HomeHero() {
           </p>
 
           <div className="mt-8">
-            <Button asChild size="lg" className="bg-cta text-cta-foreground hover:opacity-90 h-12 px-7">
-              <GaClick
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                event={GA_EVENTS.clickWhatsapp}
-                params={{ location: "home_hero" }}
-              >
-                <MessageCircle className="mr-2 h-5 w-5" /> Fale conosco
-              </GaClick>
-            </Button>
+            <LeadCtaButton
+              location="home_hero"
+              className="bg-cta text-cta-foreground hover:opacity-90 h-12 px-7"
+            >
+              Fale conosco
+            </LeadCtaButton>
           </div>
 
           <p className="mt-6 text-sm text-muted-foreground">
@@ -53,7 +45,7 @@ export function HomeHero() {
           </p>
         </div>
 
-          <div className="relative mx-auto flex flex-col items-center reveal-up reveal-delay-1">
+        <div className="relative mx-auto flex flex-col items-center reveal-up reveal-delay-1">
           <div className="absolute -inset-4 rounded-[2rem] bg-primary/10 blur-2xl -z-10" />
           <div className="hero-float">
             <Image

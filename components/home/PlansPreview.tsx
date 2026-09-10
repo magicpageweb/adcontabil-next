@@ -1,6 +1,6 @@
-import { CheckCircle2, MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { PLANS, WHATSAPP_URL, planWhatsAppUrl } from "@/lib/site";
+import { CheckCircle2 } from "lucide-react";
+import { LeadCtaButton } from "@/components/lead-form/LeadCtaButton";
+import { PLANS } from "@/lib/site";
 
 export function PlansPreview() {
   return (
@@ -61,23 +61,17 @@ export function PlansPreview() {
               </ul>
 
               <div className="mt-8 pt-2">
-                <Button
-                  asChild
-                  size="lg"
+                <LeadCtaButton
+                  location={`home_plan_${plan.slug}`}
+                  showIcon={false}
                   className={`w-full h-11 ${
                     plan.featured
                       ? "bg-cta text-cta-foreground hover:opacity-90"
                       : "bg-primary text-primary-foreground hover:bg-primary/90"
                   }`}
                 >
-                  <a
-                    href={planWhatsAppUrl(plan.name)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Contratar
-                  </a>
-                </Button>
+                  Contratar
+                </LeadCtaButton>
               </div>
             </article>
           ))}
@@ -91,11 +85,12 @@ export function PlansPreview() {
             Fale conosco e receba uma orientação personalizada. Analisamos o perfil do seu
             consultório para indicar o acompanhamento mais adequado.
           </p>
-          <Button asChild size="lg" className="mt-6 bg-whatsapp text-white hover:opacity-90 h-12 px-7">
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="mr-2 h-5 w-5" /> Fale agora pelo WhatsApp
-            </a>
-          </Button>
+          <LeadCtaButton
+            location="home_plans_help"
+            className="mt-6 bg-whatsapp text-white hover:opacity-90 h-12 px-7"
+          >
+            Fale agora pelo WhatsApp
+          </LeadCtaButton>
         </div>
       </div>
     </section>

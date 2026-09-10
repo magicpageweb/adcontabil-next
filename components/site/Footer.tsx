@@ -163,18 +163,34 @@ export function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/10 mt-10">
-        <div className="mx-auto max-w-7xl px-4 md:px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/50">
-          <div className="md:w-1/3 text-center md:text-left">
-            <p>© {new Date().getFullYear()} {BRAND}. Todos os direitos reservados.</p>
+        <div className="mx-auto max-w-7xl px-4 md:px-6 py-6 flex flex-col gap-4 text-xs text-white/50">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="md:w-1/3 text-center md:text-left">
+              <p>© {new Date().getFullYear()} {BRAND}. Todos os direitos reservados.</p>
+            </div>
+            <div className="md:w-1/3 text-center text-white/70">
+              <span>Contabilidade consultiva para profissionais da saúde</span>
+            </div>
+            <div className="md:w-1/3 text-center md:text-right">
+              <a href="https://www.magicpage.com.br" target="_blank" rel="noopener noreferrer" className="text-[9px] uppercase tracking-wider opacity-60 hover:opacity-100 hover:text-accent transition-all">
+                Desenvolvido por MagicPage Websites
+              </a>
+            </div>
           </div>
-          <div className="md:w-1/3 text-center text-white/70">
-            <span>Contabilidade consultiva para profissionais da saúde</span>
-          </div>
-          <div className="md:w-1/3 text-center md:text-right">
-            <a href="https://www.magicpage.com.br" target="_blank" rel="noopener noreferrer" className="text-[9px] uppercase tracking-wider opacity-60 hover:opacity-100 hover:text-accent transition-all">
-              Desenvolvido por MagicPage Websites
-            </a>
-          </div>
+          <nav
+            aria-label="Informações legais"
+            className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] text-white/45"
+          >
+            <Link href="/politica-de-privacidade" className="hover:text-white/80 transition-colors">
+              Privacidade
+            </Link>
+            <Link href="/politica-de-cookies" className="hover:text-white/80 transition-colors">
+              Cookies
+            </Link>
+            <Link href="/termos-de-uso" className="hover:text-white/80 transition-colors">
+              Termos de uso
+            </Link>
+          </nav>
         </div>
       </div>
     </footer>

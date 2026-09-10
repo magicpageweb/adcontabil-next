@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { Check, Copy, MessageCircle, Share2 } from "lucide-react";
 import { BRAND, SOCIAL } from "@/lib/site";
 
@@ -9,6 +9,14 @@ type ArticleActionsProps = {
   url: string;
   description: string;
 };
+
+function subscribeShare() {
+  return () => {};
+}
+
+function getCanNativeShare() {
+  return typeof navigator !== "undefined" && typeof navigator.share === "function";
+}
 
 function FacebookIcon({ className }: { className?: string }) {
   return (
@@ -38,14 +46,8 @@ const actionClass =
   "inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-xl border border-border/80 bg-surface px-3.5 text-sm font-medium text-foreground/85 shadow-sm transition duration-200 hover:scale-[1.02] hover:border-primary/35 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2";
 
 export function ArticleActions({ title, url, description }: ArticleActionsProps) {
-  const [canNativeShare, setCanNativeShare] = useState(false);
+  const canNativeShare = useSyncExternalStore(subscribeShare, getCanNativeShare, () => false);
   const [copied, setCopied] = useState(false);
-
-  useEffect(() => {
-    setCanNativeShare(
-      typeof navigator !== "undefined" && typeof navigator.share === "function",
-    );
-  }, []);
 
   useEffect(() => {
     if (!copied) return;

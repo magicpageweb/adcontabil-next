@@ -4,7 +4,6 @@ import {
   ArrowRight,
   CheckCircle2,
   MapPin,
-  MessageCircle,
   Stethoscope,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,7 +14,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { ADDRESS, BRAND, CITY, whatsappUrl } from "@/lib/site";
+import { LeadCtaButton } from "@/components/lead-form/LeadCtaButton";
+import { ADDRESS, BRAND, CITY } from "@/lib/site";
 import { getPostsForSpecialty } from "@/lib/blog";
 import {
   breadcrumbSchema,
@@ -29,10 +29,6 @@ const PATH = "/contabilidade-para-medicos-em-santa-cruz-do-sul";
 const TITLE = "Contabilidade para Médicos em Santa Cruz do Sul";
 const DESCRIPTION =
   "Contabilidade para médicos em Santa Cruz do Sul/RS: abertura de CNPJ, Fator R, Simples Nacional, PF x PJ e rotina fiscal para consultórios e clínicas médicas. Atendimento local e remoto pela AD Contábil.";
-
-const WHATSAPP_LOCAL = whatsappUrl(
-  "Olá! Sou médico(a) em Santa Cruz do Sul e gostaria de uma análise contábil/tributária para meu consultório ou clínica.",
-);
 
 const AUDIENCE = [
   "Médicos plantonistas e pejotizados em Santa Cruz do Sul e região",
@@ -184,25 +180,20 @@ export default function ContabilidadeMedicosSantaCruzPage() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button
-              asChild
-              size="lg"
+            <LeadCtaButton
+              location="landing_scs_hero_primary"
+              showIcon={false}
               className="bg-cta text-cta-foreground hover:opacity-90 h-12 px-6"
             >
-              <a href={WHATSAPP_LOCAL} target="_blank" rel="noopener noreferrer">
-                Solicitar diagnóstico
-              </a>
-            </Button>
-            <Button
-              asChild
-              size="lg"
+              Solicitar diagnóstico
+            </LeadCtaButton>
+            <LeadCtaButton
+              location="landing_scs_hero_secondary"
               variant="outline"
               className="h-12 px-6 bg-white/5 border-white/20 text-white hover:bg-white/10 hover:text-white"
             >
-              <a href={WHATSAPP_LOCAL} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="mr-2 h-4 w-4" /> Falar com especialista
-              </a>
-            </Button>
+              Falar com especialista
+            </LeadCtaButton>
           </div>
         </div>
       </section>
@@ -372,15 +363,12 @@ export default function ContabilidadeMedicosSantaCruzPage() {
           modelo de atendimento e realidade em Santa Cruz do Sul/RS.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <Button
-            asChild
-            size="lg"
+          <LeadCtaButton
+            location="landing_scs_bottom"
             className="bg-whatsapp text-white hover:opacity-90 h-12 px-8"
           >
-            <a href={WHATSAPP_LOCAL} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="mr-2 h-5 w-5" /> Falar no WhatsApp
-            </a>
-          </Button>
+            Falar no WhatsApp
+          </LeadCtaButton>
           <Button asChild size="lg" variant="outline" className="h-12 px-7 border-border">
             <Link href="/contato">Ver endereço e contato</Link>
           </Button>

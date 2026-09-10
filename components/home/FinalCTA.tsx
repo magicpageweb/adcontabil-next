@@ -1,6 +1,5 @@
-import { MessageCircle, Shield } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { WHATSAPP_URL } from "@/lib/site";
+import { Shield } from "lucide-react";
+import { LeadCtaButton } from "@/components/lead-form/LeadCtaButton";
 
 export function FinalCTA() {
   return (
@@ -13,15 +12,16 @@ export function FinalCTA() {
           Pronto para organizar a contabilidade do seu consultório?
         </h2>
         <p className="mt-4 text-white/75 max-w-xl mx-auto text-pretty">
-          Fale conosco pelo WhatsApp e receba orientação clara sobre o plano e a estratégia
-          tributária mais adequados ao seu faturamento.
+          Conte o seu momento em poucos segundos e fale com a AD Contábil pelo WhatsApp com
+          atendimento direcionado.
         </p>
         <div className="mt-8">
-          <Button asChild size="lg" className="bg-whatsapp text-white hover:opacity-90 h-12 px-8">
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="mr-2 h-5 w-5" /> Fale agora pelo WhatsApp
-            </a>
-          </Button>
+          <LeadCtaButton
+            location="home_final_cta"
+            className="bg-whatsapp text-white hover:opacity-90 h-12 px-8"
+          >
+            Fale agora pelo WhatsApp
+          </LeadCtaButton>
         </div>
       </div>
     </section>

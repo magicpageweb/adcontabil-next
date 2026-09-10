@@ -4,7 +4,6 @@ import Link from "next/link";
 import {
   ArrowRight,
   CheckCircle2,
-  MessageCircle,
   Stethoscope,
   Smile,
   Brain,
@@ -13,7 +12,6 @@ import {
   Ear,
   type LucideIcon,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import {
   Accordion,
   AccordionContent,
@@ -21,16 +19,14 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import { LeadCtaButton } from "@/components/lead-form/LeadCtaButton";
 import {
   BRAND,
   SPECIALTIES,
-  WHATSAPP_URL,
   getSpecialty,
   type SpecialtyIconKey,
 } from "@/lib/site";
 import { getPostsForSpecialty } from "@/lib/blog";
-import { GaClick } from "@/components/analytics/GaClick";
-import { GA_EVENTS } from "@/lib/analytics";
 import {
   breadcrumbSchema,
   buildPageMetadata,
@@ -142,21 +138,20 @@ export default async function SpecialtyPage({
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-white/80">{spec.subtitle}</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild size="lg" className="bg-cta text-cta-foreground hover:opacity-90 h-12 px-6">
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                {primaryCta}
-              </a>
-            </Button>
-            <Button
-              asChild
-              size="lg"
+            <LeadCtaButton
+              location={`specialty_${spec.slug}_hero_primary`}
+              showIcon={false}
+              className="bg-cta text-cta-foreground hover:opacity-90 h-12 px-6"
+            >
+              {primaryCta}
+            </LeadCtaButton>
+            <LeadCtaButton
+              location={`specialty_${spec.slug}_hero_secondary`}
               variant="outline"
               className="h-12 px-6 bg-white/5 border-white/20 text-white hover:bg-white/10 hover:text-white"
             >
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="mr-2 h-4 w-4" /> {secondaryCta}
-              </a>
-            </Button>
+              {secondaryCta}
+            </LeadCtaButton>
           </div>
         </div>
       </section>
@@ -275,34 +270,21 @@ export default async function SpecialtyPage({
           </h2>
           <p className="mt-4 text-muted-foreground">{ctaText}</p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Button asChild size="lg" className="bg-whatsapp text-white hover:opacity-90 h-12 px-8">
-              <GaClick
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                event={GA_EVENTS.ctaFaleAdContabil}
-                params={{ page: path, label: primaryCta }}
-              >
-                <MessageCircle className="mr-2 h-5 w-5" /> {primaryCta}
-              </GaClick>
-            </Button>
+            <LeadCtaButton
+              location={`specialty_${spec.slug}_bottom_primary`}
+              className="bg-whatsapp text-white hover:opacity-90 h-12 px-8"
+            >
+              {primaryCta}
+            </LeadCtaButton>
             {secondaryCta !== primaryCta && (
-              <Button
-                asChild
-                size="lg"
+              <LeadCtaButton
+                location={`specialty_${spec.slug}_bottom_secondary`}
+                showIcon={false}
                 variant="outline"
                 className="h-12 px-8 border-primary/30"
               >
-                <GaClick
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  event={GA_EVENTS.ctaSolicitarDiagnostico}
-                  params={{ page: path, label: secondaryCta }}
-                >
-                  {secondaryCta}
-                </GaClick>
-              </Button>
+                {secondaryCta}
+              </LeadCtaButton>
             )}
           </div>
         </div>

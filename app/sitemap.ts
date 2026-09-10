@@ -62,6 +62,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
       { path: "/quem-somos", priority: 0.8, changeFrequency: "monthly" },
       { path: "/contato", priority: 0.8, changeFrequency: "monthly" },
+      { path: "/politica-de-privacidade", priority: 0.3, changeFrequency: "yearly" },
+      { path: "/politica-de-cookies", priority: 0.3, changeFrequency: "yearly" },
+      { path: "/termos-de-uso", priority: 0.3, changeFrequency: "yearly" },
       { path: "/blog", priority: 0.85, changeFrequency: "weekly" },
     ];
 
