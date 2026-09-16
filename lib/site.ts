@@ -2,7 +2,7 @@
 
 export const WHATSAPP_NUMBER = "5551997643864";
 export const WHATSAPP_MESSAGE =
-  "Olá! Gostaria de uma avaliação fiscal para minha atuação na área da saúde.";
+  "Olá! Gostaria de entender como a AD Contábil pode ajudar minha empresa ou atividade profissional. Pode me orientar sobre a melhor solução contábil para meu negócio?";
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
 export const PHONE_E164 = "+5551997643864";
