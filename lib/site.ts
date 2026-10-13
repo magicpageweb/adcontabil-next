@@ -25,6 +25,8 @@ export const MAPS_EMBED_URL = `https://maps.google.com/maps?q=${encodeURICompone
 export const CRC = "CRC/RS RS094939/O-4";
 export const RESPONSIBLE = "Lidiane Assis Duarte";
 export const BRAND = "AD Contábil";
+/** Nome institucional (Google Business Profile). Usar na 1ª menção; depois preferir BRAND. */
+export const BRAND_LEGAL = "AD Assis Duarte Escritório Contábil";
 export const OFFICE_CRC = "RS-011030/O-4";
 export const TAGLINE = "Inteligência Contábil";
 export const LOGO_PATH = "/logo-ad-contabil.png";
@@ -35,7 +37,7 @@ export const SOCIAL = {
 } as const;
 
 export const DEFAULT_DESCRIPTION =
-  "Contabilidade especializada para médicos, dentistas, psicólogos, fisioterapeutas, fonoaudiólogos e nutricionistas. Análise de Fator R, SUP-ISS e enquadramento tributário. Atendimento em Santa Cruz do Sul/RS.";
+  "Contabilidade consultiva com especialização em saúde e atendimento a empresas, MEIs e profissionais. Santa Cruz do Sul/RS e todo o Brasil.";
 
 export type SpecialtyIconKey =
   | "stethoscope"

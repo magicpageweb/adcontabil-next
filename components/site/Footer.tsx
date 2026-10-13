@@ -27,14 +27,14 @@ function InstagramIcon(props: React.SVGProps<SVGSVGElement>) {
 export function Footer() {
   return (
     <footer className="bg-hero-dark text-white/85">
-      <div className="mx-auto max-w-7xl px-4 md:px-6 py-14 grid gap-10 md:grid-cols-4 text-center md:text-left">
+      <div className="mx-auto max-w-7xl px-4 md:px-6 py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4 text-center md:text-left">
         {/* Brand */}
-        <div className="md:col-span-1 flex flex-col items-center md:items-start">
+        <div className="lg:col-span-1 flex flex-col items-center md:items-start min-w-0">
           <div className="flex items-center justify-center md:justify-start">
             <SiteLogo imageClassName="brightness-0 invert opacity-90" />
           </div>
           <p className="mt-4 text-sm text-white/70 max-w-xs md:max-w-none">
-            Contabilidade consultiva especializada no setor da saúde. Atendimento digital para todo o Brasil.
+            Contabilidade consultiva com especialização em saúde e atendimento a empresas, MEIs e profissionais. Atendimento digital para todo o Brasil.
           </p>
           <div className="mt-5 flex gap-4 justify-center md:justify-start">
             <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white hover:bg-accent transition-colors" aria-label="Instagram">
@@ -58,7 +58,7 @@ export function Footer() {
         </div>
 
         {/* Especialidades */}
-        <div className="flex flex-col items-center md:items-start">
+        <div className="flex flex-col items-center md:items-start min-w-0">
           <h4 className="text-sm font-semibold text-white">Especialidades</h4>
           <ul className="mt-4 space-y-2 text-sm text-white/70">
             {SPECIALTIES.map((s) => (
@@ -83,7 +83,7 @@ export function Footer() {
         </div>
 
         {/* Soluções */}
-        <div className="flex flex-col items-center md:items-start">
+        <div className="flex flex-col items-center md:items-start min-w-0">
           <h4 className="text-sm font-semibold text-white">Soluções</h4>
           <ul className="mt-4 space-y-2 text-sm text-white/70">
             {SOLUTIONS.map((s) => (
@@ -93,6 +93,11 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link href="/servicos" className="hover:text-secondary transition-colors">
+                Serviços
+              </Link>
+            </li>
             <li>
               <Link href="/blog" className="hover:text-secondary transition-colors">
                 Blog
@@ -117,12 +122,12 @@ export function Footer() {
         </div>
 
         {/* Contato */}
-        <div className="flex flex-col items-center md:items-start">
+        <div className="flex flex-col items-center md:items-start min-w-0">
           <h4 className="text-sm font-semibold text-white">Contato</h4>
-          <ul className="mt-4 space-y-3 text-sm text-white/70">
+          <ul className="mt-4 space-y-3 text-sm text-white/70 w-full">
             <li className="flex items-start gap-3 justify-center md:justify-start text-left">
               <MapPin className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-              <span>
+              <span className="min-w-0 break-words">
                 {ADDRESS}<br />
                 {CITY}
               </span>
@@ -138,13 +143,13 @@ export function Footer() {
                 {PHONE_DISPLAY}
               </GaClick>
             </li>
-            <li className="flex items-center gap-3 justify-center md:justify-start">
+            <li className="flex items-center gap-3 justify-center md:justify-start min-w-0">
               <Mail className="h-5 w-5 text-accent shrink-0" />
               <GaClick
                 href={`mailto:${EMAIL}`}
                 event={GA_EVENTS.clickEmail}
                 params={{ location: "footer" }}
-                className="hover:text-white transition-colors"
+                className="hover:text-white transition-colors break-all"
               >
                 {EMAIL}
               </GaClick>
@@ -169,7 +174,7 @@ export function Footer() {
               <p>© {new Date().getFullYear()} {BRAND}. Todos os direitos reservados.</p>
             </div>
             <div className="md:w-1/3 text-center text-white/70">
-              <span>Contabilidade consultiva para profissionais da saúde</span>
+              <span>Contabilidade consultiva para saúde e empresas</span>
             </div>
             <div className="md:w-1/3 text-center md:text-right">
               <a href="https://www.magicpage.com.br" target="_blank" rel="noopener noreferrer" className="text-[9px] uppercase tracking-wider opacity-60 hover:opacity-100 hover:text-accent transition-all">

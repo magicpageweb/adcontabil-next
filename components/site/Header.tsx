@@ -48,6 +48,10 @@ export function Header() {
             )}
           </div>
 
+          <Link href="/servicos" className="px-3 py-2 text-foreground/80 hover:text-primary transition">
+            Serviços
+          </Link>
+
           {/* Soluções dropdown */}
           <div
             className="relative"
@@ -125,6 +129,13 @@ export function Header() {
                 {s.label}
               </Link>
             ))}
+            <Link
+              href="/servicos"
+              onClick={() => setOpen(false)}
+              className="block py-2 text-sm font-medium"
+            >
+              Serviços
+            </Link>
             <div className="pt-2 text-xs uppercase tracking-wider text-muted-foreground font-semibold">
               Soluções
             </div>

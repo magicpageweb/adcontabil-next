@@ -6,6 +6,7 @@ import { ServiceCards } from "@/components/home/ServiceCards";
 import { SolutionsPreview } from "@/components/home/SolutionsPreview";
 import { AboutPreview } from "@/components/home/AboutPreview";
 import { PlansPreview } from "@/components/home/PlansPreview";
+import { OtherAudiencesPreview } from "@/components/home/OtherAudiencesPreview";
 import { FAQPreview } from "@/components/home/FAQPreview";
 import { BlogPreview } from "@/components/home/BlogPreview";
 import { FinalCTA } from "@/components/home/FinalCTA";
@@ -14,12 +15,12 @@ import { buildPageMetadata, faqSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
-    title: `${BRAND} — Contabilidade para Médicos, Dentistas e Profissionais da Saúde`,
+    title: `${BRAND} — Contabilidade para Saúde e Empresas`,
     description: DEFAULT_DESCRIPTION,
     path: "/",
   }),
   title: {
-    absolute: `${BRAND} — Contabilidade para Médicos, Dentistas e Profissionais da Saúde`,
+    absolute: `${BRAND} — Contabilidade para Saúde e Empresas`,
   },
 };
 
@@ -36,6 +37,7 @@ export default function HomePage() {
       <SolutionsPreview />
       <AboutPreview />
       <PlansPreview />
+      <OtherAudiencesPreview />
       <BlogPreview />
       <FAQPreview />
       <FinalCTA />

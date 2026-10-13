@@ -60,6 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.95,
         changeFrequency: "monthly",
       },
+      { path: "/servicos", priority: 0.9, changeFrequency: "monthly" },
       { path: "/quem-somos", priority: 0.8, changeFrequency: "monthly" },
       { path: "/contato", priority: 0.8, changeFrequency: "monthly" },
       { path: "/politica-de-privacidade", priority: 0.3, changeFrequency: "yearly" },
