@@ -8,6 +8,8 @@ import {
   BRAND,
   CITY_LOCALITY,
   CITY_REGION,
+  GOOGLE_BUSINESS_URL,
+  GOOGLE_REVIEW_URL,
   MAPS_EMBED_URL,
   MAPS_URL,
   RESPONSIBLE,
@@ -25,6 +27,8 @@ export function LocationMap({
   showCredentials = true,
   className = "",
 }: LocationMapProps) {
+  const mapsHref = GOOGLE_BUSINESS_URL.trim() || MAPS_URL;
+
   return (
     <section
       aria-labelledby="location-heading"
@@ -73,7 +77,7 @@ export function LocationMap({
               className="mt-6 h-11 bg-primary text-primary-foreground hover:bg-primary/90"
             >
               <GaClick
-                href={MAPS_URL}
+                href={mapsHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 event={GA_EVENTS.clickMaps}
@@ -84,6 +88,16 @@ export function LocationMap({
                 <ExternalLink className="h-4 w-4" aria-hidden />
               </GaClick>
             </Button>
+            {GOOGLE_REVIEW_URL.trim() ? (
+              <a
+                href={GOOGLE_REVIEW_URL.trim()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex text-sm font-semibold text-primary hover:underline"
+              >
+                Avalie-nos no Google
+              </a>
+            ) : null}
           </div>
 
           {showCredentials && (
@@ -97,7 +111,7 @@ export function LocationMap({
             <p className="mt-0.5 text-xs text-muted-foreground">
               Alternativa acessível:{" "}
               <GaClick
-                href={MAPS_URL}
+                href={mapsHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 event={GA_EVENTS.clickMaps}

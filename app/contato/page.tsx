@@ -10,6 +10,9 @@ import { LeadCtaButton } from "@/components/lead-form/LeadCtaButton";
 import {
   WHATSAPP_URL,
   BRAND,
+  BRAND_LEGAL,
+  BUSINESS_HOURS_DISPLAY,
+  CNPJ,
   PHONE_DISPLAY,
   PHONE_HREF,
   EMAIL,
@@ -95,6 +98,13 @@ export default function ContactPage() {
         <div className="soft-card p-6 md:p-8">
           <LeadForm variant="page" analyticsLocation="contato_page" />
         </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-4 md:px-6 pb-4">
+        <p className="text-sm text-muted-foreground text-center md:text-left">
+          {BRAND_LEGAL}
+          {CNPJ.trim() ? ` · CNPJ ${CNPJ.trim()}` : ""} · {BUSINESS_HOURS_DISPLAY} · {CITY}
+        </p>
       </section>
 
       <section className="mx-auto max-w-5xl px-4 md:px-6 py-12 grid gap-6 md:grid-cols-3">
