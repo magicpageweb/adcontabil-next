@@ -79,7 +79,7 @@ function parseRedirects(configSrc) {
   let slice = fnBody.slice(returnStart, end);
   // Drop spread of legacy sitemap map (sources are dynamic)
   slice = slice.replace(
-    /\.\.\.legacyWordpressSitemaps\.map\([\s\S]*?\),?/m,
+    /\.\.\.legacyWordpressSitemaps\.map\(\(source\)\s*=>\s*\(\{[\s\S]*?\}\)\)\,?/,
     "",
   );
 
