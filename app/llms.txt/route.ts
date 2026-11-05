@@ -38,7 +38,7 @@ export function GET() {
     "## Soluções",
     "",
     ...SOLUTIONS.map((s) => {
-      const blurb = (s.metaDescription || s.subtitle).slice(0, 140);
+      const blurb = s.metaDescription.slice(0, 140);
       return `- [${s.title}](${SITE_URL}/solucoes/${s.slug}): ${blurb}`;
     }),
     "",

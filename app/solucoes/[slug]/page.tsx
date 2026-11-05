@@ -45,10 +45,7 @@ export async function generateMetadata({
 
   return buildPageMetadata({
     title: s.title,
-    description:
-      "metaDescription" in s && typeof s.metaDescription === "string"
-        ? s.metaDescription
-        : truncateMeta(s.subtitle),
+    description: truncateMeta(s.metaDescription),
     path: `/solucoes/${slug}`,
     keywords: [
       s.title.toLowerCase(),

@@ -29,12 +29,11 @@ export function absoluteUrl(path = "/") {
 
 /** Emit a single JSON-LD document with @graph (no per-node @context). */
 export function jsonLdGraph(nodes: Record<string, unknown>[]) {
-  const graph = nodes
-    .filter(Boolean)
-    .map((node) => {
-      const { ["@context"]: _ctx, ...rest } = node;
-      return rest;
-    });
+  const graph = nodes.filter(Boolean).map((node) => {
+    const rest = { ...node };
+    delete rest["@context"];
+    return rest;
+  });
 
   return {
     "@context": "https://schema.org",
