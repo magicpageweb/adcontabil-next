@@ -19,8 +19,8 @@ export function BlogPreview() {
               Últimos do blog
             </h2>
             <p className="mt-2 text-sm text-muted-foreground text-pretty">
-              Conteúdo recente da AD Contábil sobre enquadramento, Fator R e
-              gestão contábil para profissionais da saúde.
+              Conteúdo recente da AD Contábil sobre enquadramento, rotina fiscal e
+              gestão contábil — com especialização em saúde.
             </p>
           </div>
           <Link

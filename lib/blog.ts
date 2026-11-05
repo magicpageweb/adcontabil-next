@@ -3,12 +3,29 @@ import {
   buildPostSearchBlob,
   keywordOverlapScore,
 } from "@/lib/blog-content";
+import { BASTIDORES_AD_CONTABIL_ACOMPANHA_CLIENTE_POST } from "@/lib/blog/posts/bastidores-ad-contabil-acompanha-cliente";
+import { CALENDARIO_FISCAL_OBRIGACOES_PEQUENA_EMPRESA_POST } from "@/lib/blog/posts/calendario-fiscal-obrigacoes-pequena-empresa";
+import { COMO_DECLARAR_INVESTIMENTOS_NO_IMPOSTO_DE_RENDA_POST } from "@/lib/blog/posts/como-declarar-investimentos-no-imposto-de-renda";
+import { COMO_ESCOLHER_O_CNAE_CERTO_E_POR_QUE_IMPORTA_POST } from "@/lib/blog/posts/como-escolher-o-cnae-certo-e-por-que-importa";
 import { CONTABILIDADE_DENTISTAS_ESPECIALIZADA_POST } from "@/lib/blog/posts/contabilidade-dentistas";
 import { CONTABILIDADE_SANTA_CRUZ_POST } from "@/lib/blog/posts/contabilidade-santa-cruz";
+import { DECLARACAO_DE_IMPOSTO_DE_RENDA_QUEM_E_OBRIGADO_POST } from "@/lib/blog/posts/declaracao-de-imposto-de-renda-quem-e-obrigado";
 import { DOCUMENTOS_CONTABILIDADE_CHECKLIST_POST } from "@/lib/blog/posts/documentos-contabilidade-checklist";
 import { ESCRITORIO_CONTABILIDADE_POST } from "@/lib/blog/posts/escritorio-contabilidade";
 import { ESCRITORIO_SANTA_CRUZ_GUIA_POST } from "@/lib/blog/posts/escritorio-santa-cruz-guia";
+import { ESOCIAL_PARA_PEQUENAS_EMPRESAS_O_QUE_OBSERVAR_POST } from "@/lib/blog/posts/esocial-para-pequenas-empresas-o-que-observar";
+import { FIM_DA_ESCALA_6X1_O_QUE_MUDA_PARA_EMPRESAS_CLT_POST } from "@/lib/blog/posts/fim-da-escala-6x1-o-que-muda-para-empresas-clt";
+import { HORA_DE_MIGRAR_DE_MEI_PARA_MICROEMPRESA_POST } from "@/lib/blog/posts/hora-de-migrar-de-mei-para-microempresa";
+import { INVESTIMENTOS_BASICOS_POR_ONDE_COMECAR_COM_CNPJ_POST } from "@/lib/blog/posts/investimentos-basicos-por-onde-comecar-com-cnpj";
+import { MEI_SIMPLES_NACIONAL_OU_OUTRO_REGIME_QUAL_ESCOLHER_POST } from "@/lib/blog/posts/mei-simples-nacional-ou-outro-regime-qual-escolher";
+import { NOTA_FISCAL_ELETRONICA_ERROS_COMUNS_QUE_GERAM_MULTA_POST } from "@/lib/blog/posts/nota-fiscal-eletronica-erros-comuns-que-geram-multa";
+import { NOVA_LEI_DO_MEI_LC_238_2026_O_QUE_MUDA_POST } from "@/lib/blog/posts/nova-lei-do-mei-lc-238-2026-o-que-muda";
+import { O_QUE_E_CONTABILIDADE_CONSULTIVA_POST } from "@/lib/blog/posts/o-que-e-contabilidade-consultiva";
+import { ORGANIZAR_FINANCAS_PESSOAIS_NO_DIA_A_DIA_POST } from "@/lib/blog/posts/organizar-financas-pessoais-no-dia-a-dia";
+import { PLANEJAMENTO_DE_FIM_DE_ANO_O_QUE_REVISAR_POST } from "@/lib/blog/posts/planejamento-de-fim-de-ano-o-que-revisar";
 import { PLANEJAMENTO_TRIBUTARIO_POST } from "@/lib/blog/posts/planejamento-tributario";
+import { RESERVA_DE_EMERGENCIA_DA_EMPRESA_QUANTO_GUARDAR_POST } from "@/lib/blog/posts/reserva-de-emergencia-da-empresa-quanto-guardar";
+import { SIMPLES_NACIONAL_FAIXAS_DE_FATURAMENTO_E_IMPOSTO_POST } from "@/lib/blog/posts/simples-nacional-faixas-de-faturamento-e-imposto";
 import { SIMPLES_NACIONAL_POST } from "@/lib/blog/posts/simples-nacional";
 
 export type BlogCategorySlug =
@@ -123,6 +140,24 @@ export const BLOG_POSTS: BlogPost[] = [
   ESCRITORIO_CONTABILIDADE_POST,
   SIMPLES_NACIONAL_POST,
   PLANEJAMENTO_TRIBUTARIO_POST,
+  // Lote 17 — publicação gradual via publishedAt + isPostLive
+  CALENDARIO_FISCAL_OBRIGACOES_PEQUENA_EMPRESA_POST,
+  NOTA_FISCAL_ELETRONICA_ERROS_COMUNS_QUE_GERAM_MULTA_POST,
+  RESERVA_DE_EMERGENCIA_DA_EMPRESA_QUANTO_GUARDAR_POST,
+  COMO_ESCOLHER_O_CNAE_CERTO_E_POR_QUE_IMPORTA_POST,
+  O_QUE_E_CONTABILIDADE_CONSULTIVA_POST,
+  SIMPLES_NACIONAL_FAIXAS_DE_FATURAMENTO_E_IMPOSTO_POST,
+  ESOCIAL_PARA_PEQUENAS_EMPRESAS_O_QUE_OBSERVAR_POST,
+  MEI_SIMPLES_NACIONAL_OU_OUTRO_REGIME_QUAL_ESCOLHER_POST,
+  NOVA_LEI_DO_MEI_LC_238_2026_O_QUE_MUDA_POST,
+  HORA_DE_MIGRAR_DE_MEI_PARA_MICROEMPRESA_POST,
+  PLANEJAMENTO_DE_FIM_DE_ANO_O_QUE_REVISAR_POST,
+  BASTIDORES_AD_CONTABIL_ACOMPANHA_CLIENTE_POST,
+  ORGANIZAR_FINANCAS_PESSOAIS_NO_DIA_A_DIA_POST,
+  FIM_DA_ESCALA_6X1_O_QUE_MUDA_PARA_EMPRESAS_CLT_POST,
+  DECLARACAO_DE_IMPOSTO_DE_RENDA_QUEM_E_OBRIGADO_POST,
+  COMO_DECLARAR_INVESTIMENTOS_NO_IMPOSTO_DE_RENDA_POST,
+  INVESTIMENTOS_BASICOS_POR_ONDE_COMECAR_COM_CNPJ_POST,
   {
     slug: "contabilidade-para-profissionais-da-saude-guia-completo",
     title: "Contabilidade para profissionais da saúde: guia completo para começar certo",
@@ -495,25 +530,45 @@ export function getBlogCategory(slug: BlogCategorySlug) {
   return BLOG_CATEGORIES.find((c) => c.slug === slug);
 }
 
+/** True when publishedAt is today or earlier (local calendar day). */
+export function isPostLive(post: BlogPost, now = new Date()): boolean {
+  if (!post?.publishedAt || typeof post.publishedAt !== "string") return false;
+  const published = new Date(`${post.publishedAt}T00:00:00`);
+  if (Number.isNaN(published.getTime())) return false;
+  return published.getTime() <= now.getTime();
+}
+
+export function getPublishedPosts(now = new Date()): BlogPost[] {
+  return BLOG_POSTS.filter((p) => isPostLive(p, now));
+}
+
 export function getBlogPost(slug: string) {
   return BLOG_POSTS.find((p) => p.slug === slug);
+}
+
+export function getLiveBlogPost(slug: string, now = new Date()) {
+  const post = getBlogPost(slug);
+  if (!post || !isPostLive(post, now)) return undefined;
+  return post;
 }
 
 export const BLOG_PAGE_SIZE = 6;
 
 export function getFeaturedPosts(limit = 3) {
-  return BLOG_POSTS.filter((p) => p.featured).slice(0, limit);
+  return getPublishedPosts()
+    .filter((p) => p.featured)
+    .slice(0, limit);
 }
 
 export function getRecentPosts(limit?: number) {
-  const sorted = [...BLOG_POSTS].sort(
+  const sorted = [...getPublishedPosts()].sort(
     (a, b) => +new Date(b.publishedAt) - +new Date(a.publishedAt),
   );
   return typeof limit === "number" ? sorted.slice(0, limit) : sorted;
 }
 
 export function getPostsByCategory(category: BlogCategorySlug) {
-  return BLOG_POSTS.filter((p) => p.category === category);
+  return getPublishedPosts().filter((p) => p.category === category);
 }
 
 export function searchBlogPosts(
@@ -714,7 +769,7 @@ export function getPostsForSpecialty(specialtySlug: string, limit = 2) {
     "contabilidade-para-profissionais-da-saude-guia-completo",
   ];
   return slugs
-    .map((s) => getBlogPost(s))
+    .map((s) => getLiveBlogPost(s))
     .filter((p): p is BlogPost => Boolean(p))
     .slice(0, limit);
 }
@@ -724,7 +779,7 @@ export function getPostsForSolution(solutionSlug: string, limit = 2) {
     "contabilidade-para-profissionais-da-saude-guia-completo",
   ];
   return slugs
-    .map((s) => getBlogPost(s))
+    .map((s) => getLiveBlogPost(s))
     .filter((p): p is BlogPost => Boolean(p))
     .slice(0, limit);
 }

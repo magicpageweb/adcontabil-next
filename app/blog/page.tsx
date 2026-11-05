@@ -10,6 +10,9 @@ import {
 } from "@/lib/blog-seo";
 import { breadcrumbSchema } from "@/lib/seo";
 
+/** Revalidate hourly so scheduled posts appear in listings without redeploy. */
+export const revalidate = 3600;
+
 type BlogSearchParams = Promise<{ categoria?: string; q?: string }>;
 
 export async function generateMetadata({

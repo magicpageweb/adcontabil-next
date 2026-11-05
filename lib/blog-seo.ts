@@ -18,14 +18,15 @@ import {
 import { BRAND, SITE_URL } from "@/lib/site";
 
 export const BLOG_DESCRIPTION =
-  "Artigos e guias sobre contabilidade para a saúde: Fator R, PF x PJ, CNAE, especialidades e orientação consultiva da AD Contábil em Santa Cruz do Sul/RS.";
+  "Artigos e guias de contabilidade para empresas e profissionais — com especialização em saúde: Fator R, PF x PJ, CNAE e orientação consultiva da AD Contábil em Santa Cruz do Sul/RS.";
 
 export const BLOG_KEYWORDS = [
+  "blog contabilidade",
+  "contabilidade empresas",
   "blog contabilidade saúde",
   "fator r",
   "pf ou pj",
   "cnae saúde",
-  "contabilidade para fonoaudiólogos",
   "contabilidade santa cruz do sul",
 ];
 
@@ -42,8 +43,8 @@ export function blogListingMetadata({
     ...buildPageMetadata({
       title:
         page > 1
-          ? `Blog | Página ${page} — conteúdo contábil para a saúde`
-          : "Blog | Conteúdo contábil para profissionais da saúde",
+          ? `Blog | Página ${page} — conteúdo contábil para empresas e profissionais`
+          : "Blog | Conteúdo contábil para empresas e profissionais",
       description: BLOG_DESCRIPTION,
       path,
       keywords: BLOG_KEYWORDS,

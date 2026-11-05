@@ -14,9 +14,10 @@ import { PostContent } from "@/components/blog/PostContent";
 import { BlogCarousel } from "@/components/home/BlogCarousel";
 import {
   BLOG_POSTS,
-  getBlogPost,
+  getLiveBlogPost,
   getRecentPosts,
   getRelatedPosts,
+  isPostLive,
 } from "@/lib/blog";
 import {
   countPostWords,
@@ -30,6 +31,9 @@ import {
 } from "@/lib/blog-seo";
 import { absoluteUrl } from "@/lib/seo";
 
+/** Revalidate hourly so scheduled posts go live without redeploy. */
+export const revalidate = 3600;
+
 export function generateStaticParams() {
   return BLOG_POSTS.map((p) => ({ slug: p.slug }));
 }
@@ -40,7 +44,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getBlogPost(slug);
+  const post = getLiveBlogPost(slug);
   if (!post) return {};
   return buildArticleMetadata(post);
 }
@@ -51,8 +55,8 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = getBlogPost(slug);
-  if (!post) notFound();
+  const post = getLiveBlogPost(slug);
+  if (!post || !isPostLive(post)) notFound();
 
   const related = getRelatedPosts(post, 3);
   const latestPosts = getRecentPosts(8).filter((p) => p.slug !== post.slug);
@@ -104,14 +108,13 @@ export default async function BlogPostPage({
           </div>
 
           <div className="mx-auto max-w-5xl px-4 md:px-6 pb-12 md:pb-16">
-            <figure className="relative overflow-hidden rounded-2xl soft-card aspect-[16/9]">
+            <figure className="relative overflow-hidden rounded-2xl soft-card aspect-[16/9] bg-surface">
               <Image
                 src={post.coverImage}
                 alt={post.coverAlt}
                 title={post.coverAlt}
-                width={1600}
-                height={900}
-                className="h-full w-full object-cover"
+                fill
+                className="object-cover"
                 priority
                 sizes="(max-width: 1024px) 100vw, 1024px"
               />
@@ -191,7 +194,7 @@ export default async function BlogPostPage({
           title="Quer organizar a contabilidade da sua empresa ou consultório?"
           text="Em poucos passos você fala com a nossa equipe."
           primaryLabel="Solicitar análise contábil"
-          location="blog_post"
+          location={`blog_post_${post.slug}`}
         />
       </div>
     </SiteLayout>

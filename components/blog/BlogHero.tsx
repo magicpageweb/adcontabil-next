@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_URL } from "@/lib/site";
@@ -8,11 +9,18 @@ export function BlogHero() {
       <div className="mx-auto max-w-7xl px-4 md:px-6 py-12 md:py-16">
         <p className="text-xs uppercase tracking-[0.18em] text-accent font-semibold">Blog</p>
         <h1 className="mt-3 font-display text-3xl md:text-4xl lg:text-[2.75rem] font-semibold max-w-3xl text-balance leading-[1.15]">
-          Conteúdo contábil para profissionais da saúde
+          Conteúdo contábil para empresas e profissionais
         </h1>
         <p className="mt-4 max-w-2xl text-base md:text-lg text-white/80 text-pretty">
-          Guias e orientações para decisões com mais clareza — Fator R, PF x PJ, CNAE e rotina
-          fiscal por especialidade.
+          Guias e orientações para decisões com mais clareza — enquadramento, rotina fiscal e
+          gestão contábil, com especialização em saúde.
+        </p>
+        <p className="mt-3 max-w-2xl text-sm text-white/55">
+          Atendemos também empresas e profissionais de outros segmentos.{" "}
+          <Link href="/servicos" className="underline underline-offset-2 hover:text-white/80 transition">
+            Conheça nossos serviços
+          </Link>
+          .
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <Button asChild size="lg" className="bg-cta text-cta-foreground hover:opacity-90 h-11 px-6">

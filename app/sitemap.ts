@@ -2,8 +2,9 @@ import type { MetadataRoute } from "next";
 import { SITE_URL, SPECIALTIES, SOLUTIONS } from "@/lib/site";
 import {
   BLOG_PAGE_SIZE,
-  BLOG_POSTS,
   getBlogTotalPages,
+  getPublishedPosts,
+  isPostLive,
   type BlogPost,
 } from "@/lib/blog";
 
@@ -31,7 +32,8 @@ function isIndexableBlogPost(post: BlogPost): boolean {
       typeof post.slug === "string" &&
       /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(post.slug) &&
       typeof post.publishedAt === "string" &&
-      !Number.isNaN(new Date(post.publishedAt).getTime()),
+      !Number.isNaN(new Date(post.publishedAt).getTime()) &&
+      isPostLive(post),
   );
 }
 
@@ -98,7 +100,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
 
-    const posts = (BLOG_POSTS ?? []).filter(isIndexableBlogPost);
+    const posts = getPublishedPosts().filter(isIndexableBlogPost);
     for (const p of posts) {
       entries.push({
         url: absolutePath(base, `/blog/${p.slug}`),
