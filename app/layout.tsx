@@ -63,19 +63,14 @@ export const metadata: Metadata = {
     title: `${BRAND} — Contabilidade para Saúde e Empresas`,
     description: DEFAULT_DESCRIPTION,
   },
+  // Sem canonical/robots no layout raiz — páginas definem o próprio;
+  // not-found herda destes defaults e o Next injeta noindex em 404.
   robots: {
-    index: true,
-    follow: true,
     googleBot: {
-      index: true,
-      follow: true,
       "max-image-preview": "large",
       "max-snippet": -1,
       "max-video-preview": -1,
     },
-  },
-  alternates: {
-    canonical: SITE_URL,
   },
   formatDetection: {
     telephone: true,
