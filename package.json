@@ -9,7 +9,9 @@
     "lint": "eslint",
     "check:links": "node scripts/check-internal-links.mjs",
     "check:meta": "node scripts/report-meta-lengths.mjs",
-    "check:redirects": "node scripts/check-redirects.mjs"
+    "check:redirects": "node scripts/check-redirects.mjs",
+    "check:html": "node scripts/check-built-html.mjs",
+    "check:all": "npm run check:links && npm run check:meta && npm run check:redirects"
   },
   "dependencies": {
     "@next/third-parties": "^16.2.12",
