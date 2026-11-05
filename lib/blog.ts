@@ -530,10 +530,14 @@ export function getBlogCategory(slug: BlogCategorySlug) {
   return BLOG_CATEGORIES.find((c) => c.slug === slug);
 }
 
-/** True when publishedAt is today or earlier (local calendar day). */
+/**
+ * True when publishedAt is today or earlier in America/Sao_Paulo.
+ * Avoids UTC midnight making posts appear at 21h on the previous day in Brazil.
+ */
 export function isPostLive(post: BlogPost, now = new Date()): boolean {
   if (!post?.publishedAt || typeof post.publishedAt !== "string") return false;
-  const published = new Date(`${post.publishedAt}T00:00:00`);
+  // publishedAt is YYYY-MM-DD; treat start-of-day as Brasília (UTC−3, no DST since 2019).
+  const published = new Date(`${post.publishedAt}T00:00:00-03:00`);
   if (Number.isNaN(published.getTime())) return false;
   return published.getTime() <= now.getTime();
 }

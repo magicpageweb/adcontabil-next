@@ -34,6 +34,9 @@ import { absoluteUrl } from "@/lib/seo";
 /** Revalidate hourly so scheduled posts go live without redeploy. */
 export const revalidate = 3600;
 
+/** Allow slugs not present at build time (or that become live after ISR). */
+export const dynamicParams = true;
+
 export function generateStaticParams() {
   return BLOG_POSTS.map((p) => ({ slug: p.slug }));
 }

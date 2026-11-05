@@ -13,6 +13,9 @@ import { FinalCTA } from "@/components/home/FinalCTA";
 import { BRAND, DEFAULT_DESCRIPTION, HOME_FAQS } from "@/lib/site";
 import { buildPageMetadata, faqSchema } from "@/lib/seo";
 
+/** Hourly ISR so BlogPreview picks up newly live scheduled posts. */
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   ...buildPageMetadata({
     title: `${BRAND} — Contabilidade para Saúde e Empresas`,

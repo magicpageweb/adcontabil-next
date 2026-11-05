@@ -37,6 +37,55 @@ const nextConfig: NextConfig = {
         destination: "/blog/page/:page",
         permanent: true,
       },
+      // WordPress / legacy URLs (no trailing slash — trailingSlash redirect runs first)
+      { source: "/sobre-nos", destination: "/quem-somos", permanent: true },
+      { source: "/sevicos", destination: "/servicos", permanent: true },
+      { source: "/principal", destination: "/", permanent: true },
+      { source: "/home", destination: "/", permanent: true },
+      { source: "/contabil", destination: "/blog", permanent: true },
+      // Plans section lives on the home page (#planos)
+      { source: "/planos", destination: "/#planos", permanent: true },
+      {
+        source:
+          "/como-a-contabilidade-estrategica-pode-transformar-o-seu-negocio",
+        destination: "/blog/o-que-e-contabilidade-consultiva",
+        permanent: true,
+      },
+      {
+        source:
+          "/cpf-ou-cnpj-para-profissionais-de-saude-como-decidir-com-seguranca",
+        destination: "/solucoes/carne-leao-pj",
+        permanent: true,
+      },
+      {
+        source: "/por-que-muitos-profissionais-continuam-no-cpf-mesmo-pagando-mais",
+        destination: "/solucoes/carne-leao-pj",
+        permanent: true,
+      },
+      {
+        source:
+          "/dentista-por-que-contratar-um-escritorio-contabil-especializado-em-saude",
+        destination: "/contabilidade-para/dentistas",
+        permanent: true,
+      },
+      {
+        source:
+          "/escritorio-de-contabilidade-gestao-estrategica-sem-fronteiras-para-sua-empresa",
+        destination: "/blog/escritorio-de-contabilidade-gestao-estrategica",
+        permanent: true,
+      },
+      {
+        source:
+          "/licitacoes-publicas-como-participar-e-vender-para-o-governo-com-seguranca",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source:
+          "/mei-simples-nacional-e-lucro-presumido-qual-regime-e-melhor-para-sua-empresa",
+        destination: "/blog/mei-simples-nacional-ou-outro-regime-qual-escolher",
+        permanent: true,
+      },
       ...legacyWordpressSitemaps.map((source) => ({
         source,
         destination: "/sitemap.xml",

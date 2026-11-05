@@ -44,7 +44,10 @@ function absolutePath(base: string, path: string): string {
 
 /**
  * Public indexable URLs only — no query filters, no /api, no /blog/paginas.
+ * Revalidate hourly so scheduled posts enter the sitemap when they go live.
  */
+export const revalidate = 3600;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = assertCanonicalSiteUrl(SITE_URL);
   const now = new Date();
