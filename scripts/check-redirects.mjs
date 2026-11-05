@@ -69,7 +69,19 @@ function parseRedirects(configSrc) {
   const fnStart = configSrc.indexOf("async redirects()");
   const fnBody = configSrc.slice(fnStart);
   const returnStart = fnBody.indexOf("return [");
-  const slice = fnBody.slice(returnStart);
+  // Stop before rewrites() / headers()
+  const endMarkers = ["async rewrites()", "async headers()"];
+  let end = fnBody.length;
+  for (const marker of endMarkers) {
+    const i = fnBody.indexOf(marker);
+    if (i !== -1 && i < end) end = i;
+  }
+  let slice = fnBody.slice(returnStart, end);
+  // Drop spread of legacy sitemap map (sources are dynamic)
+  slice = slice.replace(
+    /\.\.\.legacyWordpressSitemaps\.map\([\s\S]*?\),?/m,
+    "",
+  );
 
   const sources = [...slice.matchAll(/source:\s*\n?\s*"([^"]+)"/g)].map(
     (m) => ({ index: m.index, value: m[1] }),
@@ -86,6 +98,19 @@ function parseRedirects(configSrc) {
       else break;
     }
     if (source) redirects.push({ source, destination: dest.value });
+  }
+
+  // Explicitly validate legacy sitemap targets
+  for (const source of [
+    "/post_tag-sitemap.xml",
+    "/page-sitemap.xml",
+    "/post-sitemap.xml",
+    "/category-sitemap.xml",
+    "/sitemap_index.xml",
+    "/wp-sitemap.xml",
+    "/wp-sitemap-index.xml",
+  ]) {
+    redirects.push({ source, destination: "/sitemap.xml" });
   }
   return redirects;
 }
