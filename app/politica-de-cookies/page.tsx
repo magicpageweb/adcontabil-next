@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { BRAND, EMAIL, SITE_URL } from "@/lib/site";
-import { breadcrumbSchema, buildPageMetadata } from "@/lib/seo";
+import { breadcrumbSchema, buildPageMetadata, jsonLdGraph } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Política de Cookies",
@@ -22,7 +22,7 @@ export default function CookiesPolicyPage() {
     <SiteLayout>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph(schemas)) }}
       />
       <article className="mx-auto max-w-3xl px-4 md:px-6 py-14 md:py-20">
         <p className="text-xs uppercase tracking-widest text-primary font-semibold">Legal</p>
