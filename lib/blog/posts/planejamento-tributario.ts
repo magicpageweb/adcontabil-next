@@ -31,9 +31,11 @@ export const PLANEJAMENTO_TRIBUTARIO_POST: BlogPost = {
   slug: "planejamento-tributario-para-profissionais-da-saude",
   title:
     "Planejamento tributário para profissionais da saúde: como uma análise estratégica pode contribuir para uma gestão mais eficiente",
-  seoTitle: "Planejamento Tributário para Profissionais da Saúde",
+  seoTitle: "Planejamento tributário na área da saúde",
+  metaDescription:
+    "Como o planejamento tributário ajuda médicos e demais profissionais da saúde a organizar o enquadramento — análise técnica, sem promessa de economia.",
   seoDescription:
-    "Entenda como o planejamento tributário pode contribuir para uma gestão mais eficiente de médicos, dentistas, psicólogos, fisioterapeutas, nutricionistas e fonoaudiólogos, sempre respeitando a legislação vigente.",
+    "Como o planejamento tributário ajuda médicos e demais profissionais da saúde a organizar o enquadramento — análise técnica, sem promessa de economia.",
   excerpt:
     "Entenda como o planejamento tributário pode contribuir para uma gestão mais eficiente de médicos, dentistas, psicólogos, fisioterapeutas, nutricionistas e fonoaudiólogos, sempre respeitando a legislação vigente.",
   keywords: [

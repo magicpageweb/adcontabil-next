@@ -27,7 +27,7 @@ import {
 
 const PATH = "/contabilidade-para-medicos-em-santa-cruz-do-sul";
 
-const TITLE = "Contabilidade para Médicos em Santa Cruz do Sul";
+const TITLE = "Contabilidade para médicos em Santa Cruz";
 const DESCRIPTION =
   "Contabilidade para médicos em Santa Cruz do Sul/RS: CNPJ, Fator R, Simples e PF x PJ para consultórios e clínicas. Atendimento local e remoto.";
 

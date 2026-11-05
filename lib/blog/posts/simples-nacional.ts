@@ -24,9 +24,11 @@ export const SIMPLES_NACIONAL_POST: BlogPost = {
   slug: "simples-nacional-para-profissionais-da-saude",
   title:
     "Simples Nacional para profissionais da saúde: como funciona e quais pontos avaliar",
-  seoTitle: "Simples Nacional para Profissionais da Saúde",
+  seoTitle: "Simples Nacional para a área da saúde",
+  metaDescription:
+    "Como o Simples Nacional funciona para profissionais da saúde e quais pontos avaliar no enquadramento, na operação e no acompanhamento mensal.",
   seoDescription:
-    "Entenda como o Simples Nacional funciona para médicos, dentistas, psicólogos, fisioterapeutas, nutricionistas e fonoaudiólogos, e quais pontos avaliar no enquadramento tributário.",
+    "Como o Simples Nacional funciona para profissionais da saúde e quais pontos avaliar no enquadramento, na operação e no acompanhamento mensal.",
   excerpt:
     "Entenda como o Simples Nacional funciona para profissionais da saúde e quais pontos avaliar no enquadramento, na operação e no acompanhamento mensal.",
   keywords: [

@@ -13,7 +13,7 @@ import {
 export const DECLARACAO_DE_IMPOSTO_DE_RENDA_QUEM_E_OBRIGADO_POST: BlogPost = {
   slug: "declaracao-de-imposto-de-renda-quem-e-obrigado",
   title: "Declaração de Imposto de Renda: quem é obrigado e o que observar",
-  seoTitle: "Declaração de Imposto de Renda: quem é obrigado",
+  seoTitle: "Declaração de IR: quem é obrigado",
   seoDescription:
     "Veja quem costuma precisar declarar o IR, erros frequentes e o que organizar ao longo do ano com orientação contábil.",
   excerpt:

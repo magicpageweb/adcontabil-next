@@ -24,9 +24,11 @@ export const ESCRITORIO_SANTA_CRUZ_GUIA_POST: BlogPost = {
   slug: "escritorio-de-contabilidade-em-santa-cruz-do-sul-guia",
   title:
     "Escritório de Contabilidade em Santa Cruz do Sul: o guia para escolher a assessoria ideal",
-  seoTitle: "Escritório de Contabilidade em Santa Cruz do Sul",
+  seoTitle: "Escritório contábil em Santa Cruz do Sul",
+  metaDescription:
+    "Guia para escolher escritório de contabilidade em Santa Cruz do Sul: CNAE, planejamento, BPO, CRC e especialização em saúde.",
   seoDescription:
-    "Guia para escolher um escritório de contabilidade em Santa Cruz do Sul: CNAE, planejamento tributário, BPO, CRC ativo e especialização em saúde. AD Contábil.",
+    "Guia para escolher escritório de contabilidade em Santa Cruz do Sul: CNAE, planejamento, BPO, CRC e especialização em saúde.",
   excerpt:
     "O que avaliar ao escolher um escritório de contabilidade em Santa Cruz do Sul — da abertura do CNPJ ao acompanhamento consultivo para empresas e profissionais da saúde.",
   keywords: [

@@ -20,9 +20,11 @@ export const ESCRITORIO_CONTABILIDADE_POST: BlogPost = {
   slug: "escritorio-de-contabilidade-gestao-estrategica",
   title:
     "Escritório de Contabilidade: gestão estratégica sem fronteiras para sua empresa",
-  seoTitle: "Escritório de Contabilidade e Gestão Estratégica",
+  seoTitle: "Escritório de contabilidade estratégica",
+  metaDescription:
+    "Papel de um escritório de contabilidade estratégico na organização fiscal e na gestão do negócio, com atendimento consultivo da AD Contábil.",
   seoDescription:
-    "Entenda o papel de um escritório de contabilidade estratégico na organização fiscal, financeira e na gestão do negócio, com atendimento consultivo da AD Contábil.",
+    "Papel de um escritório de contabilidade estratégico na organização fiscal e na gestão do negócio, com atendimento consultivo da AD Contábil.",
   excerpt:
     "Entenda como um escritório de contabilidade estratégico contribui para clareza técnica, organização fiscal e apoio à gestão — com atendimento próximo e operação digital.",
   keywords: [

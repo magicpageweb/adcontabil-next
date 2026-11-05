@@ -20,9 +20,11 @@ export const CONTABILIDADE_DENTISTAS_ESPECIALIZADA_POST: BlogPost = {
   slug: "contabilidade-especializada-para-dentistas",
   title:
     "Contabilidade especializada para dentistas: por que contar com apoio contábil e financeiro",
-  seoTitle: "Contabilidade Especializada para Dentistas",
+  seoTitle: "Contabilidade especializada para dentistas",
+  metaDescription:
+    "Por que a contabilidade especializada para dentistas ajuda a organizar tributos, rotina financeira e decisões do consultório com clareza.",
   seoDescription:
-    "Entenda por que a contabilidade especializada para dentistas ajuda a organizar tributos, rotina financeira e decisões do consultório com mais clareza e segurança técnica.",
+    "Por que a contabilidade especializada para dentistas ajuda a organizar tributos, rotina financeira e decisões do consultório com clareza.",
   excerpt:
     "Entenda por que a contabilidade especializada para dentistas ajuda a organizar tributos, rotina financeira e decisões do consultório com mais clareza.",
   keywords: [

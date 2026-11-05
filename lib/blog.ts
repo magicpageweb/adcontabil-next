@@ -69,8 +69,12 @@ export type BlogPost = {
   slug: string;
   title: string;
   excerpt: string;
+  /** Título SEO ≤ 46 chars (fica ≤ 60 com " — AD Contábil"). H1 usa `title`. */
   seoTitle?: string;
+  /** Preferir `metaDescription`. Mantido por compatibilidade com posts existentes. */
   seoDescription?: string;
+  /** Meta description ≤ 155 caracteres. */
+  metaDescription?: string;
   keywords?: string[];
   tags?: string[];
   summaryBullets?: string[];
@@ -157,6 +161,9 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "contabilidade-para-profissionais-da-saude-guia-completo",
     title: "Contabilidade para profissionais da saúde: guia completo para começar certo",
+    seoTitle: "Contabilidade para saúde: guia completo",
+    metaDescription:
+      "Guia de contabilidade para profissionais da saúde: enquadramento, organização fiscal e clareza tributária com a AD Contábil.",
     excerpt:
       "Entenda como estruturar a contabilidade para profissionais da saúde com foco em enquadramento, organização e clareza tributária.",
     category: "profissionais-da-saude",
@@ -232,6 +239,9 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "como-funciona-o-fator-r-para-profissionais-da-saude",
     title: "Como funciona o Fator R para profissionais da saúde",
+    seoTitle: "Fator R para profissionais da saúde",
+    metaDescription:
+      "Como o Fator R influencia o enquadramento no Simples para profissionais da saúde — análise caso a caso, sem garantia de alíquota.",
     excerpt:
       "Veja como o Fator R influencia o enquadramento tributário e por que ele é tão importante para profissionais da saúde.",
     category: "tributacao",
@@ -350,6 +360,9 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "contabilidade-para-fonoaudiologos-o-que-avaliar-antes-de-abrir-empresa",
     title: "Contabilidade para fonoaudiólogos: o que avaliar antes de abrir empresa",
+    seoTitle: "Contabilidade para fonoaudiólogos",
+    metaDescription:
+      "O que avaliar antes de abrir CNPJ como fonoaudiólogo: CNAE, regime, PF x PJ e estrutura do consultório com a AD Contábil.",
     excerpt:
       "Entenda o que observar antes de abrir CNPJ como fonoaudiólogo e como escolher a estrutura correta.",
     category: "fonoaudiologia",
@@ -413,6 +426,9 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "como-escolher-o-cnae-certo-para-sua-especialidade-na-saude",
     title: "Como escolher o CNAE certo para sua especialidade na saúde",
+    seoTitle: "CNAE certo para especialidade na saúde",
+    metaDescription:
+      "Por que o CNAE importa na saúde e como escolhê-lo com cuidado antes de abrir ou alterar o CNPJ — orientação da AD Contábil.",
     excerpt:
       "Saiba por que o CNAE influencia sua operação e como ele deve ser escolhido com cuidado.",
     category: "abertura-de-empresa",
@@ -464,6 +480,9 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "contabilidade-para-dentistas-como-organizar-sua-rotina-fiscal-e-crescer-com-seguranca",
     title:
       "Contabilidade para dentistas: como organizar sua rotina fiscal e crescer com segurança",
+    seoTitle: "Contabilidade para dentistas: rotina fiscal",
+    metaDescription:
+      "Como organizar a rotina fiscal do consultório odontológico com previsibilidade e orientação da AD Contábil.",
     excerpt:
       "Veja como estruturar a rotina contábil de dentistas com mais previsibilidade, segurança e organização.",
     category: "odontologia",

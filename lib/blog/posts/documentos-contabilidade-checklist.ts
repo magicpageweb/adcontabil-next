@@ -30,7 +30,7 @@ function callout(
 export const DOCUMENTOS_CONTABILIDADE_CHECKLIST_POST: BlogPost = {
   slug: "documentos-contabilidade-consultorio-checklist",
   title: "Documentos para contabilidade: checklist mensal do consultório",
-  seoTitle: "Documentos para contabilidade: checklist do consultório",
+  seoTitle: "Checklist de documentos do consultório",
   seoDescription:
     "Veja quais documentos organizar mensalmente para a contabilidade do consultório e como criar uma rotina fiscal mais clara e organizada.",
   excerpt:

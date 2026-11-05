@@ -81,7 +81,8 @@ export function buildArticleMetadata(post: BlogPost): Metadata {
   const path = `/blog/${post.slug}`;
   const url = absoluteUrl(path);
   const title = post.seoTitle ?? post.title;
-  const description = post.seoDescription ?? post.excerpt;
+  const description =
+    post.metaDescription ?? post.seoDescription ?? post.excerpt;
   const category = getBlogCategory(post.category);
   const fullTitle = title.includes(BRAND) ? title : `${title} — ${BRAND}`;
   const imageUrl = absoluteUrl(post.coverImage);
