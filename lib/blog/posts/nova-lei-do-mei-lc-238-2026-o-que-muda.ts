@@ -1,3 +1,4 @@
+// REVISAR-LEGAL: confirmar com a contadora antes de publicar
 import type { BlogPost } from "@/lib/blog";
 import {
   BRAND,
@@ -33,7 +34,7 @@ export const NOVA_LEI_DO_MEI_LC_238_2026_O_QUE_MUDA_POST: BlogPost = {
     "Profissões regulamentadas da saúde em geral seguem fora do MEI.",
   ],
   category: "abertura-de-empresa",
-  publishedAt: "2026-11-12",
+  publishedAt: "2026-11-05",
   readingMinutes: 8,
   featured: false,
   coverImage: "/blog/nova-lei-do-mei-lc-238-2026-o-que-muda.webp",

@@ -31,7 +31,7 @@ export const BASTIDORES_AD_CONTABIL_ACOMPANHA_CLIENTE_POST: BlogPost = {
     "O fio condutor é não deixar o cliente adivinhar sozinho.",
   ],
   category: "gestao-contabil",
-  publishedAt: "2026-11-15",
+  publishedAt: "2026-11-05",
   readingMinutes: 6,
   featured: false,
   coverImage: "/blog/bastidores-ad-contabil-acompanha-cliente.webp",

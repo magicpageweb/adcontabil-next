@@ -1,3 +1,4 @@
+// REVISAR-LEGAL: confirmar com a contadora antes de publicar
 import type { BlogPost } from "@/lib/blog";
 import {
   BRAND,
@@ -33,7 +34,7 @@ export const COMO_DECLARAR_INVESTIMENTOS_NO_IMPOSTO_DE_RENDA_POST: BlogPost = {
     "Carteiras complexas pedem ajuda profissional.",
   ],
   category: "tributacao",
-  publishedAt: "2026-11-19",
+  publishedAt: "2026-11-05",
   readingMinutes: 8,
   featured: false,
   coverImage: "/blog/como-declarar-investimentos-no-imposto-de-renda.webp",

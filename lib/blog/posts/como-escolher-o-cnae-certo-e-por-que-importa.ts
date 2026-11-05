@@ -14,8 +14,10 @@ export const COMO_ESCOLHER_O_CNAE_CERTO_E_POR_QUE_IMPORTA_POST: BlogPost = {
   slug: "como-escolher-o-cnae-certo-e-por-que-importa",
   title: "Como escolher o CNAE certo e por que isso importa",
   seoTitle: "Como escolher o CNAE certo",
+  metaDescription:
+    "CNAE para MEI e empresas em geral: imposto, licenças e notas — visão ampla, não específica da saúde.",
   seoDescription:
-    "Entenda por que o CNAE influencia imposto, licenças e notas — e quando revisar o cadastro da empresa.",
+    "CNAE para MEI e empresas em geral: imposto, licenças e notas — visão ampla, não específica da saúde.",
   excerpt:
     "O CNAE descreve o que a empresa faz e influencia imposto, licenças, regime e emissão de notas. Veja erros comuns e quando revisar o cadastro.",
   keywords: [
@@ -33,7 +35,7 @@ export const COMO_ESCOLHER_O_CNAE_CERTO_E_POR_QUE_IMPORTA_POST: BlogPost = {
     "Revise o cadastro antes de emitir nota para atividade nova.",
   ],
   category: "abertura-de-empresa",
-  publishedAt: "2026-11-07",
+  publishedAt: "2026-11-05",
   readingMinutes: 7,
   featured: false,
   coverImage: "/blog/como-escolher-o-cnae-certo-e-por-que-importa.webp",
@@ -58,12 +60,12 @@ export const COMO_ESCOLHER_O_CNAE_CERTO_E_POR_QUE_IMPORTA_POST: BlogPost = {
       "O CNAE (Classificação Nacional de Atividades Econômicas) é o código que descreve o que a empresa faz — e, apesar de parecer um detalhe burocrático, influencia diretamente imposto, licenças e até o regime tributário disponível.",
     ),
     p(
-      "Este artigo é a visão geral para quem formaliza ou revisa o negócio. Se você atua na área da saúde, complemente com o ",
+      "Este artigo é a visão geral para MEI, empresas e profissionais liberais. Se você é profissional da saúde, veja o ",
       link(
         "/blog/como-escolher-o-cnae-certo-para-sua-especialidade-na-saude",
         "guia de CNAE por especialidade na saúde",
       ),
-      ", já publicado no blog da ",
+      " — o recorte clínico e sanitário fica naquele texto. Conteúdo da ",
       BRAND_LEGAL,
       " (",
       BRAND,

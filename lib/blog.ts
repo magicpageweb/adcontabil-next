@@ -140,7 +140,7 @@ export const BLOG_POSTS: BlogPost[] = [
   ESCRITORIO_CONTABILIDADE_POST,
   SIMPLES_NACIONAL_POST,
   PLANEJAMENTO_TRIBUTARIO_POST,
-  // Lote 17 — publicação gradual via publishedAt + isPostLive
+  // Lote 17 (publishedAt + isPostLive permanece para agendamentos futuros)
   CALENDARIO_FISCAL_OBRIGACOES_PEQUENA_EMPRESA_POST,
   NOTA_FISCAL_ELETRONICA_ERROS_COMUNS_QUE_GERAM_MULTA_POST,
   RESERVA_DE_EMERGENCIA_DA_EMPRESA_QUANTO_GUARDAR_POST,
@@ -438,6 +438,7 @@ export const BLOG_POSTS: BlogPost[] = [
     coverImage: "/blog/como-escolher-o-cnae-certo-para-sua-especialidade-na-saude.webp",
     coverAlt: "Organização de pastas e documentos em mesa corporativa elegante",
     relatedSlugs: [
+      "como-escolher-o-cnae-certo-e-por-que-importa",
       "contabilidade-para-profissionais-da-saude-guia-completo",
       "contabilidade-para-fonoaudiologos-o-que-avaliar-antes-de-abrir-empresa",
       "contabilidade-para-dentistas-como-organizar-sua-rotina-fiscal-e-crescer-com-seguranca",
@@ -445,6 +446,14 @@ export const BLOG_POSTS: BlogPost[] = [
     content: [
       p(
         "O CNAE (Classificação Nacional de Atividades Econômicas) descreve a atividade principal da empresa perante o fisco e órgãos de registro. Na saúde, a escolha inadequada pode gerar enquadramento incoerente, obrigações desalinhadas e retrabalho.",
+      ),
+      p(
+        "Este guia é específico para especialidades da saúde. Se você busca a visão geral para MEI e empresas em geral, veja também ",
+        link(
+          "/blog/como-escolher-o-cnae-certo-e-por-que-importa",
+          "como escolher o CNAE certo e por que isso importa",
+        ),
+        ".",
       ),
       h2("O que é o CNAE"),
       p(
@@ -579,11 +588,33 @@ export function getFeaturedPosts(limit = 3) {
     .slice(0, limit);
 }
 
+/** Newest first; same-day ties break by title (stable across builds). */
+export function comparePostsByDateThenTitle(a: BlogPost, b: BlogPost): number {
+  const byDate = +new Date(b.publishedAt) - +new Date(a.publishedAt);
+  if (byDate !== 0) return byDate;
+  return a.title.localeCompare(b.title, "pt-BR");
+}
+
 export function getRecentPosts(limit?: number) {
-  const sorted = [...getPublishedPosts()].sort(
-    (a, b) => +new Date(b.publishedAt) - +new Date(a.publishedAt),
-  );
+  const sorted = [...getPublishedPosts()].sort(comparePostsByDateThenTitle);
   return typeof limit === "number" ? sorted.slice(0, limit) : sorted;
+}
+
+/**
+ * True for non-blog hrefs. For `/blog/<slug>`, true only if the post exists and is live.
+ * Listing paths (`/blog`, `/blog/paginas/...`) are always considered live.
+ */
+export function isLiveBlogHref(href: string, now = new Date()): boolean {
+  if (!href.startsWith("/")) return true;
+  const pathOnly = href.split(/[?#]/)[0] ?? href;
+  if (pathOnly === "/blog" || pathOnly === "/blog/") return true;
+  if (pathOnly.startsWith("/blog/paginas/")) return true;
+  if (pathOnly.startsWith("/blog/page/")) return true;
+  if (!pathOnly.startsWith("/blog/")) return true;
+  const slug = pathOnly.slice("/blog/".length).replace(/\/$/, "");
+  if (!slug || slug.includes("/")) return true;
+  const post = getBlogPost(slug);
+  return Boolean(post && isPostLive(post, now));
 }
 
 export function getPostsByCategory(category: BlogCategorySlug) {

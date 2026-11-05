@@ -1,3 +1,4 @@
+// REVISAR-LEGAL: confirmar com a contadora antes de publicar
 import type { BlogPost } from "@/lib/blog";
 import {
   BRAND,
@@ -33,7 +34,7 @@ export const DECLARACAO_DE_IMPOSTO_DE_RENDA_QUEM_E_OBRIGADO_POST: BlogPost = {
     "Organize informes e comprovantes ao longo do ano.",
   ],
   category: "tributacao",
-  publishedAt: "2026-11-18",
+  publishedAt: "2026-11-05",
   readingMinutes: 8,
   featured: false,
   coverImage: "/blog/declaracao-de-imposto-de-renda-quem-e-obrigado.webp",
@@ -62,7 +63,12 @@ export const DECLARACAO_DE_IMPOSTO_DE_RENDA_QUEM_E_OBRIGADO_POST: BlogPost = {
       BRAND_LEGAL,
       " (",
       BRAND,
-      "), a orientação começa cedo: organizar documentos ao longo do ano reduz pressa e risco na entrega. Este artigo é geral — não substitui análise individual.",
+      "), a orientação começa cedo: organizar documentos ao longo do ano reduz pressa e risco na entrega. Este artigo cobre obrigatoriedade e organização geral — não o detalhe de aplicações financeiras (isso está em ",
+      link(
+        "/blog/como-declarar-investimentos-no-imposto-de-renda",
+        "como declarar investimentos no IR",
+      ),
+      "). Não substitui análise individual.",
     ),
     ressalvaLegislacao(),
 

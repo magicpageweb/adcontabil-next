@@ -31,7 +31,7 @@ export const ORGANIZAR_FINANCAS_PESSOAIS_NO_DIA_A_DIA_POST: BlogPost = {
     "A ferramenta importa menos que o hábito.",
   ],
   category: "gestao-contabil",
-  publishedAt: "2026-11-16",
+  publishedAt: "2026-11-05",
   readingMinutes: 6,
   featured: false,
   coverImage: "/blog/organizar-financas-pessoais-no-dia-a-dia.webp",

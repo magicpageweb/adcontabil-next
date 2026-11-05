@@ -33,7 +33,7 @@ export const PLANEJAMENTO_DE_FIM_DE_ANO_O_QUE_REVISAR_POST: BlogPost = {
     "Planeje despesas maiores ainda em dezembro.",
   ],
   category: "gestao-contabil",
-  publishedAt: "2026-11-14",
+  publishedAt: "2026-11-05",
   readingMinutes: 7,
   featured: false,
   coverImage: "/blog/planejamento-de-fim-de-ano-o-que-revisar.webp",

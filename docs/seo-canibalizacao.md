@@ -30,6 +30,14 @@ Ação imediata (já alinhada ao briefing): posts de apoio devem linkar o pilar 
 | `simples-nacional-faixas-de-faturamento-e-imposto` | faixas simples nacional | Apoio geral (não só saúde) → linkar Fator R quando falar de anexos. |
 | `planejamento-tributario-para-profissionais-da-saude` | planejamento tributário saúde | Apoio → linkar Fator R e especialidades. |
 
+## 4) Pares do lote 17 (diferenciação sem fusão)
+
+| Par | Intenção / KW | Diferenciação aplicada |
+|-----|---------------|------------------------|
+| `como-escolher-o-cnae-certo-e-por-que-importa` × `como-escolher-o-cnae-certo-para-sua-especialidade-na-saude` | CNAE geral/MEI × CNAE saúde | Meta e 1º parágrafo: geral vs especialidade. Cross-link explícito (“se você é profissional da saúde…” / “visão geral para MEI…”). |
+| `simples-nacional-faixas-de-faturamento-e-imposto` × `simples-nacional-para-profissionais-da-saude` | Faixas/tabela (qualquer empresa) × Simples na saúde + Fator R | Faixas = alíquota efetiva/RBT12; saúde = anexos/Fator R. Cross-link nos intros. |
+| `declaracao-de-imposto-de-renda-quem-e-obrigado` × `como-declarar-investimentos-no-imposto-de-renda` | Obrigatoriedade/organização IR × declaração de aplicações | Sem sobreposição: um é “quem declara”; o outro é “como declarar investimentos”. Cross-link no intro. |
+
 ## Próximos passos (após métricas)
 
 1. Conferir Search Console (impressões/canibalização) em 30–60 dias.  

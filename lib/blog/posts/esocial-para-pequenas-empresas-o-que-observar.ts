@@ -1,3 +1,4 @@
+// REVISAR-LEGAL: confirmar com a contadora antes de publicar
 import type { BlogPost } from "@/lib/blog";
 import {
   BRAND,
@@ -33,7 +34,7 @@ export const ESOCIAL_PARA_PEQUENAS_EMPRESAS_O_QUE_OBSERVAR_POST: BlogPost = {
     "Mesmo sem CLT fixo, pode haver obrigação pontual — confirme.",
   ],
   category: "gestao-contabil",
-  publishedAt: "2026-11-10",
+  publishedAt: "2026-11-05",
   readingMinutes: 7,
   featured: false,
   coverImage: "/blog/esocial-para-pequenas-empresas-o-que-observar.webp",

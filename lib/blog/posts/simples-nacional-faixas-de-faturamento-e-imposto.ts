@@ -1,3 +1,4 @@
+// REVISAR-LEGAL: confirmar com a contadora antes de publicar
 import type { BlogPost } from "@/lib/blog";
 import {
   BRAND,
@@ -14,8 +15,10 @@ export const SIMPLES_NACIONAL_FAIXAS_DE_FATURAMENTO_E_IMPOSTO_POST: BlogPost = {
   slug: "simples-nacional-faixas-de-faturamento-e-imposto",
   title: "Simples Nacional: como as faixas de faturamento afetam o imposto",
   seoTitle: "Faixas do Simples Nacional e imposto",
+  metaDescription:
+    "Como as faixas de faturamento do Simples influenciam a alíquota efetiva — visão geral para qualquer empresa, sem foco em saúde.",
   seoDescription:
-    "Entenda como as faixas do Simples Nacional influenciam o imposto e quando vale revisar o enquadramento.",
+    "Como as faixas de faturamento do Simples influenciam a alíquota efetiva — visão geral para qualquer empresa, sem foco em saúde.",
   excerpt:
     "No Simples, o imposto varia conforme a faixa de faturamento dos últimos 12 meses. Entenda alíquota nominal, parcela a deduzir e quando revisar o regime.",
   keywords: [
@@ -33,7 +36,7 @@ export const SIMPLES_NACIONAL_FAIXAS_DE_FATURAMENTO_E_IMPOSTO_POST: BlogPost = {
     "Perto do teto ou com margem diferente, outro regime pode caber na análise.",
   ],
   category: "simples-nacional",
-  publishedAt: "2026-11-09",
+  publishedAt: "2026-11-05",
   readingMinutes: 8,
   featured: false,
   coverImage: "/blog/simples-nacional-faixas-de-faturamento-e-imposto.webp",
@@ -56,24 +59,24 @@ export const SIMPLES_NACIONAL_FAIXAS_DE_FATURAMENTO_E_IMPOSTO_POST: BlogPost = {
   ],
   content: [
     p(
-      "Dentro do Simples Nacional, o imposto não é um percentual fixo — ele varia conforme a faixa de faturamento acumulado nos últimos 12 meses. Entender essa lógica evita surpresas quando o faturamento cresce.",
+      "Dentro do Simples Nacional, o imposto não é um percentual fixo — ele varia conforme a faixa de faturamento acumulado nos últimos 12 meses. Este artigo explica a tabela de faixas para qualquer empresa; não é o guia de Simples na saúde.",
     ),
     p(
-      "Na ",
+      "Se você é profissional da saúde e quer o recorte de anexos e Fator R, veja o ",
+      link(
+        "/blog/simples-nacional-para-profissionais-da-saude",
+        "Simples Nacional para profissionais da saúde",
+      ),
+      ". Na ",
       BRAND_LEGAL,
       " (",
       BRAND,
-      "), essa conversa costuma andar junto com o ",
-      link(
-        "/blog/simples-nacional-para-profissionais-da-saude",
-        "Simples para profissionais da saúde",
-      ),
-      " e o ",
+      "), as duas leituras se complementam — e o ",
       link(
         "/blog/como-funciona-o-fator-r-para-profissionais-da-saude",
         "Fator R",
       ),
-      ".",
+      " entra quando a atividade e a folha pedem análise específica.",
     ),
     ressalvaLegislacao(),
 

@@ -1,3 +1,4 @@
+// REVISAR-LEGAL: confirmar com a contadora antes de publicar
 import type { BlogPost } from "@/lib/blog";
 import {
   BRAND,
@@ -33,7 +34,7 @@ export const HORA_DE_MIGRAR_DE_MEI_PARA_MICROEMPRESA_POST: BlogPost = {
     "Migrar planejado evita ajuste nas pressas após desenquadramento.",
   ],
   category: "abertura-de-empresa",
-  publishedAt: "2026-11-13",
+  publishedAt: "2026-11-05",
   readingMinutes: 7,
   featured: false,
   coverImage: "/blog/hora-de-migrar-de-mei-para-microempresa.webp",

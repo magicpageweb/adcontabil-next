@@ -32,7 +32,7 @@ export const RESERVA_DE_EMERGENCIA_DA_EMPRESA_QUANTO_GUARDAR_POST: BlogPost = {
     "Separe claramente o caixa da empresa do dinheiro pessoal.",
   ],
   category: "gestao-contabil",
-  publishedAt: "2026-11-06",
+  publishedAt: "2026-11-05",
   readingMinutes: 6,
   featured: false,
   coverImage: "/blog/reserva-de-emergencia-da-empresa-quanto-guardar.webp",

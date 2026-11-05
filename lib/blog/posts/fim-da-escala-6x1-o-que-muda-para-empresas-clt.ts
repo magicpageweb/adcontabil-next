@@ -1,3 +1,4 @@
+// REVISAR-LEGAL: confirmar com a contadora antes de publicar
 import type { BlogPost } from "@/lib/blog";
 import {
   BRAND,
@@ -33,7 +34,7 @@ export const FIM_DA_ESCALA_6X1_O_QUE_MUDA_PARA_EMPRESAS_CLT_POST: BlogPost = {
     "Mapeie jornada atual e simule impacto na escala de atendimento.",
   ],
   category: "gestao-contabil",
-  publishedAt: "2026-11-17",
+  publishedAt: "2026-11-05",
   readingMinutes: 8,
   featured: false,
   coverImage: "/blog/fim-da-escala-6x1-o-que-muda-para-empresas-clt.webp",

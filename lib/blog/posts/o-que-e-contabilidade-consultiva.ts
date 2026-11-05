@@ -32,7 +32,7 @@ export const O_QUE_E_CONTABILIDADE_CONSULTIVA_POST: BlogPost = {
     "Na AD Contábil, o acompanhamento muda conforme a fase do negócio.",
   ],
   category: "gestao-contabil",
-  publishedAt: "2026-11-08",
+  publishedAt: "2026-11-05",
   readingMinutes: 7,
   featured: true,
   coverImage: "/blog/o-que-e-contabilidade-consultiva.webp",

@@ -49,6 +49,7 @@ export const SIMPLES_NACIONAL_POST: BlogPost = {
   coverAlt:
     "Simples Nacional para profissionais da saúde em ambiente contábil consultivo",
   relatedSlugs: [
+    "simples-nacional-faixas-de-faturamento-e-imposto",
     "planejamento-tributario-para-profissionais-da-saude",
     "escritorio-de-contabilidade-gestao-estrategica",
     "como-funciona-o-fator-r-para-profissionais-da-saude",
@@ -59,10 +60,18 @@ export const SIMPLES_NACIONAL_POST: BlogPost = {
       "O Simples Nacional é um dos regimes mais discutidos por profissionais da saúde que abrem ou reorganizam um CNPJ. A curiosidade é compreensível: o regime unifica o recolhimento de diversos tributos e possui regras próprias de enquadramento, anexos e acompanhamento.",
     ),
     p(
-      "Ao mesmo tempo, é comum surgir a expectativa de que o Simples Nacional seja, por si só, a melhor opção para todo consultório ou clínica. Na prática, a adequação do regime depende da atividade exercida, do faturamento, da estrutura operacional e de outros fatores previstos na legislação.",
+      "Ao mesmo tempo, é comum surgir a expectativa de que o Simples Nacional seja, por si só, a melhor opção para todo consultório ou clínica. Na prática, a adequação do regime depende da atividade exercida, do faturamento, da estrutura operacional e de outros fatores previstos na legislação — inclusive do Fator R.",
     ),
     p(
-      "Neste artigo, você vai entender o que é o Simples Nacional, como ele costuma se relacionar com a rotina de médicos, dentistas, psicólogos, fisioterapeutas, nutricionistas e fonoaudiólogos, e quais pontos avaliar antes de optar, manter ou revisar esse enquadramento.",
+      "Neste artigo, o foco é a saúde (anexos, Fator R e rotina do consultório). Para a lógica geral de faixas de faturamento e alíquota efetiva em qualquer empresa, veja ",
+      link(
+        "/blog/simples-nacional-faixas-de-faturamento-e-imposto",
+        "como as faixas do Simples afetam o imposto",
+      ),
+      ".",
+    ),
+    p(
+      "Você vai entender o que é o Simples Nacional, como ele costuma se relacionar com a rotina de médicos, dentistas, psicólogos, fisioterapeutas, nutricionistas e fonoaudiólogos, e quais pontos avaliar antes de optar, manter ou revisar esse enquadramento.",
     ),
 
     h2("O que é o Simples Nacional?"),

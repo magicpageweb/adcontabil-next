@@ -34,7 +34,7 @@ export const MEI_SIMPLES_NACIONAL_OU_OUTRO_REGIME_QUAL_ESCOLHER_POST: BlogPost =
       "Presumido e Real pedem simulação caso a caso.",
     ],
     category: "abertura-de-empresa",
-    publishedAt: "2026-11-11",
+    publishedAt: "2026-11-05",
     readingMinutes: 9,
     featured: false,
     coverImage:

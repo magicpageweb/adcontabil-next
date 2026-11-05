@@ -32,7 +32,7 @@ export const INVESTIMENTOS_BASICOS_POR_ONDE_COMECAR_COM_CNPJ_POST: BlogPost = {
     "AD Contábil não indica produtos financeiros.",
   ],
   category: "gestao-contabil",
-  publishedAt: "2026-11-20",
+  publishedAt: "2026-11-05",
   readingMinutes: 7,
   featured: false,
   coverImage: "/blog/investimentos-basicos-por-onde-comecar-com-cnpj.webp",
