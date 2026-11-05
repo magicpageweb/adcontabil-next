@@ -16,6 +16,7 @@ import {
   breadcrumbSchema,
   buildPageMetadata,
   faqSchema,
+  jsonLdGraph,
   serviceSchema,
 } from "@/lib/seo";
 
@@ -156,7 +157,7 @@ export default function ServicosPage() {
     <SiteLayout>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph(schemas)) }}
       />
 
       <section className="bg-hero-dark text-white">

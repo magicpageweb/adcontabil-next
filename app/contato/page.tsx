@@ -18,7 +18,7 @@ import {
   PHOTOS,
   RESPONSIBLE,
 } from "@/lib/site";
-import { breadcrumbSchema, buildPageMetadata } from "@/lib/seo";
+import { breadcrumbSchema, buildPageMetadata, jsonLdGraph } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Contato",
@@ -47,7 +47,7 @@ export default function ContactPage() {
     <SiteLayout>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchemas) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph(contactSchemas)) }}
       />
       <section className="relative overflow-hidden">
         <div

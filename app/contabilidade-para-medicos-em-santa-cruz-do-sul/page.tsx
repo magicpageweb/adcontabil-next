@@ -21,6 +21,7 @@ import {
   breadcrumbSchema,
   buildPageMetadata,
   faqSchema,
+  jsonLdGraph,
   serviceSchema,
 } from "@/lib/seo";
 
@@ -28,7 +29,7 @@ const PATH = "/contabilidade-para-medicos-em-santa-cruz-do-sul";
 
 const TITLE = "Contabilidade para Médicos em Santa Cruz do Sul";
 const DESCRIPTION =
-  "Contabilidade para médicos em Santa Cruz do Sul/RS: abertura de CNPJ, Fator R, Simples Nacional, PF x PJ e rotina fiscal para consultórios e clínicas médicas. Atendimento local e remoto pela AD Contábil.";
+  "Contabilidade para médicos em Santa Cruz do Sul/RS: CNPJ, Fator R, Simples e PF x PJ para consultórios e clínicas. Atendimento local e remoto.";
 
 const AUDIENCE = [
   "Médicos plantonistas e pejotizados em Santa Cruz do Sul e região",
@@ -126,6 +127,10 @@ export default function ContabilidadeMedicosSantaCruzPage() {
       description: DESCRIPTION,
       path: PATH,
       serviceType: "Contabilidade para médicos em Santa Cruz do Sul",
+      areaServed: [
+        { "@type": "City", name: "Santa Cruz do Sul" },
+        { "@type": "State", name: "Rio Grande do Sul" },
+      ],
     }),
     breadcrumbSchema([
       { name: "Início", path: "/" },
@@ -139,7 +144,7 @@ export default function ContabilidadeMedicosSantaCruzPage() {
     <SiteLayout>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph(schemas)) }}
       />
 
       <section className="bg-hero-dark text-white">

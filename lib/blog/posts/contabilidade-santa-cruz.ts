@@ -27,9 +27,9 @@ export const CONTABILIDADE_SANTA_CRUZ_POST: BlogPost = {
   slug: "contabilidade-em-santa-cruz-do-sul",
   title:
     "Contabilidade em Santa Cruz do Sul: como escolher a assessoria ideal para alavancar o seu negócio",
-  seoTitle: "Contabilidade em Santa Cruz do Sul | Assessoria Ideal",
+  seoTitle: "Contabilidade em Santa Cruz do Sul",
   seoDescription:
-    "Guia para escolher contabilidade em Santa Cruz do Sul e região: abertura de empresa, planejamento tributário, BPO financeiro e atendimento para profissionais da saúde. AD Contábil.",
+    "Como escolher contabilidade em Santa Cruz do Sul: abertura de empresa, tributação e BPO — com a AD Contábil.",
   excerpt:
     "Saiba como escolher um escritório de contabilidade em Santa Cruz do Sul com foco em estratégia, clareza tributária e proximidade — da abertura da empresa ao BPO financeiro.",
   keywords: [

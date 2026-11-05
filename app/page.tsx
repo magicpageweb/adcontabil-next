@@ -11,7 +11,7 @@ import { FAQPreview } from "@/components/home/FAQPreview";
 import { BlogPreview } from "@/components/home/BlogPreview";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { BRAND, DEFAULT_DESCRIPTION, HOME_FAQS } from "@/lib/site";
-import { buildPageMetadata, faqSchema } from "@/lib/seo";
+import { buildPageMetadata, faqSchema, jsonLdGraph } from "@/lib/seo";
 
 /** Hourly ISR so BlogPreview picks up newly live scheduled posts. */
 export const revalidate = 3600;
@@ -32,7 +32,9 @@ export default function HomePage() {
     <SiteLayout>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(HOME_FAQS)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdGraph([faqSchema(HOME_FAQS)])),
+        }}
       />
       <HomeHero />
       <TrustBar />

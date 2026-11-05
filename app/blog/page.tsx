@@ -8,7 +8,7 @@ import {
   blogListingMetadata,
   blogPaginationLinkTags,
 } from "@/lib/blog-seo";
-import { breadcrumbSchema } from "@/lib/seo";
+import { breadcrumbSchema, jsonLdGraph } from "@/lib/seo";
 
 /** Revalidate hourly so scheduled posts appear in listings without redeploy. */
 export const revalidate = 3600;
@@ -62,7 +62,7 @@ export default async function BlogPage({
     <SiteLayout>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph(schemas)) }}
       />
       {links?.next ? <link rel="next" href={links.next} /> : null}
       <BlogHero />

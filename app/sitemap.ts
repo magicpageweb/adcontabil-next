@@ -1,5 +1,10 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL, SPECIALTIES, SOLUTIONS } from "@/lib/site";
+import {
+  SITE_URL,
+  SPECIALTIES,
+  SOLUTIONS,
+  STATIC_PAGES_UPDATED_AT,
+} from "@/lib/site";
 import {
   BLOG_PAGE_SIZE,
   getBlogTotalPages,
@@ -74,10 +79,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { path: "/blog", priority: 0.85, changeFrequency: "weekly" },
     ];
 
+    const staticLastMod = parseSafeDate(STATIC_PAGES_UPDATED_AT, now);
+
     for (const route of staticRoutes) {
       entries.push({
         url: absolutePath(base, route.path),
-        lastModified: now,
+        lastModified: staticLastMod,
         changeFrequency: route.changeFrequency,
         priority: route.priority,
       });
@@ -87,7 +94,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       if (!s?.slug) continue;
       entries.push({
         url: absolutePath(base, `/contabilidade-para/${s.slug}`),
-        lastModified: now,
+        lastModified: parseSafeDate(s.updatedAt ?? STATIC_PAGES_UPDATED_AT, now),
         changeFrequency: "monthly",
         priority: 0.9,
       });
@@ -97,7 +104,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       if (!s?.slug) continue;
       entries.push({
         url: absolutePath(base, `/solucoes/${s.slug}`),
-        lastModified: now,
+        lastModified: parseSafeDate(
+          "updatedAt" in s && typeof s.updatedAt === "string"
+            ? s.updatedAt
+            : STATIC_PAGES_UPDATED_AT,
+          now,
+        ),
         changeFrequency: "monthly",
         priority: 0.9,
       });

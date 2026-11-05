@@ -14,6 +14,7 @@ import {
   breadcrumbSchema,
   buildPageMetadata,
   faqSchema,
+  jsonLdGraph,
 } from "@/lib/seo";
 import { BRAND, SITE_URL } from "@/lib/site";
 
@@ -158,21 +159,11 @@ export function blogPostingSchema(post: BlogPost) {
     timeRequired: `PT${minutes}M`,
     articleSection: category?.label,
     keywords: (post.keywords ?? post.tags ?? []).join(", "),
-    author: {
-      "@type": "Person",
-      name: BLOG_AUTHOR.name,
-      description: BLOG_AUTHOR.crc,
-      jobTitle: BLOG_AUTHOR.role,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: BRAND,
-      url: SITE_URL,
-      "@id": `${SITE_URL}/#organization`,
-    },
+    author: { "@id": `${SITE_URL}/#lidiane` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": url,
+      "@id": `${url}#webpage`,
     },
     url,
   };
@@ -217,5 +208,5 @@ export function buildBlogPostSchemas(post: BlogPost, related: BlogPost[]) {
   });
   if (relatedSchema) schemas.push(relatedSchema);
 
-  return schemas;
+  return jsonLdGraph(schemas);
 }

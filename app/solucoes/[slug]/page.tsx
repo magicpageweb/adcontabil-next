@@ -6,7 +6,13 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { LeadCtaButton } from "@/components/lead-form/LeadCtaButton";
 import { BRAND, SOLUTIONS, SPECIALTIES, getSolution } from "@/lib/site";
 import { getPostsForSolution } from "@/lib/blog";
-import { breadcrumbSchema, buildPageMetadata, serviceSchema } from "@/lib/seo";
+import {
+  breadcrumbSchema,
+  buildPageMetadata,
+  jsonLdGraph,
+  serviceSchema,
+  truncateMeta,
+} from "@/lib/seo";
 
 export function generateStaticParams() {
   return SOLUTIONS.map((s) => ({ slug: s.slug }));
@@ -23,7 +29,10 @@ export async function generateMetadata({
 
   return buildPageMetadata({
     title: s.title,
-    description: s.subtitle,
+    description:
+      "metaDescription" in s && typeof s.metaDescription === "string"
+        ? s.metaDescription
+        : truncateMeta(s.subtitle),
     path: `/solucoes/${slug}`,
     keywords: [
       s.title.toLowerCase(),
@@ -63,7 +72,7 @@ export default async function SolutionPage({
     <SiteLayout>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph(schemas)) }}
       />
       <section className="bg-hero-dark text-white">
         <div className="mx-auto max-w-5xl px-4 md:px-6 py-16 md:py-24">

@@ -36,8 +36,22 @@ export const SOCIAL = {
   facebook: "https://www.facebook.com/ADContabilrs/",
 } as const;
 
+/** Preencher com CNPJ real (somente números ou formatado). Vazio = não emitir no schema/UI. */
+export const CNPJ = "";
+/** URL do Perfil da Empresa no Google (Maps / Business Profile). */
+export const GOOGLE_BUSINESS_URL = "";
+/** URL direta de avaliação no Google (“Avalie-nos”). */
+export const GOOGLE_REVIEW_URL = "";
+/** Perfil LinkedIn da empresa ou da responsável técnica. */
+export const LINKEDIN_URL = "";
+
+export const BUSINESS_HOURS_DISPLAY = "Segunda a sexta, das 8h às 18h";
+
 export const DEFAULT_DESCRIPTION =
   "Contabilidade consultiva com especialização em saúde e atendimento a empresas, MEIs e profissionais. Santa Cruz do Sul/RS e todo o Brasil.";
+
+/** lastmod padrão para páginas institucionais no sitemap */
+export const STATIC_PAGES_UPDATED_AT = "2026-11-05" as const;
 
 export type SpecialtyIconKey =
   | "stethoscope"
@@ -56,6 +70,9 @@ export type Specialty = {
   desc: string;
   icon: SpecialtyIconKey;
   subtitle: string;
+  /** Meta description ≤155 caracteres; se ausente, usa subtitle truncado. */
+  metaDescription?: string;
+  updatedAt?: string;
   intro: string;
   introSecondary?: string;
   solutions: readonly { title: string; desc: string }[];
@@ -311,6 +328,9 @@ export const SOLUTIONS = [
     title: "Fator R e Planejamento Tributário",
     subtitle:
       "Acompanhamos seu Fator R e o enquadramento dentro das faixas legais (que podem variar entre 6% e 15,5%), buscando a estrutura mais adequada ao seu perfil e às regras vigentes — sem garantir alíquota específica ou economia automática.",
+    metaDescription:
+      "Entenda o Fator R no Simples Nacional e como a AD Contábil analisa folha e faturamento para orientar o enquadramento — sem prometer alíquota.",
+    updatedAt: "2026-11-05",
     problem:
       "Atividades da saúde entram por padrão no Anexo V do Simples Nacional, com alíquotas que podem iniciar em 15,5%, conforme o enquadramento — o cenário concreto depende do perfil da operação.",
     solution:
@@ -327,6 +347,9 @@ export const SOLUTIONS = [
     title: "Sociedade Uniprofissional (SUP - ISS)",
     subtitle:
       "Avalie se sua sociedade se enquadra no ISS fixo por profissional — regra que varia conforme o município.",
+    metaDescription:
+      "Saiba quando a Sociedade Uniprofissional (ISS fixo) pode caber à sua clínica e como a AD Contábil analisa o enquadramento municipal.",
+    updatedAt: "2026-11-05",
     problem:
       "Em muitos municípios, clínicas pagam ISS percentual sobre o faturamento, o que pode se tornar oneroso conforme o consultório cresce.",
     solution:
@@ -343,6 +366,9 @@ export const SOLUTIONS = [
     title: "Carnê-Leão e Migração PF para PJ",
     subtitle:
       "Avalie a migração de PF para PJ com orientação técnica. Na pessoa jurídica, o Simples Nacional segue faixas próprias de alíquotas e pode permitir a distribuição de lucros isenta de imposto de renda na pessoa física, quando apurada de acordo com a legislação e com base em resultados efetivos — a viabilidade é sempre analisada caso a caso.",
+    metaDescription:
+      "Compare Carnê-Leão (PF) e PJ com orientação da AD Contábil. Análise caso a caso, sem garantia de economia ou isenção automática.",
+    updatedAt: "2026-11-05",
     problem:
       "Profissionais autônomos podem estar sujeitos à tabela progressiva do IRPF (Carnê-Leão) e à contribuição previdenciária sobre parte relevante do rendimento. O impacto depende do volume de receitas e da estrutura de cada caso.",
     solution:
@@ -359,6 +385,9 @@ export const SOLUTIONS = [
     title: "Abertura de CNPJ Médico/Saúde",
     subtitle:
       "Do CNAE adequado ao alvará sanitário: cuidamos do processo com análise técnica do enquadramento.",
+    metaDescription:
+      "Abertura de CNPJ para profissionais da saúde com CNAE, regime e alvarás orientados pela AD Contábil em Santa Cruz do Sul e online.",
+    updatedAt: "2026-11-05",
     problem:
       "Escolher o CNAE e o regime tributário inadequados pode gerar custos desnecessários e risco fiscal ao longo do ano.",
     solution:

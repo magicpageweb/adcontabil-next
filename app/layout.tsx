@@ -8,7 +8,7 @@ import {
   DEFAULT_DESCRIPTION,
   SITE_URL,
 } from "@/lib/site";
-import { organizationSchema } from "@/lib/seo";
+import { jsonLdGraph, organizationSchema, personLidianeSchema } from "@/lib/seo";
 
 const sourceSans = Source_Sans_3({
   subsets: ["latin"],
@@ -89,7 +89,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const schema = organizationSchema();
+  const schema = jsonLdGraph([organizationSchema(), personLidianeSchema()]);
 
   return (
     <html lang="pt-BR" className={`${sourceSans.variable} ${plusJakartaSans.variable}`}>

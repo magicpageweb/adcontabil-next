@@ -6,7 +6,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { ProfessionalCredentials } from "@/components/site/ProfessionalCredentials";
 import Link from "next/link";
 import { CRC, OFFICE_CRC, RESPONSIBLE, WHATSAPP_URL, BRAND, BRAND_LEGAL, CITY, PHOTOS } from "@/lib/site";
-import { breadcrumbSchema, buildPageMetadata } from "@/lib/seo";
+import { breadcrumbSchema, buildPageMetadata, jsonLdGraph } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Sobre Nós | Inteligência Contábil",
@@ -51,7 +51,7 @@ export default function AboutPage() {
     <SiteLayout>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchemas) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph(aboutSchemas)) }}
       />
       <section className="bg-hero-dark text-white">
         <div className="mx-auto max-w-5xl px-4 md:px-6 py-16 md:py-24">

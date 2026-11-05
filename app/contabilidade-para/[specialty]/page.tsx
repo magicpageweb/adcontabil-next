@@ -31,7 +31,9 @@ import {
   breadcrumbSchema,
   buildPageMetadata,
   faqSchema,
+  jsonLdGraph,
   serviceSchema,
+  truncateMeta,
 } from "@/lib/seo";
 
 const specialtyIcons: Record<SpecialtyIconKey, LucideIcon> = {
@@ -58,7 +60,7 @@ export async function generateMetadata({
 
   return buildPageMetadata({
     title: spec.title,
-    description: spec.subtitle,
+    description: spec.metaDescription ?? truncateMeta(spec.subtitle),
     path: `/contabilidade-para/${spec.slug}`,
     keywords: [
       spec.title.toLowerCase(),
@@ -109,7 +111,7 @@ export default async function SpecialtyPage({
     <SiteLayout>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph(schemas)) }}
       />
       <section className="bg-hero-dark text-white">
         <div className="mx-auto max-w-7xl px-4 md:px-6 py-16 md:py-24">
