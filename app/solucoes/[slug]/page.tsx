@@ -11,7 +11,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { BRAND, SOLUTIONS, SPECIALTIES, getSolution } from "@/lib/site";
-import { formatBlogDate, getPostsForSolution } from "@/lib/blog";
+import { formatBlogDate, getPostsForSolution, isLiveBlogHref } from "@/lib/blog";
 import {
   breadcrumbSchema,
   buildPageMetadata,
@@ -228,14 +228,18 @@ export default async function SolutionPage({
               Leituras de apoio
             </h2>
             <ul className="mt-4 space-y-2">
-              {FATOR_R_SUPPORT_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
-                  >
-                    {link.label} <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
+              {FATOR_R_SUPPORT_LINKS.map((item) => (
+                <li key={item.href}>
+                  {isLiveBlogHref(item.href) ? (
+                    <Link
+                      href={item.href}
+                      className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+                    >
+                      {item.label} <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  ) : (
+                    <span className="text-sm text-muted-foreground">{item.label}</span>
+                  )}
                 </li>
               ))}
             </ul>

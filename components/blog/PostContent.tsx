@@ -1,15 +1,18 @@
 import Link from "next/link";
 import type { BlogBlock, BlogRichPart } from "@/lib/blog";
+import { isLiveBlogHref } from "@/lib/blog";
 import { BRAND } from "@/lib/site";
 import { headingIdByBlockIndex } from "@/lib/blog-content";
 
 function RichParts({ parts }: { parts: BlogRichPart[] }) {
   return (
     <>
-      {parts.map((part, i) =>
-        typeof part === "string" ? (
-          <span key={i}>{part}</span>
-        ) : (
+      {parts.map((part, i) => {
+        if (typeof part === "string") return <span key={i}>{part}</span>;
+        if (!isLiveBlogHref(part.href)) {
+          return <span key={i}>{part.label}</span>;
+        }
+        return (
           <Link
             key={i}
             href={part.href}
@@ -17,8 +20,8 @@ function RichParts({ parts }: { parts: BlogRichPart[] }) {
           >
             {part.label}
           </Link>
-        ),
-      )}
+        );
+      })}
     </>
   );
 }

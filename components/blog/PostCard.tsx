@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import {
   formatBlogDate,
   getBlogCategory,
+  isLiveBlogHref,
   type BlogPost,
 } from "@/lib/blog";
 import { getPostReadingMinutes } from "@/lib/blog-content";
@@ -17,6 +18,8 @@ export function PostCard({
   featured?: boolean;
   compact?: boolean;
 }) {
+  if (!isLiveBlogHref(`/blog/${post.slug}`)) return null;
+
   const category = getBlogCategory(post.category);
   const readingMinutes = getPostReadingMinutes(post);
 

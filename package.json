@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:links": "node scripts/check-internal-links.mjs",
+    "check:meta": "node scripts/report-meta-lengths.mjs",
+    "check:redirects": "node scripts/check-redirects.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.2.12",
