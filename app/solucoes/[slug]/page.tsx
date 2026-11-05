@@ -193,8 +193,8 @@ export default async function SolutionPage({
                 </tbody>
               </table>
             </div>
-            <p className="mt-2 text-xs text-muted-foreground">
-              Valores ilustrativos da 1ª faixa — confirme a tabela vigente com a contabilidade.
+            <p className="mt-2 text-xs text-muted-foreground text-pretty">
+              {FATOR_R_TABLE.note}
             </p>
           </div>
 
@@ -202,7 +202,11 @@ export default async function SolutionPage({
             <h2 className="font-display text-xl font-semibold text-primary">
               {FATOR_R_EXAMPLE.title}
             </h2>
-            <p className="mt-3 text-foreground/85 text-pretty">{FATOR_R_EXAMPLE.body}</p>
+            {FATOR_R_EXAMPLE.paragraphs.map((para) => (
+              <p key={para.slice(0, 48)} className="mt-3 text-foreground/85 text-pretty">
+                {para}
+              </p>
+            ))}
           </aside>
 
           <div>
