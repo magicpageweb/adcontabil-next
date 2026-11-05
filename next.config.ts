@@ -48,8 +48,7 @@ const nextConfig: NextConfig = {
       {
         source:
           "/como-a-contabilidade-estrategica-pode-transformar-o-seu-negocio",
-        // TODO após 2026-11-08: voltar para /blog/o-que-e-contabilidade-consultiva
-        destination: "/servicos",
+        destination: "/blog/o-que-e-contabilidade-consultiva",
         permanent: true,
       },
       {
@@ -84,8 +83,7 @@ const nextConfig: NextConfig = {
       {
         source:
           "/mei-simples-nacional-e-lucro-presumido-qual-regime-e-melhor-para-sua-empresa",
-        // TODO após 2026-11-11: voltar para /blog/mei-simples-nacional-ou-outro-regime-qual-escolher
-        destination: "/blog/simples-nacional-para-profissionais-da-saude",
+        destination: "/blog/mei-simples-nacional-ou-outro-regime-qual-escolher",
         permanent: true,
       },
       ...legacyWordpressSitemaps.map((source) => ({
