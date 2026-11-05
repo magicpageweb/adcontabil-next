@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {
   ADDRESS,
   BRAND,
+  BRAND_LEGAL,
   CITY_LOCALITY,
   CITY_REGION,
   CRC,
@@ -61,7 +62,8 @@ export function organizationSchema() {
     "@type": ["AccountingService", "LocalBusiness", "ProfessionalService"],
     "@id": `${SITE_URL}/#organization`,
     name: BRAND,
-    legalName: BRAND,
+    legalName: BRAND_LEGAL,
+    alternateName: [BRAND, "AD Assis Duarte"],
     identifier: OFFICE_CRC,
     description: DEFAULT_DESCRIPTION,
     url: SITE_URL,

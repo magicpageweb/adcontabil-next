@@ -4,18 +4,18 @@ import { PLANS } from "@/lib/site";
 
 export function PlansPreview() {
   return (
-    <section id="planos" className="bg-surface border-y border-border/70">
+    <section id="planos" className="scroll-mt-24 bg-surface border-y border-border/70">
       <div className="mx-auto max-w-7xl px-4 md:px-6 py-20 md:py-24">
         <div className="max-w-2xl reveal-up">
           <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">
             Planos
           </p>
           <h2 className="mt-3 font-display text-3xl md:text-4xl font-semibold text-foreground">
-            Planos para o seu consultório ou clínica
+            Planos para o seu consultório, clínica ou empresa
           </h2>
           <p className="mt-3 text-muted-foreground text-pretty">
             Do essencial ao consultivo — valores e enquadramentos dependem da operação de cada
-            profissional da saúde.
+            cliente, com especialização destacada na saúde.
           </p>
         </div>
 
@@ -82,8 +82,8 @@ export function PlansPreview() {
             Não sabe qual plano escolher?
           </h3>
           <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-            Fale conosco e receba uma orientação personalizada. Analisamos o perfil do seu
-            consultório para indicar o acompanhamento mais adequado.
+            Fale conosco e receba uma orientação personalizada. Analisamos o perfil da sua
+            atividade para indicar o acompanhamento mais adequado.
           </p>
           <LeadCtaButton
             location="home_plans_help"

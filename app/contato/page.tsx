@@ -22,7 +22,7 @@ import { breadcrumbSchema, buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Contato",
-  description: `Fale com a ${BRAND} por WhatsApp, telefone ou e-mail. Atendimento digital em todo o Brasil e presencial em ${CITY}.`,
+  description: `Fale com a ${BRAND} por WhatsApp, telefone ou e-mail sobre sua empresa ou atividade profissional. Atendimento digital em todo o Brasil e presencial em ${CITY}.`,
   path: "/contato",
 });
 
@@ -61,11 +61,12 @@ export default function ContactPage() {
           <div>
             <div className="text-xs uppercase tracking-widest text-primary font-semibold">Contato</div>
             <h1 className="mt-3 font-display text-4xl md:text-5xl font-semibold text-foreground">
-              Vamos conversar sobre o seu consultório
+              Vamos conversar sobre a sua empresa ou atividade profissional
             </h1>
             <p className="mt-5 max-w-xl text-lg text-muted-foreground text-pretty">
-              Preencha o formulário abaixo ou fale direto pelos canais. Respondemos pelo WhatsApp
-              com atendimento humano.
+              Atendemos empresas, MEIs, profissionais liberais e profissionais da saúde. Conte o
+              momento da sua operação, preencha o formulário ou fale pelos canais — respondemos pelo
+              WhatsApp com atendimento humano.
             </p>
             <LeadCtaButton
               location="contato_hero"
@@ -139,11 +140,15 @@ export default function ContactPage() {
           </Button>
         </div>
         <p className="mt-8 text-center text-sm text-muted-foreground">
-          Enquanto isso, explore o{" "}
+          Enquanto isso, veja nossos{" "}
+          <Link href="/servicos" className="font-semibold text-primary hover:underline">
+            serviços
+          </Link>{" "}
+          ou explore o{" "}
           <Link href="/blog" className="font-semibold text-primary hover:underline">
             blog da AD Contábil
-          </Link>{" "}
-          com guias sobre Fator R, PF x PJ e especialidades da saúde.
+          </Link>
+          .
         </p>
       </section>
     </SiteLayout>

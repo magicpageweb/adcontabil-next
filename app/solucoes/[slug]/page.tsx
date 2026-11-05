@@ -131,7 +131,12 @@ export default async function SolutionPage({
         </h2>
         <p className="mt-3 text-sm text-muted-foreground max-w-2xl">
           Aplicamos esta análise técnica a profissionais da saúde — incluindo fonoaudiólogos,
-          médicos, dentistas e demais especialidades atendidas pela {BRAND}.
+          médicos, dentistas e demais especialidades atendidas pela {BRAND}. Para empresas e
+          outros segmentos, veja também a página de{" "}
+          <Link href="/servicos" className="font-medium text-primary hover:underline">
+            serviços
+          </Link>
+          .
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           {SPECIALTIES.map((s) => (

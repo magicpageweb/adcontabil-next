@@ -4,12 +4,13 @@ import { Award, HeartHandshake, ShieldCheck, Sparkles, MessageCircle } from "luc
 import { Button } from "@/components/ui/button";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { ProfessionalCredentials } from "@/components/site/ProfessionalCredentials";
-import { CRC, OFFICE_CRC, RESPONSIBLE, WHATSAPP_URL, BRAND, CITY, PHOTOS } from "@/lib/site";
+import Link from "next/link";
+import { CRC, OFFICE_CRC, RESPONSIBLE, WHATSAPP_URL, BRAND, BRAND_LEGAL, CITY, PHOTOS } from "@/lib/site";
 import { breadcrumbSchema, buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Sobre Nós | Inteligência Contábil para a Saúde",
-  description: `Conheça a ${BRAND}: escritório consultivo especializado em contabilidade para profissionais da saúde, sediado em ${CITY}.`,
+  title: "Sobre Nós | Inteligência Contábil",
+  description: `Conheça a ${BRAND}: escritório consultivo com especialização em saúde e atendimento a empresas e profissionais, sediado em ${CITY}.`,
   path: "/quem-somos",
 });
 
@@ -19,7 +20,7 @@ const aboutSchemas = [
     "@type": "AboutPage",
     name: `Sobre a ${BRAND}`,
     description:
-      "Escritório consultivo especializado em contabilidade para profissionais da saúde.",
+      "Escritório consultivo com especialização em saúde e atendimento a empresas, MEIs e profissionais liberais.",
     mainEntity: {
       "@type": "AccountingService",
       name: BRAND,
@@ -56,10 +57,12 @@ export default function AboutPage() {
         <div className="mx-auto max-w-5xl px-4 md:px-6 py-16 md:py-24">
           <div className="text-xs uppercase tracking-widest text-accent font-semibold">Quem somos</div>
           <h1 className="mt-3 font-display text-4xl md:text-5xl font-semibold">
-            Contabilidade consultiva para profissionais da saúde
+            Contabilidade consultiva com especialização em saúde
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-white/80">
-            A {BRAND} nasceu para atender médicos, dentistas, psicólogos, fisioterapeutas, fonoaudiólogos e nutricionistas com estratégia tributária real e atendimento próximo.
+            A {BRAND_LEGAL} atende médicos, dentistas, psicólogos, fisioterapeutas,
+            fonoaudiólogos e nutricionistas com estratégia tributária e proximidade — e também
+            empresas, MEIs e profissionais de outros segmentos.
           </p>
         </div>
       </section>
@@ -86,6 +89,13 @@ export default function AboutPage() {
           </p>
           <p className="mt-4 text-muted-foreground">
             Nosso escritório é sediado em {CITY} e atende clientes em todo o Brasil por meio de uma plataforma digital completa, com suporte via WhatsApp e reuniões por vídeo.
+          </p>
+          <p className="mt-4 text-sm text-muted-foreground">
+            Quer ver o escopo completo de atuação da {BRAND}?{" "}
+            <Link href="/servicos" className="font-semibold text-primary hover:underline">
+              Conheça nossos serviços
+            </Link>
+            .
           </p>
           <Button asChild size="lg" className="mt-8 bg-whatsapp text-white hover:opacity-90 h-12 px-6">
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">

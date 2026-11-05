@@ -26,7 +26,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${BRAND} — Contabilidade para Profissionais da Saúde`,
+    default: `${BRAND} — Contabilidade para Saúde e Empresas`,
     template: `%s — ${BRAND}`,
   },
   description: DEFAULT_DESCRIPTION,
@@ -34,6 +34,8 @@ export const metadata: Metadata = {
     "contabilidade para médicos",
     "contabilidade para dentistas",
     "contabilidade para psicólogos",
+    "contabilidade empresarial",
+    "contabilidade mei",
     "fator r simples nacional",
     "abertura de cnpj médico",
     "sociedade uniprofissional",
@@ -53,15 +55,13 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: SITE_URL,
     siteName: BRAND,
-    title: `${BRAND} — Contabilidade para Profissionais da Saúde`,
-    description:
-      "Estratégia tributária, clareza financeira e segurança jurídica para médicos, dentistas, psicólogos, fisioterapeutas, fonoaudiólogos e nutricionistas.",
+    title: `${BRAND} — Contabilidade para Saúde e Empresas`,
+    description: DEFAULT_DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${BRAND} — Contabilidade para Profissionais da Saúde`,
-    description:
-      "Estratégia tributária, clareza financeira e segurança jurídica para profissionais da saúde.",
+    title: `${BRAND} — Contabilidade para Saúde e Empresas`,
+    description: DEFAULT_DESCRIPTION,
   },
   robots: {
     index: true,

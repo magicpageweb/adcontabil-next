@@ -344,6 +344,13 @@ export default async function SpecialtyPage({
           </Link>
           — com a orientação consultiva da {BRAND}.
         </p>
+        <p className="mt-4 text-sm text-muted-foreground">
+          Sua atividade não é da saúde?{" "}
+          <Link href="/servicos" className="font-medium text-primary hover:underline">
+            Veja os serviços para empresas e profissionais
+          </Link>
+          .
+        </p>
 
         {relatedPosts.length > 0 && (
           <div className="mt-10 rounded-2xl border border-border bg-card p-6">
