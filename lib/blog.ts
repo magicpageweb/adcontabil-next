@@ -120,10 +120,6 @@ function h2(text: string): BlogBlock {
   return { type: "h2", text };
 }
 
-function h3(text: string): BlogBlock {
-  return { type: "h3", text };
-}
-
 function ul(...items: string[]): BlogBlock {
   return { type: "ul", items };
 }

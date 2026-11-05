@@ -5,7 +5,7 @@ import {
   type BlogPost,
 } from "@/lib/blog";
 import { getPostReadingMinutes } from "@/lib/blog-content";
-import { BRAND } from "@/lib/site";
+import { CRC, RESPONSIBLE } from "@/lib/site";
 
 export function ArticleMeta({ post }: { post: BlogPost }) {
   const category = getBlogCategory(post.category);
@@ -16,7 +16,12 @@ export function ArticleMeta({ post }: { post: BlogPost }) {
 
   return (
     <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-sm text-white/70">
-      <span className="font-medium text-white/90">{BRAND}</span>
+      <Link
+        href="/quem-somos"
+        className="font-medium text-white/90 hover:text-white hover:underline underline-offset-4"
+      >
+        {RESPONSIBLE} · Contadora {CRC}
+      </Link>
       <span aria-hidden className="text-white/30">
         ·
       </span>
@@ -27,7 +32,7 @@ export function ArticleMeta({ post }: { post: BlogPost }) {
             ·
           </span>
           <span>
-            Atualizado{" "}
+            Atualizado em{" "}
             <time dateTime={post.updatedAt}>{formatBlogDate(post.updatedAt!)}</time>
           </span>
         </>

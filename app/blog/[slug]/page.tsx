@@ -20,8 +20,8 @@ import {
   isPostLive,
 } from "@/lib/blog";
 import {
+  buildHeadingIndex,
   countPostWords,
-  extractHeadings,
   getTocMode,
   summaryItemsFromPost,
 } from "@/lib/blog-content";
@@ -66,7 +66,9 @@ export default async function BlogPostPage({
   const path = `/blog/${post.slug}`;
   const url = absoluteUrl(path);
   const wordCount = countPostWords(post);
-  const headings = extractHeadings(post.content, { includeH3: true });
+  const { headings, byIndex: headingIds } = buildHeadingIndex(post.content, {
+    includeH3: true,
+  });
   const h2Count = headings.filter((h) => h.level === 2).length;
   const tocMode = getTocMode(wordCount, h2Count);
   const summaryItems = summaryItemsFromPost(post, headings);
@@ -143,7 +145,7 @@ export default async function BlogPostPage({
             <div className="min-w-0">
               {!stickyToc && <ArticleToc headings={headings} mode={tocMode} />}
               <ArticleSummary items={summaryItems} />
-              <PostContent blocks={post.content} />
+              <PostContent blocks={post.content} headingIds={headingIds} />
             </div>
           </div>
         </div>

@@ -4,15 +4,31 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { LeadCtaButton } from "@/components/lead-form/LeadCtaButton";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { BRAND, SOLUTIONS, SPECIALTIES, getSolution } from "@/lib/site";
-import { getPostsForSolution } from "@/lib/blog";
+import { formatBlogDate, getPostsForSolution } from "@/lib/blog";
 import {
   breadcrumbSchema,
   buildPageMetadata,
+  faqSchema,
   jsonLdGraph,
   serviceSchema,
   truncateMeta,
 } from "@/lib/seo";
+import {
+  FATOR_R_DIRECT_ANSWER,
+  FATOR_R_EXAMPLE,
+  FATOR_R_FAQS,
+  FATOR_R_RULE_PARAS,
+  FATOR_R_SUPPORT_LINKS,
+  FATOR_R_TABLE,
+  FATOR_R_UPDATED_AT,
+} from "@/lib/fator-r-content";
 
 export function generateStaticParams() {
   return SOLUTIONS.map((s) => ({ slug: s.slug }));
@@ -54,6 +70,7 @@ export default async function SolutionPage({
 
   const relatedPosts = getPostsForSolution(d.slug, 2);
   const path = `/solucoes/${slug}`;
+  const isFatorR = slug === "fator-r";
   const schemas = [
     serviceSchema({
       name: d.title,
@@ -66,6 +83,7 @@ export default async function SolutionPage({
       { name: "Soluções", path: "/#solucoes" },
       { name: d.title, path },
     ]),
+    ...(isFatorR ? [faqSchema(FATOR_R_FAQS)] : []),
   ];
 
   return (
@@ -97,7 +115,14 @@ export default async function SolutionPage({
             Solução técnica
           </div>
           <h1 className="mt-3 font-display text-4xl md:text-5xl font-semibold">{d.title}</h1>
-          <p className="mt-5 max-w-2xl text-lg text-white/80">{d.subtitle}</p>
+          <p className="mt-5 max-w-2xl text-lg text-white/80">
+            {isFatorR ? FATOR_R_DIRECT_ANSWER : d.subtitle}
+          </p>
+          {isFatorR && (
+            <p className="mt-3 text-sm text-white/55">
+              Atualizado em {formatBlogDate(FATOR_R_UPDATED_AT)}
+            </p>
+          )}
           <LeadCtaButton
             location={`solution_${slug}_hero`}
             className="mt-8 bg-cta text-cta-foreground hover:opacity-90 h-12 px-6"
@@ -133,6 +158,89 @@ export default async function SolutionPage({
           ))}
         </ul>
       </section>
+
+      {isFatorR && (
+        <section className="mx-auto max-w-5xl px-4 md:px-6 pb-12 space-y-10">
+          <div>
+            <h2 className="font-display text-2xl font-semibold text-primary">
+              Como o Fator R é calculado
+            </h2>
+            {FATOR_R_RULE_PARAS.map((p) => (
+              <p key={p} className="mt-3 text-foreground/85 text-pretty">
+                {p}
+              </p>
+            ))}
+          </div>
+
+          <div>
+            <h2 className="font-display text-2xl font-semibold text-primary">
+              {FATOR_R_TABLE.caption}
+            </h2>
+            <div className="mt-4 overflow-x-auto rounded-xl border border-border">
+              <table className="w-full text-sm">
+                <thead className="bg-surface">
+                  <tr>
+                    <th className="px-4 py-3 text-left font-semibold">Anexo</th>
+                    <th className="px-4 py-3 text-left font-semibold">Alíquota nominal</th>
+                    <th className="px-4 py-3 text-left font-semibold">Contexto</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {FATOR_R_TABLE.rows.map((row) => (
+                    <tr key={row.anexo} className="border-t border-border">
+                      <td className="px-4 py-3">{row.anexo}</td>
+                      <td className="px-4 py-3">{row.aliquota}</td>
+                      <td className="px-4 py-3 text-muted-foreground">{row.contexto}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-2 text-xs text-muted-foreground">
+              Valores ilustrativos da 1ª faixa — confirme a tabela vigente com a contabilidade.
+            </p>
+          </div>
+
+          <aside className="rounded-2xl border border-border bg-card p-6">
+            <h2 className="font-display text-xl font-semibold text-primary">
+              {FATOR_R_EXAMPLE.title}
+            </h2>
+            <p className="mt-3 text-foreground/85 text-pretty">{FATOR_R_EXAMPLE.body}</p>
+          </aside>
+
+          <div>
+            <h2 className="font-display text-2xl font-semibold text-primary">
+              Perguntas frequentes
+            </h2>
+            <Accordion type="single" collapsible className="mt-4">
+              {FATOR_R_FAQS.map((faq, i) => (
+                <AccordionItem key={faq.q} value={`fr-${i}`}>
+                  <AccordionTrigger>{faq.q}</AccordionTrigger>
+                  <AccordionContent>{faq.a}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+
+          <div>
+            <h2 className="font-display text-2xl font-semibold text-primary">
+              Leituras de apoio
+            </h2>
+            <ul className="mt-4 space-y-2">
+              {FATOR_R_SUPPORT_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+                  >
+                    {link.label} <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       <section className="mx-auto max-w-5xl px-4 md:px-6 pb-20">
         <h2 className="font-display text-2xl font-semibold text-primary">

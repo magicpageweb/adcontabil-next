@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
@@ -57,13 +57,13 @@ function prefersReducedMotion() {
 export function HeroSlider() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  const reduceMotionRef = useRef(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
-    reduceMotionRef.current = prefersReducedMotion();
+    setReduceMotion(prefersReducedMotion());
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     const onChange = () => {
-      reduceMotionRef.current = mq.matches;
+      setReduceMotion(mq.matches);
     };
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
@@ -74,12 +74,12 @@ export function HeroSlider() {
   }, []);
 
   useEffect(() => {
-    if (paused || reduceMotionRef.current) return;
+    if (paused || reduceMotion) return;
     const id = window.setInterval(() => {
       setIndex((i) => (i + 1) % SLIDES.length);
     }, AUTOPLAY_MS);
     return () => window.clearInterval(id);
-  }, [paused]);
+  }, [paused, reduceMotion]);
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "ArrowRight") {
@@ -121,7 +121,7 @@ export function HeroSlider() {
                   ? "relative z-10 opacity-100"
                   : "pointer-events-none z-0 opacity-0"
               } ${
-                isActive && !reduceMotionRef.current ? "hero-slide-in" : ""
+                isActive && !reduceMotion ? "hero-slide-in" : ""
               }`}
               aria-hidden={!isActive}
             >

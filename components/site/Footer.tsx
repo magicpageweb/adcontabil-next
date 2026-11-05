@@ -4,7 +4,24 @@ import { ProfessionalCredentials } from "@/components/site/ProfessionalCredentia
 import { SiteLogo } from "@/components/site/SiteLogo";
 import { GaClick } from "@/components/analytics/GaClick";
 import { GA_EVENTS } from "@/lib/analytics";
-import { BRAND, SPECIALTIES, SOLUTIONS, ADDRESS, CITY, EMAIL, PHONE_DISPLAY, PHONE_HREF, SOCIAL, WHATSAPP_URL } from "@/lib/site";
+import {
+  ADDRESS,
+  BRAND,
+  BRAND_LEGAL,
+  BUSINESS_HOURS_DISPLAY,
+  CITY,
+  CNPJ,
+  EMAIL,
+  GOOGLE_BUSINESS_URL,
+  GOOGLE_REVIEW_URL,
+  MAPS_URL,
+  PHONE_DISPLAY,
+  PHONE_HREF,
+  SOCIAL,
+  SOLUTIONS,
+  SPECIALTIES,
+  WHATSAPP_URL,
+} from "@/lib/site";
 
 function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -153,6 +170,41 @@ export function Footer() {
               >
                 {EMAIL}
               </GaClick>
+            </li>
+            <li className="text-center md:text-left text-white/60">
+              {BUSINESS_HOURS_DISPLAY}
+            </li>
+            <li className="text-center md:text-left text-white/60 text-xs">
+              {BRAND_LEGAL}
+              {CNPJ.trim() ? (
+                <>
+                  <br />
+                  CNPJ {CNPJ.trim()}
+                </>
+              ) : null}
+            </li>
+            <li className="text-center md:text-left">
+              <a
+                href={GOOGLE_BUSINESS_URL.trim() || MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors underline-offset-4 hover:underline"
+              >
+                Ver no Google Maps
+              </a>
+              {GOOGLE_REVIEW_URL.trim() ? (
+                <>
+                  {" · "}
+                  <a
+                    href={GOOGLE_REVIEW_URL.trim()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors underline-offset-4 hover:underline"
+                  >
+                    Avalie-nos no Google
+                  </a>
+                </>
+              ) : null}
             </li>
           </ul>
         </div>

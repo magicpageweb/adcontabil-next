@@ -81,40 +81,46 @@ function uniqueId(base: string, used: Set<string>): string {
   return id;
 }
 
+/**
+ * Single source of truth for heading ids (TOC + PostContent must share this).
+ */
+export function buildHeadingIndex(
+  blocks: BlogBlock[],
+  { includeH3 = false }: { includeH3?: boolean } = {},
+): { headings: BlogHeading[]; byIndex: Map<number, string> } {
+  const used = new Set<string>();
+  const headings: BlogHeading[] = [];
+  const byIndex = new Map<number, string>();
+
+  blocks.forEach((block, index) => {
+    if (block.type === "h2" || (includeH3 && block.type === "h3")) {
+      const id = uniqueId(slugifyHeading(block.text), used);
+      headings.push({
+        id,
+        text: block.text,
+        level: block.type === "h2" ? 2 : 3,
+      });
+      byIndex.set(index, id);
+    }
+  });
+
+  return { headings, byIndex };
+}
+
 /** Extract H2/H3 with stable unique ids for anchors and TOC. */
 export function extractHeadings(
   blocks: BlogBlock[],
-  { includeH3 = false }: { includeH3?: boolean } = {},
+  options: { includeH3?: boolean } = {},
 ): BlogHeading[] {
-  const used = new Set<string>();
-  const headings: BlogHeading[] = [];
-
-  for (const block of blocks) {
-    if (block.type === "h2" || (includeH3 && block.type === "h3")) {
-      const level = block.type === "h2" ? 2 : 3;
-      const id = uniqueId(slugifyHeading(block.text), used);
-      headings.push({ id, text: block.text, level });
-    }
-  }
-
-  return headings;
+  return buildHeadingIndex(blocks, options).headings;
 }
 
 /** Map block index → heading id for H2 (and optional H3). */
 export function headingIdByBlockIndex(
   blocks: BlogBlock[],
-  { includeH3 = false }: { includeH3?: boolean } = {},
+  options: { includeH3?: boolean } = {},
 ): Map<number, string> {
-  const used = new Set<string>();
-  const map = new Map<number, string>();
-
-  blocks.forEach((block, index) => {
-    if (block.type === "h2" || (includeH3 && block.type === "h3")) {
-      map.set(index, uniqueId(slugifyHeading(block.text), used));
-    }
-  });
-
-  return map;
+  return buildHeadingIndex(blocks, options).byIndex;
 }
 
 export function getTocMode(wordCount: number, h2Count: number): TocMode {

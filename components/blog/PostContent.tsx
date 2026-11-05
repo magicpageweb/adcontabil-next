@@ -29,8 +29,16 @@ const CALLOUT_TITLE: Record<"resumo" | "importante" | "dica", string> = {
   dica: `Dica da ${BRAND}`,
 };
 
-export function PostContent({ blocks }: { blocks: BlogBlock[] }) {
-  const headingIds = headingIdByBlockIndex(blocks, { includeH3: true });
+export function PostContent({
+  blocks,
+  headingIds: headingIdsProp,
+}: {
+  blocks: BlogBlock[];
+  /** Prefer the same map used by the TOC (from buildHeadingIndex). */
+  headingIds?: Map<number, string>;
+}) {
+  const headingIds =
+    headingIdsProp ?? headingIdByBlockIndex(blocks, { includeH3: true });
 
   return (
     <div className="prose-blog space-y-6">
