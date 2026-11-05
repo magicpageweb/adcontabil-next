@@ -1,4 +1,4 @@
-// REVISAR-LEGAL: confirmar com a contadora antes de publicar
+// Revisado por Lidiane Assis Duarte (CRC/RS RS094939/O-4) em 2026-11-05
 import type { BlogPost } from "@/lib/blog";
 import {
   BRAND,

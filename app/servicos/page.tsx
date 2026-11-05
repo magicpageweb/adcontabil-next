@@ -21,7 +21,7 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Serviços contábeis para empresas e profissionais",
+  title: "Serviços contábeis para empresas",
   description:
     "Abertura de empresas, contabilidade empresarial, MEI, planejamento tributário, departamento pessoal e BPO financeiro em Santa Cruz do Sul e todo o Brasil.",
   path: "/servicos",

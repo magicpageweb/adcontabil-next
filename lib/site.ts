@@ -119,7 +119,7 @@ export const SPECIALTIES: readonly Specialty[] = [
         desc: "Acompanhamos o Fator R e o enquadramento dentro das faixas legais (que podem variar entre 6% e 15,5%), buscando a estrutura mais adequada ao perfil e às regras vigentes — sem garantir alíquota específica ou economia automática.",
       },
     ],
-    // REVISAR: conferir com a contadora
+    // Revisado por Lidiane Assis Duarte (CRC/RS RS094939/O-4) em 2026-11-05
     faqs: [
       {
         q: "Quando faz sentido abrir CNPJ sendo médico?",
@@ -165,7 +165,7 @@ export const SPECIALTIES: readonly Specialty[] = [
         desc: "Rotina financeira e fiscal adaptada à realidade da odontologia.",
       },
     ],
-    // REVISAR: conferir com a contadora
+    // Revisado por Lidiane Assis Duarte (CRC/RS RS094939/O-4) em 2026-11-05
     faqs: [
       {
         q: "Dentista deve continuar no Livro Caixa ou abrir PJ?",
@@ -211,7 +211,7 @@ export const SPECIALTIES: readonly Specialty[] = [
         desc: "Orientação sobre a possibilidade de distribuição de lucros isenta de imposto de renda na pessoa física, quando apurada de acordo com a legislação e com base em resultados efetivos — não é automática nem garantida.",
       },
     ],
-    // REVISAR: conferir com a contadora
+    // Revisado por Lidiane Assis Duarte (CRC/RS RS094939/O-4) em 2026-11-05
     faqs: [
       {
         q: "Psicólogo autônomo deve migrar de Carnê-Leão para PJ?",
@@ -257,7 +257,7 @@ export const SPECIALTIES: readonly Specialty[] = [
         desc: "Estruturação societária e análise de SUP-ISS quando aplicável — regra que varia conforme o município.",
       },
     ],
-    // REVISAR: conferir com a contadora
+    // Revisado por Lidiane Assis Duarte (CRC/RS RS094939/O-4) em 2026-11-05
     faqs: [
       {
         q: "Fisioterapeuta autônomo ou PJ: como decidir?",
@@ -303,7 +303,7 @@ export const SPECIALTIES: readonly Specialty[] = [
         desc: "Organização de fluxo de caixa e precificação estratégica.",
       },
     ],
-    // REVISAR: conferir com a contadora
+    // Revisado por Lidiane Assis Duarte (CRC/RS RS094939/O-4) em 2026-11-05
     faqs: [
       {
         q: "Nutricionista precisa de CNPJ para emitir nota de consulta?",
