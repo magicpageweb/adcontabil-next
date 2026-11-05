@@ -49,7 +49,7 @@ function absolutePath(base: string, path: string): string {
 
 /**
  * Public indexable URLs only — no query filters, no /api, no /blog/paginas.
- * Revalidate hourly so scheduled posts enter the sitemap when they go live.
+ * Atualiza listagens/sitemap sem redeploy; suporta publicação agendada.
  */
 export const revalidate = 3600;
 

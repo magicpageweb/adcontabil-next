@@ -13,8 +13,8 @@ import { BrandBio } from "@/components/blog/BrandBio";
 import { PostContent } from "@/components/blog/PostContent";
 import { BlogCarousel } from "@/components/home/BlogCarousel";
 import {
-  BLOG_POSTS,
   getLiveBlogPost,
+  getPublishedPosts,
   getRecentPosts,
   getRelatedPosts,
   isPostLive,
@@ -31,14 +31,14 @@ import {
 } from "@/lib/blog-seo";
 import { absoluteUrl } from "@/lib/seo";
 
-/** Revalidate hourly so scheduled posts go live without redeploy. */
+/** Atualiza listagens/sitemap sem redeploy; suporta publicação agendada. */
 export const revalidate = 3600;
 
-/** Allow slugs not present at build time (or that become live after ISR). */
+/** Allow slugs that become live after build (ISR / on-demand). */
 export const dynamicParams = true;
 
 export function generateStaticParams() {
-  return BLOG_POSTS.map((p) => ({ slug: p.slug }));
+  return getPublishedPosts().map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({

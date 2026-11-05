@@ -13,7 +13,7 @@ import { FinalCTA } from "@/components/home/FinalCTA";
 import { BRAND, DEFAULT_DESCRIPTION, HOME_FAQS } from "@/lib/site";
 import { buildPageMetadata, faqSchema, jsonLdGraph } from "@/lib/seo";
 
-/** Hourly ISR so BlogPreview picks up newly live scheduled posts. */
+/** Atualiza listagens/sitemap sem redeploy; suporta publicação agendada. */
 export const revalidate = 3600;
 
 export const metadata: Metadata = {

@@ -16,7 +16,7 @@ import {
 } from "@/lib/blog-seo";
 import { breadcrumbSchema, jsonLdGraph } from "@/lib/seo";
 
-/** Revalidate hourly so scheduled posts appear in listings without redeploy. */
+/** Atualiza listagens/sitemap sem redeploy; suporta publicação agendada. */
 export const revalidate = 3600;
 
 type PageParams = Promise<{ page: string }>;
