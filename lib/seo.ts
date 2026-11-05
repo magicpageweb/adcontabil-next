@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import {
-  ADDRESS,
   BRAND,
   BRAND_LEGAL,
   CITY_LOCALITY,
@@ -15,11 +14,13 @@ import {
   OFFICE_CRC,
   PHONE_E164,
   PHOTOS,
+  POSTAL_CODE,
   RESPONSIBLE,
   SITE_URL,
   SOCIAL,
   SOLUTIONS,
   SPECIALTIES,
+  STREET_ADDRESS,
 } from "@/lib/site";
 
 export function absoluteUrl(path = "/") {
@@ -125,10 +126,11 @@ export function organizationSchema() {
     email: EMAIL,
     address: {
       "@type": "PostalAddress",
-      streetAddress: ADDRESS,
+      streetAddress: STREET_ADDRESS,
       addressLocality: CITY_LOCALITY,
       addressRegion: CITY_REGION,
       addressCountry: "BR",
+      ...(POSTAL_CODE.trim() ? { postalCode: POSTAL_CODE.trim() } : {}),
     },
     geo: {
       "@type": "GeoCoordinates",

@@ -11,6 +11,10 @@ export const PHONE_HREF = `tel:${PHONE_E164}`;
 export const EMAIL = "contato@adcontabil.net.br";
 export const ADDRESS = "Rua Fernando Abott, 895 sala 107 — Centro";
 export const ADDRESS_LINE = "Rua Fernando Abott, 895 sala 107, Centro";
+/** Schema.org streetAddress (sem bairro). */
+export const STREET_ADDRESS = "Rua Fernando Abott, 895, sala 107";
+/** CEP — emitir no schema só se preenchido. */
+export const POSTAL_CODE = "";
 export const CITY = "Santa Cruz do Sul – RS";
 export const CITY_LOCALITY = "Santa Cruz do Sul";
 export const CITY_REGION = "RS";
@@ -115,6 +119,25 @@ export const SPECIALTIES: readonly Specialty[] = [
         desc: "Acompanhamos o Fator R e o enquadramento dentro das faixas legais (que podem variar entre 6% e 15,5%), buscando a estrutura mais adequada ao perfil e às regras vigentes — sem garantir alíquota específica ou economia automática.",
       },
     ],
+    // REVISAR: conferir com a contadora
+    faqs: [
+      {
+        q: "Quando faz sentido abrir CNPJ sendo médico?",
+        a: "Quando o volume de atendimentos, a forma de contratação pelos hospitais e a rotina fiscal indicam que a pessoa jurídica organiza melhor a operação. A decisão é caso a caso — não há regra automática.",
+      },
+      {
+        q: "O Fator R reduz o imposto do médico automaticamente?",
+        a: "Não. O Fator R pode influenciar o anexo do Simples Nacional conforme folha e faturamento, mas não garante alíquota nem economia. A análise é mensal e individualizada.",
+      },
+      {
+        q: "Qual CNAE usar em clínica ou plantão pejotizado?",
+        a: "Depende da atividade predominante (consultório, clínica ou prestação a hospitais). O CNAE correto deve ser validado na abertura e revisado se o modelo de atendimento mudar.",
+      },
+      {
+        q: "Quais documentos o médico precisa enviar todo mês?",
+        a: "Em geral: notas emitidas, extratos, comprovantes de pró-labore/folha e informações de faturamento. A lista exata varia conforme o regime e a estrutura da empresa.",
+      },
+    ],
   },
   {
     slug: "dentistas",
@@ -140,6 +163,25 @@ export const SPECIALTIES: readonly Specialty[] = [
       {
         title: "Controle de próteses e insumos",
         desc: "Rotina financeira e fiscal adaptada à realidade da odontologia.",
+      },
+    ],
+    // REVISAR: conferir com a contadora
+    faqs: [
+      {
+        q: "Dentista deve continuar no Livro Caixa ou abrir PJ?",
+        a: "Depende do faturamento, dos custos com insumos/próteses e do modelo do consultório. Comparamos PF e PJ com base nos números reais — sem prometer economia.",
+      },
+      {
+        q: "Como o Fator R aparece na odontologia?",
+        a: "Com folha e pró-labore organizados, o indicador pode influenciar o anexo do Simples. O resultado varia por consultório; não há alíquota garantida.",
+      },
+      {
+        q: "O CNAE de dentista precisa ser específico?",
+        a: "Sim. A atividade odontológica e eventuais serviços associados devem estar coerentes com o CNAE e com as exigências municipais e sanitárias.",
+      },
+      {
+        q: "Quais documentos o consultório odontológico organiza mensalmente?",
+        a: "Notas fiscais, controle de recebimentos, custos relevantes (incluindo próteses quando aplicável), folha/pró-labore e guias do regime. Ajustamos a rotina ao perfil do consultório.",
       },
     ],
   },
@@ -169,6 +211,25 @@ export const SPECIALTIES: readonly Specialty[] = [
         desc: "Orientação sobre a possibilidade de distribuição de lucros isenta de imposto de renda na pessoa física, quando apurada de acordo com a legislação e com base em resultados efetivos — não é automática nem garantida.",
       },
     ],
+    // REVISAR: conferir com a contadora
+    faqs: [
+      {
+        q: "Psicólogo autônomo deve migrar de Carnê-Leão para PJ?",
+        a: "Pode fazer sentido conforme o faturamento e a estrutura desejada, mas não é automático. Analisamos PF x PJ com os números da sua prática.",
+      },
+      {
+        q: "Fator R se aplica a psicólogos no Simples?",
+        a: "Quando a empresa está no Simples e há folha/pró-labore, o Fator R pode influenciar o anexo. A viabilidade é individual e não garante alíquota.",
+      },
+      {
+        q: "Qual CNAE usar para psicologia clínica?",
+        a: "O código deve refletir a atividade de psicologia efetivamente exercida. Validamos o CNAE na abertura e em mudanças de modelo de atendimento.",
+      },
+      {
+        q: "Quando vale abrir CNPJ no consultório de psicologia?",
+        a: "Em geral, quando a rotina, o volume de sessões e a organização fiscal pedem estrutura de pessoa jurídica. Avaliamos o momento certo caso a caso.",
+      },
+    ],
   },
   {
     slug: "fisioterapeutas",
@@ -196,6 +257,25 @@ export const SPECIALTIES: readonly Specialty[] = [
         desc: "Estruturação societária e análise de SUP-ISS quando aplicável — regra que varia conforme o município.",
       },
     ],
+    // REVISAR: conferir com a contadora
+    faqs: [
+      {
+        q: "Fisioterapeuta autônomo ou PJ: como decidir?",
+        a: "Comparamos a carga e as obrigações da pessoa física com cenários de PJ, considerando atendimentos domiciliares, estúdio ou clínica. Sem garantia de economia.",
+      },
+      {
+        q: "Estúdio de Pilates precisa acompanhar Fator R?",
+        a: "Se a empresa estiver no Simples com folha e pró-labore, sim — o indicador pode influenciar o anexo. O acompanhamento é preventivo e individualizado.",
+      },
+      {
+        q: "Qual CNAE para fisioterapia e atividades correlatas?",
+        a: "Depende dos serviços prestados (fisioterapia, Pilates, clínica multidisciplinar). O CNAE deve acompanhar a atividade real e as regras do município.",
+      },
+      {
+        q: "Quais documentos mensais uma clínica de fisioterapia costuma reunir?",
+        a: "Notas, controle de mensalidades/pacotes, folha, pró-labore e comprovantes de receita. Montamos a checklist conforme o regime e o porte da operação.",
+      },
+    ],
   },
   {
     slug: "nutricionistas",
@@ -221,6 +301,25 @@ export const SPECIALTIES: readonly Specialty[] = [
       {
         title: "Consultoria financeira",
         desc: "Organização de fluxo de caixa e precificação estratégica.",
+      },
+    ],
+    // REVISAR: conferir com a contadora
+    faqs: [
+      {
+        q: "Nutricionista precisa de CNPJ para emitir nota de consulta?",
+        a: "Em muitos casos a PJ facilita a emissão e a organização fiscal, mas a viabilidade depende do volume e do modelo de atendimento. Avaliamos PF x PJ caso a caso.",
+      },
+      {
+        q: "Fator R vale para nutricionistas no Simples?",
+        a: "Pode influenciar o anexo quando há folha e pró-labore compatíveis com a legislação. Não garante alíquota mínima nem economia automática.",
+      },
+      {
+        q: "Como enquadrar consultas, pacotes e conteúdos digitais?",
+        a: "O CNAE e o regime devem refletir a atividade principal e as receitas acessórias. Revisamos o enquadramento quando o mix de serviços muda.",
+      },
+      {
+        q: "Quais documentos enviar à contabilidade todo mês?",
+        a: "Notas de consultas/pacotes, receitas de produtos ou conteúdos quando houver, extratos e informações de pró-labore/folha. A lista é ajustada ao seu regime.",
       },
     ],
   },
