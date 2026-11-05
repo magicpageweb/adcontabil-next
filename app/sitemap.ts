@@ -6,8 +6,6 @@ import {
   STATIC_PAGES_UPDATED_AT,
 } from "@/lib/site";
 import {
-  BLOG_PAGE_SIZE,
-  getBlogTotalPages,
   getPublishedPosts,
   isPostLive,
   type BlogPost,
@@ -81,10 +79,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     const staticLastMod = parseSafeDate(STATIC_PAGES_UPDATED_AT, now);
 
+    // /blog muda quando entra um post novo: usa a data do post mais recente.
+    const latestPostDate = getPublishedPosts()
+      .map((p) => parseSafeDate(p.updatedAt ?? p.publishedAt, staticLastMod))
+      .reduce((a, b) => (b > a ? b : a), staticLastMod);
+
     for (const route of staticRoutes) {
       entries.push({
         url: absolutePath(base, route.path),
-        lastModified: staticLastMod,
+        lastModified: route.path === "/blog" ? latestPostDate : staticLastMod,
         changeFrequency: route.changeFrequency,
         priority: route.priority,
       });
@@ -125,17 +128,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
 
-    const totalPages = getBlogTotalPages(posts.length, BLOG_PAGE_SIZE);
-    if (totalPages > 1) {
-      for (let page = 2; page <= totalPages; page += 1) {
-        entries.push({
-          url: absolutePath(base, `/blog/page/${page}`),
-          lastModified: now,
-          changeFrequency: "weekly",
-          priority: 0.65,
-        });
-      }
-    }
+    // Paginação (/blog/page/N) fica fora do sitemap: é listagem, não ranqueia,
+    // e não tem data real de alteração. Continua rastreável pelos links do blog.
   } catch (error) {
     console.error("[sitemap] Failed to build full sitemap:", error);
     // Never return empty crash — keep at least the homepage for crawlers.
